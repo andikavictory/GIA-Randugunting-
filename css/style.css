@@ -1,0 +1,24 @@
+.navbar .container-fluid .navbar-brand{
+    font-size: 2.5rem;
+    font-family: 'popins','sans-serif';
+    font-weight: 900;
+}
+.navbar .container-fluid .navbar-brand img{
+    width: 6rem;
+}
+.navbar .container-fluid .navbar-brand span{
+    justify-content: center;
+    align-items: center;
+}
+#navbarNav{
+    font-size: 1.5rem;
+}
+
+#hero{
+    width: 100vw;
+    height: 100vh;
+    background:url(/img/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
