@@ -1,3 +1,7 @@
+body{
+    height: 200vh;
+}
+
 .navbar .container-fluid .navbar-brand{
     font-size: 2.5rem;
     font-family: 'popins','sans-serif';
@@ -51,7 +55,52 @@
     z-index: 3;
 
 }
+#hero .container-fluid .row .col-12{
+    z-index: 4;
+}
+.hero-title{
+    color: white;
+    font-family: 'merriweather','popins','sans';
+    font-weight: 700;
+    font-size: 4rem;
+}
+.hero-content{
+    color: white;
+    font-family: 'popins','sans';
+    font-style: italic;
+    font-size: 1.6rem;
+    width: 50%;
+    text-align: justify;
+}
 
-body{
-    height: 200vh;
+.hero-content-span {
+    color: white;
+    font-family: 'popins','sans';
+    font-style: italic;
+    font-size: 1.6rem;
+    font-weight: 900;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+.btn-hero{
+    width: 14rem;
+    background: linear-gradient(to right, #7FA1C3,#6482AD);
+    border-radius: 17px;
+    color: white;
+    font-family: 'popins','sans';
+    font-weight: 900;
+    border: none;
+    font-size: 1.5rem;
+    padding: 5px 15px;
+}
+
+@media (max-width:992px){
+    .hero-title{
+        font-size: 50px;
+    }
+
+    #hero .container-fluid div div .container-content{
+        margin-left: 100px;
+    }
 }
