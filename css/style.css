@@ -146,7 +146,7 @@ body{
 }
 @media (max-width:455px){
     .hero-title{
-        font-size: 30px;
+        font-size: 25px;
     }
     #hero{
         background-position: 80% 50%;
