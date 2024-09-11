@@ -138,14 +138,30 @@ body{
     }
     .btn-hero{
         width: 10rem;
-        background: linear-gradient(to right, #7FA1C3,#6482AD);
-        border-radius: 17px;
-        color: white;
-        font-family: 'popins','sans';
-        font-weight: 900;
-        border: none;
         font-size: 1.2rem;
-        padding: 5px 15px;
-        box-shadow: 1px 1px 2px black;
     }
+    .hero-content-span {
+        font-size: 1.2rem;
+    }
+}
+@media (max-width:455px){
+    .hero-title{
+        font-size: 30px;
+    }
+    #hero{
+        background-position: 80% 50%;
+    }
+    .hero-content{
+        font-size: 0.8rem;
+        width: 90%;
+        text-align: justify;
+    }
+    .hero-content-span {
+        font-size: 1rem;
+    }
+    .btn-hero{
+        width: 9rem;
+        font-size: 1rem;
+    }
+    
 }
