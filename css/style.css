@@ -58,11 +58,21 @@ body{
 #hero .container-fluid .row .col-12{
     z-index: 4;
 }
+.container-content-hero{
+    margin-top: -8rem;
+}
+.welcome{
+    color: white;
+    font-family: 'merriweather','popins','sans';
+    font-size: 3rem;
+    padding-bottom: 0.5rem;
+}
 .hero-title{
     color: white;
     font-family: 'merriweather','popins','sans';
-    font-weight: 700;
+    font-weight: 900;
     font-size: 4rem;
+    padding-bottom: 0.5rem;
 }
 .hero-content{
     color: white;
@@ -80,7 +90,7 @@ body{
     font-size: 1.6rem;
     font-weight: 900;
     margin-top: -20px;
-    margin-bottom: 20px;
+    padding-bottom: 0.5rem;
 }
 
 .btn-hero{
@@ -97,6 +107,9 @@ body{
 }
 
 @media (max-width:992px){
+    .container-content-hero{
+        margin-top: 0rem;
+    }
     .hero-title{
         font-size: 60px;
     }
@@ -111,8 +124,11 @@ body{
 }
 
 @media (max-width:768px){
+    .welcome{
+        font-size: 2rem;
+    }
     .hero-title{
-        font-size: 50px;
+        font-size: 47px;
     }
     #hero{
         background-position: 80% 50%;
@@ -125,8 +141,17 @@ body{
 }
 
 @media (max-width:576px){
+    .navbar .container-fluid .navbar-brand img{
+        width: 5rem;
+    }
+    .navbar .container-fluid .navbar-brand span{
+        font-size: 2rem;
+    }
+    .welcome{
+        font-size: 1.5rem;
+    }
     .hero-title{
-        font-size: 40px;
+        font-size: 35px;
     }
     #hero{
         background-position: 80% 50%;
@@ -145,8 +170,11 @@ body{
     }
 }
 @media (max-width:455px){
+    .welcome{
+        font-size: 1rem;
+    }
     .hero-title{
-        font-size: 25px;
+        font-size: 20px;
     }
     #hero{
         background-position: 80% 50%;
@@ -160,8 +188,8 @@ body{
         font-size: 1rem;
     }
     .btn-hero{
-        width: 9rem;
-        font-size: 1rem;
+        width: 8rem;
+        font-size: 0.8rem;
     }
     
 }
