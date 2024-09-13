@@ -113,6 +113,35 @@ body{
     
     font-family: 'poppins','sans';
 }
+#about .about-img{
+    width: 25rem;
+    position: relative;
+    z-index: 1;
+}
+.about-img::before{
+    content: "";
+    width: 90%;
+    height: 90%;
+    position: absolute;
+    background-color: #6482AD;
+    z-index: -1;
+    top: 70px;
+    left: -25px;
+    border-radius: 67px;
+    border: none;
+}
+#about .about-content h1{
+    font-family: 'poppins','sans';
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+#about .about-content p{
+    font-family: 'poppins','sans';
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 2rem 0rem;
+    text-align: justify;
+}
 
 @media (max-width:992px){
     .container-content-hero{
