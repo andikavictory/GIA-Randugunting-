@@ -331,7 +331,10 @@
     }
     #gallery{
         background-position: 50% 50%;
-        background-attachment: scroll;
+       
+    }
+    #gallery .container{
+        height: 182vh;
     }
     .container-content{
         display: flex;
