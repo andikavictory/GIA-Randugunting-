@@ -330,16 +330,22 @@
         padding: 1rem 0rem;
     }
     #gallery{
-        background-position: 50% 50%;
+        background-position: 70% 50%;
+        background-attachment: scroll;
+        background-size: cover;
        
     }
     #gallery .container{
-        height: 180vh;
+        height: 140vh;
+        margin-top: 8rem;
+    }
+    #gallery .title-gallery{
+        padding: 2rem 0rem 3rem;
     }
     .container-content{
         display: flex;
         flex-direction: column;
-        max-height: 80rem;
+        max-height: 100vh;
         -ms-overflow-style: none; 
         scrollbar-width: none;  
     }
