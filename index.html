@@ -14,6 +14,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- feather icon -->
+    <script src="https://unpkg.com/feather-icons"></script>
     <title>Document</title>
 </head>
 <body>
@@ -141,18 +143,27 @@
             </section>
             <!-- location section end -->
              <!-- footer start-->
-              <footer>
-                <div class="container-fluid container-footer" style="height: 73vh; background-color: var(--pr-colorDark);">
-                  <div class="row row1 container-fluid">
-                    <div class="col-5 col1" style="flex-direction: column; padding-top: 7rem;">
+              <footer style="background-color: var(--pr-colorDark);">
+                <div class="container-fluid container-footer">
+                  <div class="row row1 container-fluid  mx-auto">
+                    <div class="col-lg-5 col-7 col1 mx-auto" style="flex-direction: column;">
                       <div class="col-12 d-flex row1">
                         <img src="img/logo-gia.png" alt="Logo">
                         <span>GIAR</span></a>
                       </div>
                       <div class="col-12 row2">QCMM+JGC, Krajan, Randugunting, Kec. Bergas, Kabupaten Semarang, Jawa Tengah 50552</div>
-                      <div class="col-12 row3"></div>
+                      <div class="col-12 row3 mx-lg-auto ms-md-4">
+                        <ul  style="padding-left: 0;">
+                          <div class="container-icon d-flex">
+                            <li data-feather="instagram" class="my-auto"></li><a href="https://www.instagram.com/gia_randugunting?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==s">gia_randugunting</a>
+                          </div>
+                          <div class="container-icon d-flex">
+                            <li data-feather="youtube" class="my-auto"></li><a href="https://www.youtube.com/@GIARandugunting">@GIARandugunting</a>
+                          </div>
+                        </ul>
+                      </div>
                     </div>
-                    <div class="col-3 d-flex col2" style="flex-direction: column;">
+                    <div class="col-lg-3 col-5 d-md-flex d-none col2" style="flex-direction: column;">
                       <ul>
                         <li><a href="#">Home</a></li>
                         <li><a href="#about">Tentang Kami</a></li>
@@ -161,8 +172,8 @@
                         <li><a href="#jadwal">Jadwal</a></li>
                       </ul>  
                     </div>
-                    <div class="col-4 col3">
-                      <h1 class="text-center">Bertanya</h1>
+                    <div class="col-lg-4 col-12 col3">
+                      <h1 class="text-center">Hubungi Kami</h1>
                         <div class="row d-flex container-question" style="flex-direction: column;">
                           <div class="col-12">
                             <h2>Nama</h2>
@@ -180,7 +191,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="row row2 text-light justify-content-center" style="margin-top: 4rem; font-style: italic;font-size: 1.5rem;" >
+                  <div class="row copyright text-light justify-content-center" style="margin-top: 4rem; font-style: italic;font-size: 3vw; padding-bottom: 2rem;" >
                     &copy; 2024 – GIA | Gereja Isa Almasih Randugunting. All Rights Reserved.
                   </div>
                 </div>
@@ -189,5 +200,9 @@
     <script src="js/style.js"></script>
     <!-- bootstrap 5 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-</body>
+    <!-- feather icon -->
+    <script>
+      feather.replace();
+    </script>
+  </body>
 </html>

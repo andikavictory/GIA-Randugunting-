@@ -354,6 +354,9 @@
 /* footer */
 footer .container-footer .row1 .col1 .row1{
     justify-content: center;
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    padding-top: 7rem;
 }
 footer .container-footer .row1 .col1 .row1 img{
     width: 9rem;
@@ -374,6 +377,24 @@ footer .container-footer .row1 .col1 .row2{
     width: 70%;
     font-size: 1.2rem;
     text-align: justify;
+}
+footer .container-footer .row1 .col1 .row3{
+    display: flex;
+    color: white;
+    font-family: 'poppins','sans';
+    width: 70%;
+    font-size: 1.2rem;
+    margin-top: 30px;
+}
+footer .container-footer .row1 .col1 .row3 .container-icon .feather{
+    width: 30px;
+    height: auto;
+}
+footer .container-footer .row1 .col1 .row3 .container-icon a{
+    margin: 2px 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
 }
 footer .container-footer .row1 .col2{
     padding-left: 3%;
@@ -449,8 +470,13 @@ footer .container-footer .row1 .col3 .container-question .btn:active{
         top: 60px;
         left: -20px;
     }
-}
 
+}
+@media (max-width:1100px){
+    footer .container-footer .row1 .col3 .container-question {
+        padding: 0px 10px 20px;
+}
+}
 @media (max-width:992px){
     #hero{
         background-position: 80% 50%;
@@ -552,6 +578,20 @@ footer .container-footer .row1 .col3 .container-question .btn:active{
     }
     #jadwal .button{
         font-size: 25px;
+    }   
+    footer .container-footer .row1 .col1 .row1{
+        padding-top: 2rem;
+        margin-top: 0px;
+    }
+    footer .container-footer .row1 .col2{
+        padding-top: 2rem;
+    }
+    footer .container-footer .row1 .col2 ul{
+        margin: 0px 0px 0px 12vw;
+    }
+
+    footer .container-footer .row1 .col1 .row2 {
+        width: 90%;
     }
       
 }
@@ -585,6 +625,14 @@ footer .container-footer .row1 .col3 .container-question .btn:active{
     #jadwal .button{
         font-size: 20px;
     }
+    .col-7 {
+        width: 80%;
+        margin-bottom: 40px;
+    }
+    footer .container-footer .row1 .col1 .row2{
+        width: 100%;
+    }
+
 }
 
 @media (max-width:576px){
@@ -618,6 +666,13 @@ footer .container-footer .row1 .col3 .container-question .btn:active{
         width: 100%;
         padding:0 1rem;
     }
+    footer .container-footer .row1 .col1 .row1 img{
+        width: 8rem;
+        margin: 0px 20px 0px -20px;
+    }
+    footer .container-footer .row1 .col1 .row1 span{
+        font-size: 4rem;
+    }
 }
 @media (max-width:455px){
    
@@ -645,6 +700,14 @@ footer .container-footer .row1 .col3 .container-question .btn:active{
     #jadwal .button{
         font-size: 15px;
     }
+    footer .container-footer .row1 .col1 .row1 img{
+        width: 7rem;
+        margin: 0px 20px 0px -20px;
+    }
+    footer .container-footer .row1 .col1 .row1 span{
+        font-size: 3rem;
+    }
+
 }
 @media (max-width:340px){
     .about-img::before{
