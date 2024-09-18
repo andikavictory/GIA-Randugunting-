@@ -1,4 +1,5 @@
 :root{
+    --pr-colorDark:rgb(39, 55, 75);
     --pr-color:#6482AD;
     --sc-color:#7FA1C3;
     --tr-color:#E2DAD6;
@@ -23,6 +24,15 @@
 }
 .navbar{
     z-index: 3;
+    transition: all 1s ease;
+}
+
+.navbar.hidden{
+    transform: translateY(-100%);
+}
+
+.navbar.scrolled{
+    background-color: var(--pr-colorDark);
 }
 
 /* Hero Sction */
@@ -259,6 +269,7 @@
     padding:0 2rem;
     gap: 0;
     box-sizing: border-box;
+    width: 80%;
 }
 #jadwal .button{
     display: flex;
@@ -443,6 +454,15 @@
     .scroll-hidden::-webkit-scrollbar {
         display: none;
       }
+
+    .title-jadwal{
+        font-size: 4rem;
+        font-weight: 800;
+        padding: 5rem 0px 1rem;
+    }
+    #jadwal .button{
+        font-size: 25px;
+    }
       
 }
 
@@ -463,6 +483,17 @@
         top: 50px;
         left: -20px;
         border-radius: 50px;
+    }
+    #jadwal .container-button-jadwal{
+        height: 65vh;
+    }
+    .title-jadwal{
+        font-size: 4rem;
+        font-weight: 800;
+        padding: 5rem 0px 1rem;
+    }
+    #jadwal .button{
+        font-size: 20px;
     }
 }
 
@@ -493,6 +524,10 @@
     #about .about-content{
         margin-top: -3rem;
     }
+    #jadwal .container-button-jadwal{
+        width: 100%;
+        padding:0 1rem;
+    }
 }
 @media (max-width:455px){
    
@@ -514,14 +549,21 @@
     #about .about-content{
         margin-top: -4rem;
     }
-    
+    #jadwal .container-button-jadwal{
+        padding:0;
+    }
+    #jadwal .button{
+        font-size: 15px;
+    }
 }
 @media (max-width:340px){
     .about-img::before{
         border-radius: 26px;
         top: 26px;
         left: -9px;
-        
+    }
+    #jadwal .button{
+        font-size: 13px;
     }
     
 }
