@@ -408,7 +408,8 @@
         padding: 1px;
     }
     .about-img{
-        margin-bottom: 5rem;
+        margin-bottom: 7rem;
+        margin-top: -1rem;
     }
     #about .about-content{
         width: 80%;
