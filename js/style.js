@@ -37,8 +37,12 @@ document.addEventListener('DOMContentLoaded', function(){
        } 
     );
 
-    const h1 = document.querySelector('.hero-title');
-    observer.observe(h1);
+    const dekstop = document.querySelector('.hero-title');
+    const mobile1 = document.querySelector('.mobile1');
+    const mobile2 = document.querySelector('.mobile2');
+    observer.observe(dekstop);
+    observer.observe(mobile1);
+    observer.observe(mobile2);
 })
 
 

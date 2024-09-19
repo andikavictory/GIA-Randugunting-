@@ -80,7 +80,7 @@
     font-size: 3rem;
     padding-bottom: 0.5rem;
 }
-.hero-title{
+.hero-title, .hero-title-mobile{
     color: transparent;
     font-family: 'merriweather','popins','sans';
     font-weight: 900;
@@ -509,24 +509,36 @@ footer .container-footer .row1 .col3 .container-question .btn:active{
         margin-bottom: 3%;
         font-size: 5vw;
     }
-    .hero-title{
+    .hero-title, .hero-title-mobile{
         font-size: 9vw;
         text-align: center;
         margin-bottom: 3%;
     }
-    .hero-title::before{
-        display: flex;
-        content: "GIA\ARANDUGUNTING";
+    .mobile1::before{
+        content: "GIA";
         position: absolute;
         height: 100%;
         width: 0%;
-        left: 0;
         color: white;
-        transition: width 4s linear;
+        overflow: hidden;
+        transition: width 1s linear;
     }
-    
-    .hero-title.in-view::before{
-        width: 100%;
+    .mobile1.in-view::before{
+        width: 17vw;
+        filter: drop-shadow(0px 0px 25px white);
+    }
+    .mobile2::before{
+        content: "RANDUGUNTING";
+        position: absolute;
+        height: 100%;
+        width: 0%;
+        color: white;
+        overflow: hidden;
+        transition: width 1.5s linear;
+        transition-delay: 1s;
+    }
+    .mobile2.in-view::before{
+        width: 78.5vw;
         filter: drop-shadow(0px 0px 25px white);
     }
     #hero .hero-content{
