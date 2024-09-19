@@ -1,5 +1,13 @@
 
 document.addEventListener('DOMContentLoaded', function(){
+    
+    var hamburgerMenu = document.getElementById('hamburger');
+    var navbarNav = document.getElementById('navbarNav');
+
+    hamburgerMenu.addEventListener('click', function(){
+        navbarNav.classList.toggle('active');
+    })
+
 
     // efek navbar
     let navbar = document.getElementById('navbar');

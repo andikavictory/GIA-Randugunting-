@@ -28,28 +28,52 @@
           <a class="navbar-brand d-flex align-items-center" href="#">
             <img src="img/logo-gia.png" alt="Logo" class="d-inline-block me-2">
             <span class="pt-1 mx-auto mx-lg-0">GIAR</span></a></div>
-            <div class="col-1">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+            <div class="col-1 d-lg-none">
+            <div id="hamburger" class="container d-flex justify-content-center align-items-center" style="border-radius: 5px;width: 55px;padding: 6px 10px; border: 0.5px solid white;">
+              <span class="navbar-toggler-icon"></span>
+            </div>
         </div>
         <div class="col-9">
-          <div class="collapse navbar-collapse justify-content-end pe-1" id="navbarNav">
+          <div class="navbar-collapse justify-content-end pe-1" id="navbarNav">
             <ul class="navbar-nav">
-              <li class="nav-item px-2">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <li class="nav-item px-2 nav-hover-bg">
+                <a class="nav-link" aria-current="page" href="#">Home</a>
               </li>
-              <li class="nav-item px-2">
-                <a class="nav-link" href="#about">Tentang Kami</a>
+              <li class="nav-item dropdown px-2 nav-hover-bg">
+                <a class="nav-link dropdown-toggle"href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Tentang kami
+                </a>
+                <ul class="dropdown-menu hover-dropdown">
+                  <li><a class="dropdown-item" href="#">Gereja</a></li>
+                  <li><a class="dropdown-item" href="#">Pelayan Tuhan</a></li>
+                  <li><a class="dropdown-item" href="#">Hubungi Kami</a></li>
+                </ul>
               </li>
-              <li class="nav-item px-2">
-                <a class="nav-link" href="#">Profil</a>
+              <li class="nav-item dropdown px-2 nav-hover-bg">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Pelayanan
+                </a>
+                <ul class="dropdown-menu hover-dropdown" style="width: min-content;">
+                  <li><a class="dropdown-item" href="#">Pendaftaran Jemaat</a></li>
+                  <li class="nav-item dropdown" style="text-decoration: none;">
+                    <a class="dropdown-item" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Pelayanan Pastoral >
+                    </a>
+                    <ul class="dropdown-menu" id="submenu">
+                      <li><a class="dropdown-item" href="#">Pelayanan Doa</a></li>
+                      <li><a class="dropdown-item" href="#">Baptisan Air</a></li>
+                      <li><a class="dropdown-item" href="#">Pernikahan</a></li>
+                      <li><a class="dropdown-item" href="#">Penyerahan Anak</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                
               </li>
-              <li class="nav-item px-2">
-                <a class="nav-link" href="#gallery">Galery</a>
+              <li class="nav-item px-2 nav-hover-bg">
+                <a class="nav-link" href="#gallery">Persembahan</a>
               </li>
-              <li class="nav-item px-2">
-                <a class="nav-link" href="#jadwal">Jadwal</a>
+              <li class="nav-item px-2 nav-hover-bg">
+                <a class="nav-link" href="#jadwal">Galeri</a>
               </li>
             </ul>
           </div>
