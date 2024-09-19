@@ -43,6 +43,30 @@ document.addEventListener('DOMContentLoaded', function(){
     observer.observe(dekstop);
     observer.observe(mobile1);
     observer.observe(mobile2);
+    
+    
+// modal Jadwal
+var openModalBtns = document.querySelectorAll('.button');
+var myModal = new bootstrap.Modal(document.getElementById('modal-jadwal'),{
+    backdrop:true
+});
+openModalBtns.forEach(function(button){
+    button.addEventListener('click',function(){
+
+        var title = button.getAttribute('data-bs-title');
+
+        var modalTitle = document.getElementById('modalTitle');
+        modalTitle.textContent = title;
+
+        myModal.show();
+        
+    })
 })
+
+
+
+})
+
+
 
 
