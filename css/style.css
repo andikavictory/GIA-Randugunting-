@@ -31,6 +31,13 @@
 #navbarNav .dropdown:hover > .dropdown-menu{
     display: block;
 }
+.dropdown-item:active {
+    background-color:var(--pr-colorDark);
+    color: #fff;
+  }
+.dropdown-item:focus{
+    display:none;
+}
 #submenu{
     background-color: rgba(0, 0, 0,0.1);
     margin-left: 14.6rem;
@@ -513,7 +520,7 @@ footer .container-footer .row1 .col3 .container-question textarea{
     height: 150px;
 }
 footer .container-footer .row1 .col3 .container-question .btn{
-    background-color: var(--sc-color);
+    background-color: var(--pr-colorDark);
     width: 7rem;
     font-family: 'marriweather','sans';
     font-size: 1.2rem;
@@ -524,7 +531,7 @@ footer .container-footer .row1 .col3 .container-question .btn{
     transition: scale 0.1s ease;
 }
 footer .container-footer .row1 .col3 .container-question .btn:hover{
-    background-color: var(--pr-colorDark);
+    background-color: var(--sc-color);
 }
 footer .container-footer .row1 .col3 .container-question .btn:active{
     scale: 1.1;
@@ -552,20 +559,18 @@ footer .copyright{
 }
 @media (max-width:992px){
     #navbarNav{
-        display: none;
         background-color: var(--pr-colorDark);
         position: absolute;
         width: 100vw;
         height: 100vh;
         top: -100vh;
-        left: 0;
+        left:0;
         z-index: -1;
         padding-top: 7rem;
         padding-left: 6vw;
-        transition: top 2s ease-in;
+        transition: top 1s ease-in-out;
     }
     #navbarNav.active{
-        display: block;
         top:0;
     }
     .nav-hover-bg:hover{
@@ -573,8 +578,10 @@ footer .copyright{
     }
    
     #submenu{
-        margin-left: 10rem;
+        margin-left: 6rem;
         margin-top:0;
+        background-color:none;
+        border:none;
     }
     #hero{
         background-position: 80% 50%;
