@@ -16,6 +16,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <!-- feather icon -->
     <script src="https://unpkg.com/feather-icons"></script>
+    <!-- animate on scroll -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <title>Document</title>
 </head>
 <body>
@@ -61,10 +63,10 @@
         <div class="row h-100 d-flex align-items-center ps-lg-3">
           <div class="col-12 ps-lg-5 ps-lg-5">
             <div class="container-content-hero d-flex ps-lg-5" style="flex-direction: column;">
-                <h1 class="welcome">Welcome To</h1>
+                <h1 class="welcome" data-aos="fade-up" data-aos-duration="1000">Welcome To</h1>
               <h1 class="hero-title">GIA RANDUGUNTING</h1>
-              <p class="hero-content w-100">“Marilah kepada-Ku, semua yang letih lesu dan berbeban berat,Aku akan memberi kelegaan kepadamu”</p><span class="hero-content-span">Matius 11:28</span>
-              <button class="btn-hero">Jadwal Ibadah</button>
+              <p class="hero-content w-100" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">“Marilah kepada-Ku, semua yang letih lesu dan berbeban berat,Aku akan memberi kelegaan kepadamu”</p><span class="hero-content-span" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">Matius 11:28</span>
+              <button class="btn-hero" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="900">Jadwal Ibadah</button>
             </div>
           </div>
         </div>
@@ -101,7 +103,7 @@
                 <div class="col text-center title-gallery">Gallery</div>
               </div>
               <div class="row">
-              <div class="container-content mx-auto overflow-auto scroll-hidden p-3">
+              <div class="container-content mx-auto overflow-auto scroll-hidden">
                   <div class="box box1"><img src="img/path/path1.jpg" alt="" class="img-fluid"></div>
                   <div class="box box2"><img src="img/path/path2.jpg" alt="" class="img-fluid"></div>
                   <div class="box box3"><img src="img/path/path3.jpg" alt="" class="img-fluid"></div>
@@ -187,7 +189,7 @@
                             <h2>Pesan</h2>
                             <textarea name="" id=""></textarea>
                           </div>
-                          <div class="btn btn-primary">Kirim</div>
+                          <div class="btn">Kirim</div>
                       </div>
                     </div>
                   </div>
@@ -203,6 +205,11 @@
     <!-- feather icon -->
     <script>
       feather.replace();
+    </script>
+    <!-- animate on scroll -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
     </script>
   </body>
 </html>
