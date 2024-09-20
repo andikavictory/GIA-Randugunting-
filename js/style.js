@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // navbarNav menu dropdown
     var dropdownToggle = document.querySelectorAll('.btn-dropdown');
-    var dropdownMenu = document.querySelectorAll('.dropdown-menu');
+    var dropdownMenu = document.querySelectorAll('.containsDropdown');
 
     dropdownToggle.forEach(toggle => {
         toggle.addEventListener('click', function(){
@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function(){
             }
         })
     })
-
 
     // efek navbar
     let navbar = document.getElementById('navbar');
