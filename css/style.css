@@ -19,16 +19,33 @@
     align-items: center;
 }
 #exit{
+    position: absolute;
     color: #F5EDED;
     height: auto;
     width: 45px;
+    transition: scale 0.5s ease,rotate 0.5s ease;
+    scale: 0;
 }
-.navbar-toggler-icon{
-    display: none;
+#exit.active{
+    scale: 1;
+    rotate: 180deg;
+    }
+
+#hamburger .feather{
+    display: block;
 }
 #hamburger{
-    display: none;
+    border-radius: 5px;
+    width: 55px;
+    padding: 6px 10px; 
+    border: 0.5px solid white;
+    transition: scale 0.5s ease,rotate 0.5s ease;
 }
+#hamburger.active{
+    scale: 0;
+    rotate:180deg;
+}
+
 
 #navbarNav{
     font-size: 1.6rem;
@@ -337,8 +354,8 @@
     grid-row: 3/4;
 }
 
-/* jadwal */
-.title-jadwal{
+/* ibadah */
+.title-ibadah{
     font-size: 4rem;
     font-weight: 800;
     font-family: 'poppins','sans';
@@ -347,7 +364,7 @@
     font-style: italic;
 }
 
-#jadwal .container-button-jadwal{
+#ibadah .container-button-ibadah{
     display: flex;
     flex-direction: column;
     height: 75vh;
@@ -357,7 +374,7 @@
     box-sizing: border-box;
     width: 80%;
 }
-#jadwal .button{
+#ibadah .button{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -377,7 +394,7 @@
     overflow: hidden;
 }
 
-#jadwal .button:after{
+#ibadah .button:after{
     position: absolute;
     content: "";
     width: 100%;
@@ -389,7 +406,7 @@
     z-index: -1;
 }
 /* glow */
-#jadwal .button:before{
+#ibadah .button:before{
     position: absolute;
     content: "";
     width: 100%;
@@ -419,20 +436,20 @@
 }
 
 /* hover */
-#jadwal .button:hover:before{
+#ibadah .button:hover:before{
     opacity: 1;
 }
-#jadwal .button:hover:after{
+#ibadah .button:hover:after{
     background: transparent;
 }
-#jadwal .button:hover{
+#ibadah .button:hover{
     color: black;
 }
-#jadwal .button:active{
+#ibadah .button:active{
     scale: 0.9;
 }
 
-#jadwal .container-button-jadwal  .button:hover{
+#ibadah .container-button-ibadah  .button:hover{
     flex-grow: 2;
 }    
 
@@ -718,12 +735,12 @@ footer .copyright{
         display: none;
       }
 
-    .title-jadwal{
+    .title-ibadah{
         font-size: 4rem;
         font-weight: 800;
         padding: 5rem 0px 1rem;
     }
-    #jadwal .button{
+    #ibadah .button{
         font-size: 25px;
     }   
     footer .container-footer .row1 .col1 .row1{
@@ -767,15 +784,15 @@ footer .copyright{
         left: -20px;
         border-radius: 50px;
     }
-    #jadwal .container-button-jadwal{
+    #ibadah .container-button-ibadah{
         height: 65vh;
     }
-    .title-jadwal{
+    .title-ibadah{
         font-size: 4rem;
         font-weight: 800;
         padding: 5rem 0px 1rem;
     }
-    #jadwal .button{
+    #ibadah .button{
         font-size: 20px;
     }
     .col-7 {
@@ -820,7 +837,7 @@ footer .copyright{
     #about .about-content{
         margin-top: -3rem;
     }
-    #jadwal .container-button-jadwal{
+    #ibadah .container-button-ibadah{
         width: 100%;
         padding:0 1rem;
     }
@@ -855,10 +872,10 @@ footer .copyright{
     #about .about-content{
         margin-top: -4rem;
     }
-    #jadwal .container-button-jadwal{
+    #ibadah .container-button-ibadah{
         padding:0;
     }
-    #jadwal .button{
+    #ibadah .button{
         font-size: 15px;
     }
     footer .container-footer .row1 .col1 .row1 img{
@@ -909,7 +926,7 @@ footer .copyright{
         top: 26px;
         left: -9px;
     }
-    #jadwal .button{
+    #ibadah .button{
         font-size: 13px;
     }
     
