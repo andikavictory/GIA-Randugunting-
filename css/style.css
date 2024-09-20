@@ -5,6 +5,9 @@
     --tr-color:#E2DAD6;
     --fr-color:#F5EDED;
 }
+.no-scroll{
+    overflow: hidden;
+}
 
 .navbar .container-fluid .navbar-brand{
     font-size: 2.5rem;

@@ -12,6 +12,11 @@ document.addEventListener('DOMContentLoaded', function(){
         
         setTimeout(() => {
             exitMenu.classList.add('active');},600);
+        
+            if(navbarNav.classList.contains('active')){
+                document.body.classList.add('no-scroll')
+            };
+        
         })
 
     exitMenu.addEventListener('click', function(){
@@ -21,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function(){
             hamburgerMenu.classList.remove('active');},600);
         
             exitMenu.classList.remove('active');
+            document.body.classList.remove('no-scroll')
         })
     // efek navbar
     let navbar = document.getElementById('navbar');
