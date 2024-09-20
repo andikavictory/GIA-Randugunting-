@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function(){
     var navbarNav = document.getElementById('navbarNav');
     var exitMenu = document.getElementById('exit');
 
+    // navbarNav Open
     hamburgerMenu.addEventListener('click', function(){
         navbarNav.classList.toggle('active');
         hamburgerMenu.classList.add('active');
@@ -18,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function(){
             };
         
         })
-
+    // navbarNav exit
     exitMenu.addEventListener('click', function(){
         navbarNav.classList.remove('active');
 
@@ -28,6 +29,36 @@ document.addEventListener('DOMContentLoaded', function(){
             exitMenu.classList.remove('active');
             document.body.classList.remove('no-scroll')
         })
+
+    // navbarNav menu dropdown
+    var dropdownToggle = document.querySelectorAll('.btn-dropdown');
+    var dropdownMenu = document.querySelectorAll('.dropdown-menu');
+
+    dropdownToggle.forEach(toggle => {
+        toggle.addEventListener('click', function(){
+            const target = this.getAttribute('data-target');
+            const targetMenu = document.querySelector(target);
+
+            // cek Viewpoint
+            if(window.innerWidth < 992){
+                // toggle visibility
+                if(targetMenu){
+                    if(targetMenu.style.display === 'block'){
+                        // Menutup jika terbuka
+                        targetMenu.style.display = 'none'; 
+                    }else{
+                        // sembunyikan semua dropdown
+                        dropdownMenu.forEach(menu => {
+                            menu.style.display = 'none';
+                        });
+                        targetMenu.style.display = 'block';
+                    }
+                }
+            }
+        })
+    })
+
+
     // efek navbar
     let navbar = document.getElementById('navbar');
     let heroSection = document.getElementById('hero');
