@@ -58,6 +58,18 @@ document.addEventListener('DOMContentLoaded', function(){
         })
     })
 
+    function submenuOpen(){
+        var menu = document.getElementById('submenu');
+
+        if(window.innerWidth < 992){
+            if(menu.style.display === 'block' || menu.style.display === ''){
+                menu.style.display = 'none';
+            }else{
+                menu.style.display = 'block';
+            }
+        }
+    }
+
 
     // efek navbar
     let navbar = document.getElementById('navbar');
