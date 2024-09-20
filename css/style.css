@@ -18,6 +18,18 @@
     justify-content: center;
     align-items: center;
 }
+#exit{
+    color: #F5EDED;
+    height: auto;
+    width: 45px;
+}
+.navbar-toggler-icon{
+    display: none;
+}
+#hamburger{
+    display: none;
+}
+
 #navbarNav{
     font-size: 1.6rem;
 }
@@ -55,7 +67,7 @@
 }
 .hover-dropdown{
     background-color: rgba(0,0,0,0.1);
-    width: 100%;
+    width: max-content;
     margin-left: -3.7%;
 }
 .hover-dropdown li a{

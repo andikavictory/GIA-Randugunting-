@@ -70,9 +70,6 @@ openModalBtns.forEach(function(button){
         
     })
 })
-
-
-
 })
 
 
