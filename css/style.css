@@ -591,15 +591,15 @@ footer .copyright{
         position: absolute;
         width: 100vw;
         height: 100vh;
-        top: -100vh;
-        left:0;
+        top:0;
+        left:-100vh;
         z-index: -1;
         padding-top: 7rem;
         padding-left: 6vw;
-        transition: top 1s ease-in-out;
+        transition: left 1s ease-in-out;
     }
     #navbarNav.active{
-        top:0;
+        left:0;
     }
     .nav-hover-bg:hover{
         background:none;
