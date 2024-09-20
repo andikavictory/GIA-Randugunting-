@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function(){
             navbar.classList.add('hidden');
             navbar.classList.remove('scrolled');
         }
+        
     })
 
 
