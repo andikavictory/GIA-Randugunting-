@@ -591,7 +591,7 @@ footer .copyright{
         position: absolute;
         width: 100vw;
         height: 100vh;
-        top:-200vh;
+        top:-150vh;
         left:0;
         z-index: -1;
         padding-top: 7rem;
