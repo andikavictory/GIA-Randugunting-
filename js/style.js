@@ -83,9 +83,38 @@ document.addEventListener('DOMContentLoaded', function(){
     var navbarLogo = document.getElementById('logo');
 
     if(window.innerHeight <= 660 && window.innerWidth <= 991){
-        heroSection.style.height = '100rem';
-        navbarBrand.style.fontSize = '2.5rem';
+        heroSection.style.height = '50rem';
+        navbarBrand.style.fontSize = '3rem';
         navbarLogo.style.width = '4.5rem';
+
+        // slider menu
+        var startX;
+        document.addEventListener('touchstart', function(e){
+            startX = e.touches[0].clientX;
+        },false);
+
+        // Deteksi gerak
+        document.addEventListener('touchmove',function(e){
+            let moveStart = e.touches[0].clientX;
+            let navbar = document.getElementById('navbar');
+
+            // Proses swipe dari kiri ke kanan
+            if(moveStart > startX && startX < 50){
+                // memunculkan navbar
+                navbar.classList.add('navbar-visible'); 
+            }
+        },false);
+
+        // event untuk menyembunyikan navbar setelah 3000ms
+
+        document.addEventListener('touchend',function(e){
+            let navbar = document.getElementById('navbar');
+
+            setTimeout(() => {
+                navbar.classList.remove('navbar-visible');
+            },3000);
+        },false);
+
 
     }else{
         heroSection.style.height = '100vh';
