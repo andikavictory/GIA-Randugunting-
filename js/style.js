@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', function(){
         var targetSubMenu = document.getElementById('dropdown-2');
         var triangles = document.querySelectorAll('.triangle');
         
-        // halaman
          // halaman dekstop
          dropdownToggle.forEach((toggle, index) => {
             // ambil data-target btn-dropdown
@@ -45,13 +44,15 @@ document.addEventListener('DOMContentLoaded', function(){
             let triangle = triangles[index];
 
             
-            toggle.addEventListener('click', function(){
+            toggle.addEventListener('click', function(e){
+                e.preventDefault();
                 if(containerTarget.classList.contains('active')){
                     closeMenuDropdown();
                 }else{
                     openMenuDropdown();
                 }
             })
+        
             function openMenuDropdown (){
                 containerTarget.classList.add('active');
                 if(triangle){
@@ -64,8 +65,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     triangle.classList.remove('active');
                 }
             }
-
-            if(window.innerWidth > 991){
+            
             // saat tombol dihover dan containermenu maka container active
             toggle.addEventListener('mouseenter',openMenuDropdown);
             containerTarget.addEventListener('mouseenter',openMenuDropdown);
@@ -94,8 +94,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
                 })
             }
-}
-})
+        })
        
         
             
