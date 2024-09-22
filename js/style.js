@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     triangle.classList.remove('active');
                 }
             }
-            
+            if(!window.matchMedia("(hover:none)").matches){
             // saat tombol dihover dan containermenu maka container active
             toggle.addEventListener('mouseenter',openMenuDropdown);
             containerTarget.addEventListener('mouseenter',openMenuDropdown);
@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 closeMenuDropdown();
             }
             })
+        }
             // jika submenu di hover, dropdown-2 tetap
             if(dropdownSubMenu){
                 dropdownSubMenu.addEventListener('mouseenter',function(){
