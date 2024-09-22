@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function(){
             exitMenu.classList.remove('active');
             document.body.classList.remove('no-scroll')
         })
-        
         // navbarNav menu dropdown
         var dropdownToggle = document.querySelectorAll('.btn-dropdown');
         var dropdownSubMenu = document.getElementById('submenu');
@@ -43,7 +42,21 @@ document.addEventListener('DOMContentLoaded', function(){
             let containerTarget = document.querySelector(target);
             let triangle = triangles[index];
 
-            
+        
+            function openMenuDropdown (){
+                containerTarget.classList.add('active');
+                if(triangle){
+                    triangle.classList.add('active');
+                };
+                
+            }
+            function closeMenuDropdown (){
+                containerTarget.classList.remove('active');
+                if(triangle){
+                    triangle.classList.remove('active');
+                }
+             
+            }
             toggle.addEventListener('click', function(e){
                 e.preventDefault();
                 if(containerTarget.classList.contains('active')){
@@ -52,22 +65,11 @@ document.addEventListener('DOMContentLoaded', function(){
                     openMenuDropdown();
                 }
             })
-        
-            function openMenuDropdown (){
-                containerTarget.classList.add('active');
-                if(triangle){
-                    triangle.classList.add('active');
-                };
-            }
-            function closeMenuDropdown (){
-                containerTarget.classList.remove('active');
-                if(triangle){
-                    triangle.classList.remove('active');
-                }
-            }
-            if(!window.matchMedia("(hover:none)").matches){
+            // if(!window.matchMedia("(hover:none)").matches){
             // saat tombol dihover dan containermenu maka container active
-            toggle.addEventListener('mouseenter',openMenuDropdown);
+            function setupListener(){
+            if (window.matchMedia("(min-width: 991px)").matches) {
+            toggle.addEventListener('mouseenter',openMenuDropdown);}}
             containerTarget.addEventListener('mouseenter',openMenuDropdown);
             
             
@@ -84,7 +86,10 @@ document.addEventListener('DOMContentLoaded', function(){
                 closeMenuDropdown();
             }
             })
-        }
+        
+         setupListener();
+            window.addEventListener('resize',setupListener);
+        // }
             // jika submenu di hover, dropdown-2 tetap
             if(dropdownSubMenu){
                 dropdownSubMenu.addEventListener('mouseenter',function(){
@@ -95,6 +100,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
                 })
             }
+            
         })
        
         
