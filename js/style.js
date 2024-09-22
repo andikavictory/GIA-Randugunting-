@@ -51,6 +51,13 @@ document.addEventListener('DOMContentLoaded', function(){
                     openMenuDropdown();
                 }
             })
+            toggle.addEventListener('touchstart', function(){
+                if(containerTarget.classList.contains('active')||containerTarget.classList.contains('')){
+                    closeMenuDropdown();
+                }else{
+                    openMenuDropdown();
+                }
+            })
         }
             function openMenuDropdown (){
                 containerTarget.classList.add('active');
