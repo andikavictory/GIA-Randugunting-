@@ -45,17 +45,10 @@ document.addEventListener('DOMContentLoaded', function(){
 
             if(window.innerWidth <= 991){
             toggle.addEventListener('click', function(){
-                if(containerTarget.classList.contains('active')||containerTarget.classList.contains('')){
-                    closeMenuDropdown();
-                }else{
+                if(containerTarget.classList.contains('')){
                     openMenuDropdown();
-                }
-            })
-            toggle.addEventListener('touchstart', function(){
-                if(containerTarget.classList.contains('active')||containerTarget.classList.contains('')){
+                }if(containerTarget.classList.contains('active')){
                     closeMenuDropdown();
-                }else{
-                    openMenuDropdown();
                 }
             })
         }
