@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 closeMenuDropdown();
             }
             })
-            // jika submenu di hover, dropdown-2 tetap muncul
+            // jika submenu di hover, dropdown-2 tetap
             if(dropdownSubMenu){
                 dropdownSubMenu.addEventListener('mouseenter',function(){
                     targetSubMenu.classList.add('active');

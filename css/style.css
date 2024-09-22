@@ -970,4 +970,13 @@ footer .copyright{
         background-color: var(--pr-colorDark);
         border: 2px solid white;
     }
+    #exit{
+        top:15px;
+        left:15px;
+    }
+    #navbarNav{
+        padding: 10px 90px 0px;
+        overflow: scroll;
+        scrollbar-width: none;
+    }
 }
