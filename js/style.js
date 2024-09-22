@@ -45,9 +45,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
             if(window.innerWidth <= 991){
             toggle.addEventListener('click', function(){
-                if(containerTarget.classList.contains('')){
-                    openMenuDropdown();
-                }if(containerTarget.classList.contains('active')){
+                if(containerTarget.classList.contains('active')){
                     closeMenuDropdown();
                 }
             })
