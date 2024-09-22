@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', function(){
             };
         
         })
-    // navbarNav exit
-    exitMenu.addEventListener('click', function(){
+        // navbarNav exit
+        exitMenu.addEventListener('click', function(){
         navbarNav.classList.remove('active');
         // setting tombol hamburgermenu keluar 600ms setelah tombol exit
         setTimeout(() => {
@@ -34,22 +34,31 @@ document.addEventListener('DOMContentLoaded', function(){
         var dropdownToggle = document.querySelectorAll('.btn-dropdown');
         var dropdownSubMenu = document.getElementById('submenu');
         var targetSubMenu = document.getElementById('dropdown-2');
+        var triangles = document.querySelectorAll('.triangle');
         
          // halaman dekstop
-         dropdownToggle.forEach((toggle) => {
+         dropdownToggle.forEach((toggle, index) => {
+            // ambil data-target btn-dropdown
             let target = toggle.getAttribute('data-target');
             let containerTarget = document.querySelector(target);
+            let triangle = triangles[index];
 
             function openMenuDropdown (){
                 containerTarget.classList.add('active');
+                if(triangle){
+                    triangle.classList.add('active');
+                }
             }
             function closeMenuDropdown (){
                 containerTarget.classList.remove('active');
+                if(triangle){
+                    triangle.classList.remove('active');
+                }
             }
             // saat tombol dihover dan containermenu maka container active
             toggle.addEventListener('mouseenter',openMenuDropdown);
             containerTarget.addEventListener('mouseenter',openMenuDropdown);
-
+            
             
 
             // saat tombol dilepas dengan ketentuan tidak didalam toggle dan containermenu maka remove active
@@ -74,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
                 })
             }
-})
+        })
        
         
     
