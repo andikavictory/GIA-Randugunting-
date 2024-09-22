@@ -43,11 +43,20 @@ document.addEventListener('DOMContentLoaded', function(){
             let containerTarget = document.querySelector(target);
             let triangle = triangles[index];
 
+            
+            toggle.addEventListener('click', function(){
+                if(containerTarget.classList.containes('active')||containerTarget.classList.contains('')){
+                    closeMenuDropdown();
+                }else{
+                    openMenuDropdown();
+                }
+            })
+
             function openMenuDropdown (){
                 containerTarget.classList.add('active');
                 if(triangle){
                     triangle.classList.add('active');
-                }
+                };
             }
             function closeMenuDropdown (){
                 containerTarget.classList.remove('active');
@@ -86,6 +95,7 @@ document.addEventListener('DOMContentLoaded', function(){
         })
        
         
+            
     
     // efek navbar
     
