@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function(){
             let containerTarget = document.querySelector(target);
             let triangle = triangles[index];
 
-            if(window.innerWidth <= 900 && window.innerHeight <= 660){
+            if(window.innerWidth <= 991){
             toggle.addEventListener('click', function(){
                 if(containerTarget.classList.contains('active')||containerTarget.classList.contains('')){
                     closeMenuDropdown();
