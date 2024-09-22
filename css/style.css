@@ -10,12 +10,12 @@
 }
 
 .navbar .container-fluid .navbar-brand{
-    font-size: 4rem;
+    font-size: 2rem;
     font-family:'sans';
     font-weight: 600;
 }
 .navbar .container-fluid .navbar-brand img{
-    width: 6rem;
+    width: 3rem;
 }
 .navbar .container-fluid .navbar-brand span{
     justify-content: center;
@@ -53,27 +53,33 @@
 #navbarNav{
     font-size: 1.6rem;
 }
-#navbarNav .navbar-item .dropdown-menu .dropdown-menu{
+.dropdownMenu{
     position: absolute;
-    top: 0;
-    margin-top: 0;
-    margin-left: 0;
-  
+    list-style-type: none;
+    max-height: 0;
+    padding: 0;
+    overflow: hidden;
+    transition: all 1s ease;
 }
-#navbarNav .dropdown:hover > .dropdown-menu{
-    display: block;
+.dropdownMenu.active{
+    max-height: 150px;
+    
 }
-.dropdown-item:active {
-    background-color:var(--pr-colorDark);
-    color: #fff;
-  }
-.dropdown-item:focus{
-    display:none;
+.dropdownMenu li{
+    padding: 2px 15px;
 }
+.dropdownMenu li:hover{
+    background-color: white;
+}
+#dropdown-1{
+    width: 100%;
+}
+
 #submenu{
+    position: absolute;
     background-color: rgba(0, 0, 0,0.1);
-    margin-left: 14.6rem;
-    margin-top:-2.8rem;
+    margin-left: 14rem;
+    margin-top:1.8rem;
 }
 #submenu li a{
     color: white;
@@ -111,15 +117,10 @@
     background-color: var(--pr-colorDark);
 }
 .navbar.scrolled #submenu{
-    margin-left: 100%; 
-    margin-top: -20%;
     background-color: var(--pr-colorDark);
 }
 .navbar.scrolled .hover-dropdown{
     background-color: var(--pr-colorDark);
-    width: 100%;
-    padding-top: 8%;
-    margin-left: -3.7%;
 }
 .navbar.scrolled .nav-hover-bg:hover{
     background:none;
@@ -619,8 +620,12 @@ footer .copyright{
     .nav-hover-bg:hover{
         background:none;
     }
+    .dropdownMenu{
+        position: relative;
+    }
    
     #submenu{
+        position: relative;
         margin-left: 6rem;
         margin-top:0;
         background-color:none;
@@ -950,11 +955,7 @@ footer .copyright{
         width: 1rem!important;
         height: 100vh;
         align-items: start;
-        transform: translateX(-100%);
-        transition: transform 0.3s ease-in-out;
-    }
-    #navbar-visible{
-        transform: translateX(0);
+        background-color: transparent;
     }
     #logo{
         display: none!important;
@@ -966,5 +967,7 @@ footer .copyright{
         margin-left: -40px;
         margin-top: 10px;
         margin-bottom: 5px;
+        background-color: var(--pr-colorDark);
+        border: 2px solid white;
     }
 }

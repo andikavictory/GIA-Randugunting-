@@ -32,31 +32,51 @@ document.addEventListener('DOMContentLoaded', function(){
         
         // navbarNav menu dropdown
         var dropdownToggle = document.querySelectorAll('.btn-dropdown');
-        var dropdownMenu = document.querySelectorAll('.containsDropdown');
+        var dropdownSubMenu = document.getElementById('submenu');
+        var targetSubMenu = document.getElementById('dropdown-2');
         
-        dropdownToggle.forEach(toggle => {
-            toggle.addEventListener('click', function(){
-                const target = this.getAttribute('data-target');
-                const targetMenu = document.querySelector(target);
-                
-                // cek Viewpoint
-                if(window.innerWidth < 992){
-                    // toggle visibility
-                    if(targetMenu){
-                        if(targetMenu.style.display === 'block'){
-                            // Menutup jika terbuka
-                            targetMenu.style.display = 'none'; 
-                        }else{
-                            // sembunyikan semua dropdown
-                            dropdownMenu.forEach(menu => {
-                                menu.style.display = 'none';
-                            });
-                            targetMenu.style.display = 'block';
-                        }
-                    }
+         // halaman dekstop
+         dropdownToggle.forEach((toggle) => {
+            let target = toggle.getAttribute('data-target');
+            let containerTarget = document.querySelector(target);
+
+            function openMenuDropdown (){
+                containerTarget.classList.add('active');
+            }
+            function closeMenuDropdown (){
+                containerTarget.classList.remove('active');
+            }
+            // saat tombol dihover dan containermenu maka container active
+            toggle.addEventListener('mouseenter',openMenuDropdown);
+            containerTarget.addEventListener('mouseenter',openMenuDropdown);
+
+            
+
+            // saat tombol dilepas dengan ketentuan tidak didalam toggle dan containermenu maka remove active
+            toggle.addEventListener('mouseleave',function(){
+                if(!toggle.matches(':hover') && !containerTarget.matches(':hover')){
+                    closeMenuDropdown();
                 }
-        })
-    })
+            })
+            // saat containermenu dilepas dengan ketentuan tidak didalam toggle dan containermenu maka remove active
+            containerTarget.addEventListener('mouseleave',function(){
+            if(!toggle.matches(':hover') && !containerTarget.matches(':hover')){
+                closeMenuDropdown();
+            }
+            })
+            // jika submenu di hover, dropdown-2 tetap muncul
+            if(dropdownSubMenu){
+                dropdownSubMenu.addEventListener('mouseenter',function(){
+                    targetSubMenu.classList.add('active');
+                })
+                dropdownSubMenu.addEventListener('mouseleave',function(){
+                    targetSubMenu.classList.remove('active');
+
+                })
+            }
+})
+       
+        
     
     // efek navbar
     
@@ -77,50 +97,7 @@ document.addEventListener('DOMContentLoaded', function(){
             navbar.classList.remove('scrolled');
         }
         
-    })
-    // saat max-width:991px and max-height:660px, hero section hightnya diganti menjadi rem
-    var navbarBrand = document.querySelector('.navbar-brand');
-    var navbarLogo = document.getElementById('logo');
-
-    if(window.innerHeight <= 660 && window.innerWidth <= 991){
-        heroSection.style.height = '50rem';
-        navbarBrand.style.fontSize = '3rem';
-        navbarLogo.style.width = '4.5rem';
-
-        // slider menu
-        var startX;
-        document.addEventListener('touchstart', function(e){
-            startX = e.touches[0].clientX;
-        },false);
-
-        // Deteksi gerak
-        document.addEventListener('touchmove',function(e){
-            let moveStart = e.touches[0].clientX;
-            let navbar = document.getElementById('navbar');
-
-            // Proses swipe dari kiri ke kanan
-            if(moveStart > startX && startX < 50){
-                // memunculkan navbar
-                navbar.classList.add('navbar-visible'); 
-            }
-        },false);
-
-        // event untuk menyembunyikan navbar setelah 3000ms
-
-        document.addEventListener('touchend',function(e){
-            let navbar = document.getElementById('navbar');
-
-            setTimeout(() => {
-                navbar.classList.remove('navbar-visible');
-            },3000);
-        },false);
-
-
-    }else{
-        heroSection.style.height = '100vh';
-        navbarBrand.style.fontSize = '4rem';
-        navbarLogo.style.width = '6rem';
-    }
+    });
 
     // efek hero title
     const observer = new IntersectionObserver(
@@ -142,8 +119,7 @@ document.addEventListener('DOMContentLoaded', function(){
     observer.observe(dekstop);
     observer.observe(mobile1);
     observer.observe(mobile2)  
-})
-
+});
 
 
 
