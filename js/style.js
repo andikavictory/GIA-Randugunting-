@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
             
             toggle.addEventListener('click', function(){
-                if(containerTarget.classList.containes('active')||containerTarget.classList.contains('')){
+                if(containerTarget.classList.contains('active')||containerTarget.classList.contains('')){
                     closeMenuDropdown();
                 }else{
                     openMenuDropdown();
