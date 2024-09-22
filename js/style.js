@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function(){
             let containerTarget = document.querySelector(target);
             let triangle = triangles[index];
 
-            
+            if(window.innerWidth <= 900 && window.innerHeight <= 660){
             toggle.addEventListener('click', function(){
                 if(containerTarget.classList.contains('active')||containerTarget.classList.contains('')){
                     closeMenuDropdown();
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     openMenuDropdown();
                 }
             })
-
+        }
             function openMenuDropdown (){
                 containerTarget.classList.add('active');
                 if(triangle){
