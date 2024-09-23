@@ -85,15 +85,22 @@
 }
 .dropdownMenu li:hover{
     background-color: white;
+    color: black;
 }
 #dropdown-1{
     width: 100%;
 }
+#btndropdown-3{
+color: white;
+}
+#btndropdown-3:hover{
+    color: black;
+    }
 
 #submenu{
     position: absolute;
     background-color: rgba(0, 0, 0,0.1);
-    margin-left: 14rem;
+    margin-left: 14.3rem;
     margin-top:1.8rem;
 }
 #submenu li a{
@@ -289,7 +296,7 @@
 
 /* gallery */
 #gallery{
-    background: url('../img/background-gallery.jpg');
+    background: url('../img/background-gallery1.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
@@ -816,6 +823,9 @@ footer .copyright{
         top: 50px;
         left: -20px;
         border-radius: 50px;
+    }
+    #gallery{
+        background: url('../img/background-gallery2.jpg');
     }
     #ibadah .container-button-ibadah{
         height: 25rem;

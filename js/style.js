@@ -148,6 +148,3 @@ document.addEventListener('DOMContentLoaded', function(){
     observer.observe(mobile1);
     observer.observe(mobile2)  
 });
-
-
-
