@@ -236,16 +236,41 @@ color: white;
 
 .btn-hero{
     width: 14rem;
-    background: linear-gradient(to right,var(--sc-color),var(--pr-color));
-    border-radius: 17px;
-    color: var(--fr-color);
-    font-family: 'popins','sans';
+    background:transparent;
+    border-radius: 10px;
+    color:var(--pr-colorDark);
+    font-family: 'sans';
     font-weight: 900;
-    border: none;
+    border: 1px solid white;
     font-size: 1.5rem;
     padding: 5px 15px;
-    box-shadow: 1px 1px 2px black;
+    box-shadow: 1px 1px 2px rgb(7, 7, 7);
+    transition: color 1s ease;
+    color: white;
+    overflow: hidden;
+    position: relative;
+    transform: scale(1);
+    transition: transform 1s ease-in-out;
 }
+.btn-hero::before{
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    background:linear-gradient(to right, var(--pr-colorDark), var(--pr-color));
+    z-index: -1;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    transition: width 0.8s ease-in-out;
+}
+.btn-hero:active{
+    transform: scale(1.2);
+}
+.btn-hero:hover::before{
+    width: 100%;
+}
+
 
 /* about */
 #about{
