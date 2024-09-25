@@ -151,29 +151,37 @@ document.addEventListener('DOMContentLoaded', function(){
 
      // sub tombol muncul
      var buttonHero = document.querySelector('.btn-hero');
+     isOpen = false;
 
      buttonHero.addEventListener('click',function(){
         let subButtons = document.querySelectorAll('.subbtn-hero');
         let index = 0;
-        isOpen = true;
-
+        
         if(isOpen){
-            subButtons.forEach(subBotton => {
-                subBotton.classList.remove('active');
-                subBotton.style.top = '-59px';
-            })
-            isOpen = !isOpen;
-        }else{
+        if(index >= 0 ){
+            function showPrevSubbutton(){
+            subButtons[index].classList.remove('active');
+            subButtons[index].style.top = '-59px';
+            index++;
+            setTimeout(showPrevSubbutton,300);
+        }
+            isOpen = false;
+            showPrevSubbutton();
+        }
+    }else{
         function showNextSubbutton(){
         if(index < subButtons.length){
             subButtons[index].classList.add('active');
             subButtons[index].style.top ="50px";
             index++;
-            setTimeout(showNextSubbutton,500);
+            setTimeout(showNextSubbutton,300);
+           
+        }else{
+            isOpen = true;
         }}
-
+    
         showNextSubbutton();
-        isOpen = isOpen;
+        
      }}
     )
 

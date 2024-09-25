@@ -253,7 +253,7 @@ color: white;
     cursor: pointer;
     position: relative;
 }
-#hero .btn-hero::before{
+#hero .btn-hero::before, #hero .subbtn-hero:before{
     content: "";
     position: absolute;
     width: 100%;
@@ -266,7 +266,7 @@ color: white;
     z-index: -1;
     transition: opacity 0.2s ease-in-out;
 }
-#hero .btn-hero:hover::before{
+#hero .btn-hero:hover::before {
     opacity: 1;
 }
 #hero .btn-hero:hover {
