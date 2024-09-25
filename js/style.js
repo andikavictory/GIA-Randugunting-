@@ -147,4 +147,41 @@ document.addEventListener('DOMContentLoaded', function(){
     observer.observe(dekstop);
     observer.observe(mobile1);
     observer.observe(mobile2)  
+
+
+     // sub tombol muncul
+     var buttonHero = document.querySelector('.btn-hero');
+
+     buttonHero.addEventListener('click',function(){
+        let subButtons = document.querySelectorAll('.subbtn-hero');
+        let index = 0;
+        isOpen = true;
+
+        if(isOpen){
+            subButtons.forEach(subBotton => {
+                subBotton.classList.remove('active');
+                subBotton.style.top = '-59px';
+            })
+            isOpen = !isOpen;
+        }else{
+        function showNextSubbutton(){
+        if(index < subButtons.length){
+            subButtons[index].classList.add('active');
+            subButtons[index].style.top ="50px";
+            index++;
+            setTimeout(showNextSubbutton,500);
+        }}
+
+        showNextSubbutton();
+        isOpen = isOpen;
+     }}
+    )
+
+
+
+
+
 });
+
+
+   

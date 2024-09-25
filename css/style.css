@@ -233,8 +233,10 @@ color: white;
     margin-top: -20px;
     padding-bottom: 0.5rem;
 }
-
-#hero .btn-hero {
+#hero .btn-hero{
+    z-index: 2;
+}
+#hero .btn-hero, #hero .subbtn-hero  {
     display: inline-block;
     width: 14rem;
     background: transparent;
@@ -245,10 +247,9 @@ color: white;
     border: 1px solid white;
     font-size: 1.5rem;
     padding: 10px 20px;
-    box-shadow: 1px 1px 2px rgb(7, 7, 7);
+    box-shadow: 1px 1px 4px rgb(7, 7, 7);
     text-align: center; 
     transition: transform 0.5s ease; 
-    transform: scale(1);
     cursor: pointer;
     position: relative;
 }
@@ -257,9 +258,13 @@ color: white;
     position: absolute;
     width: 100%;
     height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
     background-color: white;
     opacity: 0;
-    transition: opacity 1s ease-in-out;
+    z-index: -1;
+    transition: opacity 0.2s ease-in-out;
 }
 #hero .btn-hero:hover::before{
     opacity: 1;
@@ -273,6 +278,30 @@ color: white;
     background-color: white;
     color: black;
 }
+#hero .subbtn-hero{
+    position: absolute;
+    top: -59px;
+    left: 9.4px;
+    transform: scale(0);
+    z-index: 1;
+    transition: transform 1s ease-in-out, top 1s ease, left 1s ease;
+}
+#hero .container-subbtn .subbtn-hero:nth-child(1).active{
+    transform: scale(1);
+}
+#hero .container-subbtn .subbtn-hero:nth-child(2).active{
+    left: 17rem;
+    transform: scale(1);
+}
+#hero .container-subbtn .subbtn-hero:nth-child(3).active{
+    left: 33.5rem;
+    transform: scale(1);
+}
+#hero .container-subbtn .subbtn-hero:nth-child(4).active{
+    left: 50rem;
+    transform: scale(1);
+}
+
 
 
 /* about */
