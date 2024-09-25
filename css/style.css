@@ -234,41 +234,44 @@ color: white;
     padding-bottom: 0.5rem;
 }
 
-.btn-hero{
+#hero .btn-hero {
+    display: inline-block;
     width: 14rem;
-    background:transparent;
+    background: transparent;
     border-radius: 10px;
-    color:var(--pr-colorDark);
+    color: white;
     font-family: 'sans';
     font-weight: 900;
     border: 1px solid white;
     font-size: 1.5rem;
-    padding: 5px 15px;
+    padding: 10px 20px;
     box-shadow: 1px 1px 2px rgb(7, 7, 7);
-    transition: color 1s ease;
-    color: white;
-    overflow: hidden;
-    position: relative;
+    text-align: center; 
+    transition: transform 0.5s ease; 
     transform: scale(1);
-    transition: transform 1s ease-in-out;
+    cursor: pointer;
+    position: relative;
 }
-.btn-hero::before{
+#hero .btn-hero::before{
     content: "";
     position: absolute;
-    width: 0%;
-    height: 100%;
-    background:linear-gradient(to right, var(--pr-colorDark), var(--pr-color));
-    z-index: -1;
-    top: 0;
-    left: 0;
-    border-radius: 10px;
-    transition: width 0.8s ease-in-out;
-}
-.btn-hero:active{
-    transform: scale(1.2);
-}
-.btn-hero:hover::before{
     width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+#hero .btn-hero:hover::before{
+    opacity: 1;
+}
+#hero .btn-hero:hover {
+    transform: scale(1.1); 
+    color: black;
+}
+#hero .btn-hero:active {
+    transform: scale(0.9); 
+    background-color: white;
+    color: black;
 }
 
 
