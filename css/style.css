@@ -675,6 +675,19 @@ footer .copyright{
         width: 12rem;
         font-size: 1rem;
     }
+
+#hero .container-subbtn .subbtn-hero:nth-child(2).active{
+    left: 14rem;
+    transform: scale(1);
+}
+#hero .container-subbtn .subbtn-hero:nth-child(3).active{
+    left: 27.5rem;
+    transform: scale(1);
+}
+#hero .container-subbtn .subbtn-hero:nth-child(4).active{
+    left: 41rem;
+    transform: scale(1);
+}
     
 }
 @media (max-width:1100px){
@@ -684,7 +697,7 @@ footer .copyright{
     footer .container-footer .row1 .col3 .container-question {
         padding: 0px 10px 20px;
         width: 100%;
-}
+   
 }
 @media (max-width:991px){
     .navbar .container-fluid .navbar-brand span {
@@ -1102,4 +1115,10 @@ footer .copyright{
     #hero .btn-hero {
         display: none;
     }
+}
+@media (hover: none){
+    #hero .btn-hero {
+        background-color: transparent;
+    }
+
 }

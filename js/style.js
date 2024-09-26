@@ -163,6 +163,9 @@ document.addEventListener('DOMContentLoaded', function(){
             if(index < subButtons.length && index >= 0){
             subButtons[index].classList.remove('active');
             subButtons[index].style.top = '-59px';
+            if(window.innerWidth <= 991) {
+            subButtons[index].style.left = '-70px';
+            }
             index++;
             setTimeout(showPrevSubbutton,300);
         }  else{setTimeout(() => {
