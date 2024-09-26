@@ -202,6 +202,7 @@ document.addEventListener('DOMContentLoaded', function(){
             subButtons[index].style.top = "50px";
         } else if (width <= 991 && width > 850) {
             setTopStyles(["-3.3rem", "-3.3rem", "50px", "50px"]);
+            setLeftStyles(["-22.5rem", "12rem", "-12rem", "1rem"]);
         } else if (width <= 850 && width > 700) {
             setTopStyles(["-3.3rem", "-3.3rem", "50px", "50px"]);
             setLeftStyles(["-19.5rem", "11rem", "-12rem", "1rem"]);
@@ -229,8 +230,6 @@ document.addEventListener('DOMContentLoaded', function(){
         subButtons[index].style.fontSize = fontSize;
     }}
     )
-
-
 
 
 
