@@ -274,7 +274,7 @@ color: white;
     transform: scale(1.1); 
     color: black;
 }
-#hero .btn-hero:active {
+#hero .btn-hero.active {
     transform: scale(0.9); 
     background-color: white;
     color: black;
@@ -1096,5 +1096,8 @@ footer .copyright{
         padding: 10px 90px 0px;
         overflow: scroll;
         scrollbar-width: none;
+    }
+    #hero .btn-hero {
+        display: none;
     }
 }

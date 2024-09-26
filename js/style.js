@@ -154,6 +154,7 @@ document.addEventListener('DOMContentLoaded', function(){
      isOpen = false;
 
      buttonHero.addEventListener('click',function(){
+        buttonHero.classList.add('active');
         let subButtons = document.querySelectorAll('.subbtn-hero');
         let index = 0;
         
@@ -164,8 +165,12 @@ document.addEventListener('DOMContentLoaded', function(){
             subButtons[index].style.top = '-59px';
             index++;
             setTimeout(showPrevSubbutton,300);
+        }  else{setTimeout(() => {
+            buttonHero.classList.remove('active');
+        },600);
         }
             isOpen = false;
+           
         } 
         showPrevSubbutton();
     }else{
@@ -178,6 +183,9 @@ document.addEventListener('DOMContentLoaded', function(){
            
         }else{
             isOpen = true;
+            setTimeout(() => {
+            document.querySelector('.btn-hero').classList.remove('active');
+        },600);
         }}
     
         showNextSubbutton();
@@ -185,67 +193,37 @@ document.addEventListener('DOMContentLoaded', function(){
      } 
     //  mengatur tata letak top pada sub button
      function marginButtonScreenSize(){
-        if(window.innerWidth > 991){
-            subButtons[index].style.top ="50px";
-        } else if(window.innerWidth <= 991 && window.innerWidth > 850){
-            subButtons[0].style.top ="-3.3rem";
-            subButtons[1].style.top ="-3.3rem";
-            subButtons[2].style.top ="50px";
-            subButtons[3].style.top ="50px";
-        } else if(window.innerWidth <= 850 && window.innerWidth > 700){
-            // top
-            subButtons[0].style.top ="-3.3rem";
-            subButtons[1].style.top ="-3.3rem";
-            subButtons[2].style.top ="50px";
-            subButtons[3].style.top ="50px";
-            // left
-            subButtons[0].style.left ="-19.5rem";
-            subButtons[1].style.left ="11rem";
-            subButtons[2].style.left ="-12rem";
-            subButtons[3].style.left ="1rem";
-            // width dan font size
-            subButtons[index].style.width ="10rem";
-            subButtons[index].style.fontSize ="0.8rem";
-     }else if(window.innerWidth <= 700 && window.innerWidth > 500){
-            // top
-            subButtons[0].style.top ="30px";
-            subButtons[1].style.top ="30px";
-            subButtons[2].style.top ="90px";
-            subButtons[3].style.top ="90px";
-            // left
-            subButtons[0].style.left ="-12rem";
-            subButtons[1].style.left ="1rem";
-            subButtons[2].style.left ="-12rem";
-            subButtons[3].style.left ="1rem";
-    } else if(window.innerWidth <= 500 && window.innerWidth > 320){
-        // top
-        subButtons[0].style.top ="30px";
-        subButtons[1].style.top ="30px";
-        subButtons[2].style.top ="90px";
-        subButtons[3].style.top ="90px";
-        // left
-        subButtons[0].style.left ="-8rem";
-        subButtons[1].style.left ="1rem";
-        subButtons[2].style.left ="-8rem";
-        subButtons[3].style.left ="1rem";
-        // width dan font size
-        subButtons[index].style.width ="8rem";
-        subButtons[index].style.fontSize ="0.6rem";
-} else if (window.innerWidth <= 320){
-    // top
-    subButtons[0].style.top ="30px";
-    subButtons[1].style.top ="30px";
-    subButtons[2].style.top ="90px";
-    subButtons[3].style.top ="90px";
-    // left
-    subButtons[0].style.left ="-8rem";
-    subButtons[1].style.left ="1rem";
-    subButtons[2].style.left ="-8rem";
-    subButtons[3].style.left ="1rem";
-    // width dan font size
-    subButtons[index].style.width ="8rem";
-    subButtons[index].style.fontSize ="0.6rem";
-}
+        let width = window.innerWidth;
+        
+        if (width > 991) {
+            subButtons[index].style.top = "50px";
+        } else if (width <= 991 && width > 850) {
+            setTopStyles(["-3.3rem", "-3.3rem", "50px", "50px"]);
+        } else if (width <= 850 && width > 700) {
+            setTopStyles(["-3.3rem", "-3.3rem", "50px", "50px"]);
+            setLeftStyles(["-19.5rem", "11rem", "-12rem", "1rem"]);
+            setButtonStyles("10rem", "0.8rem");
+        } else if (width <= 700 && width > 500) {
+            setTopStyles(["30px", "30px", "90px", "90px"]);
+            setLeftStyles(["-12rem", "1rem", "-12rem", "1rem"]);
+        } else if (width <= 500) {
+            setTopStyles(["30px", "30px", "80px", "80px"]);
+            setLeftStyles(["-8rem", "1rem", "-8rem", "1rem"]);
+            setButtonStyles("8rem", "0.6rem");
+        }
+    }
+
+    function setTopStyles(tops) {
+        subButtons.forEach((btn, idx) => btn.style.top = tops[idx]);
+    }
+
+    function setLeftStyles(lefts) {
+        subButtons.forEach((btn, idx) => btn.style.left = lefts[idx]);
+    }
+
+    function setButtonStyles(width, fontSize) {
+        subButtons[index].style.width = width;
+        subButtons[index].style.fontSize = fontSize;
     }}
     )
 
