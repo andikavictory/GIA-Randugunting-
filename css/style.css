@@ -222,6 +222,7 @@ color: white;
     font-size: 1.6rem;
     width: 50%;
     text-align: justify;
+    padding-right: 5rem;
 }
 
 .hero-content-span {
@@ -266,10 +267,10 @@ color: white;
     z-index: -1;
     transition: opacity 0.2s ease-in-out;
 }
-#hero .btn-hero:hover::before {
+#hero .btn-hero:hover::before, #hero .subbtn-hero:hover:before {
     opacity: 1;
 }
-#hero .btn-hero:hover {
+#hero .btn-hero:hover, #hero .subbtn-hero:hover {
     transform: scale(1.1); 
     color: black;
 }
@@ -662,16 +663,35 @@ footer .copyright{
     }
 
 }
-@media (max-width:1100px){
-    footer .container-footer .row1 .col3 .container-question {
-        padding: 0px 10px 20px;
-        width: 100%;
-}
+@media (max-width:1221px){
+    #hero .btn-hero{
+        width: 12rem;
+        font-size: 1rem;
+    }
+    #hero .subbtn-hero{
+        width: 12rem;
+        font-size: 1rem;
+    }
+    #hero .container-subbtn .subbtn-hero:nth-child(1).active{
+    }
+    #hero .container-subbtn .subbtn-hero:nth-child(2).active{
+        left: 14rem;
+    }
+    #hero .container-subbtn .subbtn-hero:nth-child(3).active{
+        left: 27.5rem;
+    }
+    #hero .container-subbtn .subbtn-hero:nth-child(4).active{
+        left: 41rem;
+    }
 }
 @media (max-width:1100px){
     .navbar .container-fluid .navbar-brand span {
         display: none;
     }
+    footer .container-footer .row1 .col3 .container-question {
+        padding: 0px 10px 20px;
+        width: 100%;
+}
 }
 @media (max-width:991px){
     .navbar .container-fluid .navbar-brand span {
@@ -714,8 +734,33 @@ footer .copyright{
         background-position: 80% 50%;
         background-attachment: scroll;
     }
+
     .container-content-hero{
         margin-top: -2.5rem;
+    }
+    #hero .subbtn-hero{
+        transform: scale(0);
+        left: -5rem;
+    }
+    .container-subbtn{
+        display: flex;
+        justify-content: center;
+    }
+    #hero .container-subbtn .subbtn-hero:nth-child(1).active{
+        left: -24rem;
+        transform: scale(1);
+    }
+    #hero .container-subbtn .subbtn-hero:nth-child(2).active{
+        left: 13rem;
+        transform: scale(1);
+    }
+    #hero .container-subbtn .subbtn-hero:nth-child(3).active{
+        left: -13rem;
+        transform: scale(1);
+    }
+    #hero .container-subbtn .subbtn-hero:nth-child(4).active{
+        left: 2rem;
+        transform: scale(1);
     }
     .welcome{
         text-align: center;

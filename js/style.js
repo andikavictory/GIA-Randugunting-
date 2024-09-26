@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function(){
         function showNextSubbutton(){
         if(index < subButtons.length){
             subButtons[index].classList.add('active');
-            subButtons[index].style.top ="50px";
+            marginButtonScreenSize();
             index++;
             setTimeout(showNextSubbutton,300);
            
@@ -182,7 +182,20 @@ document.addEventListener('DOMContentLoaded', function(){
     
         showNextSubbutton();
         
-     }}
+     } 
+    //  mengatur tata letak top pada sub button
+     function marginButtonScreenSize(){
+        if(window.innerWidth > 991){
+            subButtons[index].style.top ="50px";
+        } else if(window.innerWidth <= 991){
+            subButtons[0].style.top ="-3.3rem";
+            subButtons[1].style.top ="-3.3rem";
+            subButtons[2].style.top ="50px";
+            subButtons[3].style.top ="50px";
+        }
+     }
+    
+    }
     )
 
 
