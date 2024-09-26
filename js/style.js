@@ -230,6 +230,9 @@ document.addEventListener('DOMContentLoaded', function(){
         subButtons[index].style.fontSize = fontSize;
     }}
     )
+    window.addEventListener('resize', function() {
+        marginButtonScreenSize();
+    });
 
 
 
