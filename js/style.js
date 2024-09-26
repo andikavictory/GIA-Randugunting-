@@ -187,19 +187,66 @@ document.addEventListener('DOMContentLoaded', function(){
      function marginButtonScreenSize(){
         if(window.innerWidth > 991){
             subButtons[index].style.top ="50px";
-        } else if(window.innerWidth <= 991){
+        } else if(window.innerWidth <= 991 && window.innerWidth > 850){
             subButtons[0].style.top ="-3.3rem";
             subButtons[1].style.top ="-3.3rem";
             subButtons[2].style.top ="50px";
             subButtons[3].style.top ="50px";
-        } else if(window.innerWidth <= 800){
-            subButtons[0].style.top ="50px";
-            subButtons[1].style.top ="50px";
+        } else if(window.innerWidth <= 850 && window.innerWidth > 700){
+            // top
+            subButtons[0].style.top ="-3.3rem";
+            subButtons[1].style.top ="-3.3rem";
             subButtons[2].style.top ="50px";
             subButtons[3].style.top ="50px";
-     }
-     };
-    }
+            // left
+            subButtons[0].style.left ="-19.5rem";
+            subButtons[1].style.left ="11rem";
+            subButtons[2].style.left ="-12rem";
+            subButtons[3].style.left ="1rem";
+            // width dan font size
+            subButtons[index].style.width ="10rem";
+            subButtons[index].style.fontSize ="0.8rem";
+     }else if(window.innerWidth <= 700 && window.innerWidth > 500){
+            // top
+            subButtons[0].style.top ="30px";
+            subButtons[1].style.top ="30px";
+            subButtons[2].style.top ="90px";
+            subButtons[3].style.top ="90px";
+            // left
+            subButtons[0].style.left ="-12rem";
+            subButtons[1].style.left ="1rem";
+            subButtons[2].style.left ="-12rem";
+            subButtons[3].style.left ="1rem";
+    } else if(window.innerWidth <= 500 && window.innerWidth > 320){
+        // top
+        subButtons[0].style.top ="30px";
+        subButtons[1].style.top ="30px";
+        subButtons[2].style.top ="90px";
+        subButtons[3].style.top ="90px";
+        // left
+        subButtons[0].style.left ="-8rem";
+        subButtons[1].style.left ="1rem";
+        subButtons[2].style.left ="-8rem";
+        subButtons[3].style.left ="1rem";
+        // width dan font size
+        subButtons[index].style.width ="8rem";
+        subButtons[index].style.fontSize ="0.6rem";
+} else if (window.innerWidth <= 320){
+    // top
+    subButtons[0].style.top ="30px";
+    subButtons[1].style.top ="30px";
+    subButtons[2].style.top ="90px";
+    subButtons[3].style.top ="90px";
+    // left
+    subButtons[0].style.left ="-8rem";
+    subButtons[1].style.left ="1rem";
+    subButtons[2].style.left ="-8rem";
+    subButtons[3].style.left ="1rem";
+    // width dan font size
+    subButtons[index].style.width ="8rem";
+    subButtons[index].style.fontSize ="0.6rem";
+}
+    }}
     )
 
 
