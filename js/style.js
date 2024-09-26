@@ -158,16 +158,16 @@ document.addEventListener('DOMContentLoaded', function(){
         let index = 0;
         
         if(isOpen){
-        if(index >= 0 ){
-            function showPrevSubbutton(){
+        function showPrevSubbutton(){
+            if(index < subButtons.length && index >= 0){
             subButtons[index].classList.remove('active');
             subButtons[index].style.top = '-59px';
             index++;
             setTimeout(showPrevSubbutton,300);
         }
             isOpen = false;
-            showPrevSubbutton();
-        }
+        } 
+        showPrevSubbutton();
     }else{
         function showNextSubbutton(){
         if(index < subButtons.length){
@@ -192,9 +192,13 @@ document.addEventListener('DOMContentLoaded', function(){
             subButtons[1].style.top ="-3.3rem";
             subButtons[2].style.top ="50px";
             subButtons[3].style.top ="50px";
-        }
+        } else if(window.innerWidth <= 800){
+            subButtons[0].style.top ="50px";
+            subButtons[1].style.top ="50px";
+            subButtons[2].style.top ="50px";
+            subButtons[3].style.top ="50px";
      }
-    
+     };
     }
     )
 

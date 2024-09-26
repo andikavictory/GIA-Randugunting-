@@ -280,6 +280,7 @@ color: white;
     color: black;
 }
 #hero .subbtn-hero{
+    font-size: 1.2rem;
     position: absolute;
     top: -59px;
     left: 9.4px;
@@ -672,17 +673,7 @@ footer .copyright{
         width: 12rem;
         font-size: 1rem;
     }
-    #hero .container-subbtn .subbtn-hero:nth-child(1).active{
-    }
-    #hero .container-subbtn .subbtn-hero:nth-child(2).active{
-        left: 14rem;
-    }
-    #hero .container-subbtn .subbtn-hero:nth-child(3).active{
-        left: 27.5rem;
-    }
-    #hero .container-subbtn .subbtn-hero:nth-child(4).active{
-        left: 41rem;
-    }
+    
 }
 @media (max-width:1100px){
     .navbar .container-fluid .navbar-brand span {
