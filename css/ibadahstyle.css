@@ -87,3 +87,16 @@
         background-position: 200% 50%;
     }
 }
+
+/* event */
+#title-event{
+ font-size: 3rem;
+ color: black;
+ font-family: 'lora','sans';
+ font-weight: 500;
+}
+#subtitle-event{
+ font-size: 2.5rem;
+ color: black;
+ font-family: 'lora','sans';
+}
