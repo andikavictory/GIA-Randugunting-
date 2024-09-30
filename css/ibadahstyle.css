@@ -46,10 +46,33 @@
 .container-text{
     height: 80px;
     background:var(--pr-colorDark);
+    overflow: hidden;
+    position: relative;
     display: flex;
-    justify-content: center;
     align-items: center;
+    
 }
 .running-text{
+    font-size: 2.5rem;
     color: white;
+    font-family: 'playfair','sans';
+    font-weight: 900;
+    background:linear-gradient(to right,
+    #23DD05,
+    #02DCDC,
+    #B152FC,
+    #FAE105); 
+     color: transparent;
+     -webkit-background-clip:text;
+     animation: marquee 15s infinite linear; 
+     
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(175%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
 }

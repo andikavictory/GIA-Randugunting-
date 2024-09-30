@@ -82,6 +82,7 @@
 }
 .dropdownMenu li{
     padding: 2px 15px;
+    cursor: pointer;
 }
 .dropdownMenu li:hover{
     background-color: white;
@@ -108,7 +109,7 @@ color: white;
     font-family: 'poppins','sans';
     font-size: 1.2rem;
 }
-#submenu li a:hover{
+#submenu li:hover a{
     color: black;
     font-family: 'poppins','sans';
     font-size: 1.2rem;
@@ -453,7 +454,7 @@ color: white;
 #ibadah .container-button-ibadah{
     display: flex;
     flex-direction: column;
-    height: 30rem;
+    height: 35rem;
     margin: 0;
     padding:0 2rem;
     gap: 0;
