@@ -54,6 +54,7 @@
 }
 .running-text{
     font-size: 2.5rem;
+    text-wrap: nowrap;
     color: white;
     font-family: 'playfair','sans';
     font-weight: 900;
@@ -61,18 +62,28 @@
     #23DD05,
     #02DCDC,
     #B152FC,
-    #FAE105); 
+    #FAE105,
+    #23DD05);
+    background-size: 200% 100%;
      color: transparent;
      -webkit-background-clip:text;
-     animation: marquee 15s infinite linear; 
+     animation: marquee 15s infinite linear, backgroundMove 5s infinite linear; 
      
 }
 
 @keyframes marquee {
     from {
-        transform: translateX(175%);
+        transform: translateX(150%);
     }
     to {
         transform: translateX(-100%);
+    }
+}
+@keyframes backgroundMove {
+    from {
+        background-position: 0% 50%;
+    }
+    to {
+        background-position: 200% 50%;
     }
 }
