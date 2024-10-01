@@ -8,7 +8,9 @@ let subtitle = document.getElementById('subtitle-event')
     marquee.innerText = `${data} ~ GIA RANDUGUNTING`;
     const dataArray = data.split('~');
     title.innerText = dataArray[0];
-    subtitle.innerText = dataArray[1];
+    if(dataArray[1]){
+       subtitle.innerText = dataArray[1];
+    }
    }else{
     marquee.innerText = `Tidak ada data`;
    }
