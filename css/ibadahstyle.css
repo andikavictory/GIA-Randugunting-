@@ -102,8 +102,24 @@
     width: 20%;
     margin: 0px 20px;
     height: 95%;
-    background-color: var(--pr-colorDark);
+    background:linear-gradient(to top,var(--pr-colorDark),var(--sc-color));
     border-radius: 5px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5rem;
+    font-weight: 500;
+    position: relative;
+}
+.countdown-container .box::before{
+position: absolute;
+content: "";
+width: 115%;
+height: 115%;
+background:linear-gradient(to bottom,var(--pr-colorDark),var(--sc-color));
+z-index: -1;
+border-radius: 5px;
 }
 .countdown-container .box:nth-child(1){
     margin-left: 0px;

@@ -14,4 +14,48 @@ let subtitle = document.getElementById('subtitle-event')
    }else{
     marquee.innerText = `Tidak ada data`;
    }
+
+   // mendapatkan event time terdekat
+   function eventTime(){
+      const now = new Date();
+      const dayOfWeek = now.getDay();
+      const eventTimeOffset = (6-dayOfWeek+7)%7;
+      
+   // jika hari ini adalah event time dan untuk menghitung waktu selanjutnya
+   const nextEventDay = new Date();
+   nextEventDay.setDate(now.getDate()+(eventTimeOffset === 0 && now.getHours()>=18 && now.getMinutes()>=30 ? 7 : eventTimeOffset));
+   nextEventDay.setHours(18,30,0,0);
+   
+   return nextEventDay.getTime();
+   }
+
+
+   function startCountdown(){
+      const countdownDate = eventTime();
+
+      // update countdown setiap detik
+      const interval = setInterval(function(){
+         const now = new Date().getTime();
+         // menghitung selisih antara event time dan now
+         const distance = countdownDate - now;
+
+         // konversi
+         const day = Math.floor(distance/(1000*60*60*24));
+         const hours = Math.floor(distance % (1000*60*60*24)/(1000*60*60));
+         const minutes = Math.floor(distance % (1000*60*60)/(1000*60));
+         const seconds = Math.floor(distance % (1000*60)/1000);
+
+         // menampilkan countdown
+         document.querySelector('.day').innerText = day;
+         document.querySelector('.hour').innerText = hours;
+         document.querySelector('.minute').innerText = minutes;
+         document.querySelector('.second').innerText = seconds;
+
+          // Jika countdown selesai
+        if (distance < 0) {
+         clearInterval(interval); // Hentikan interval
+         setTimeout(startCountdown, 1000); // Mulai countdown untuk Sabtu berikutnya
+     }},1000);
+   }
+   startCountdown();
 })
