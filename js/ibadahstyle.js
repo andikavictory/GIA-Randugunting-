@@ -57,7 +57,7 @@ let subtitle = document.getElementById('subtitle-event')
             setTimeout(() => {
                element.innerText = value;
                element.classList.remove('active');
-            },995);
+            },950);
          }
         }
         timeMove(elementDay,days);
