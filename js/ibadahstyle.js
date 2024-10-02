@@ -40,16 +40,30 @@ let subtitle = document.getElementById('subtitle-event')
          const distance = countdownDate - now;
 
          // konversi
-         const day = Math.floor(distance/(1000*60*60*24));
+         const days = Math.floor(distance/(1000*60*60*24));
          const hours = Math.floor(distance % (1000*60*60*24)/(1000*60*60));
          const minutes = Math.floor(distance % (1000*60*60)/(1000*60));
          const seconds = Math.floor(distance % (1000*60)/1000);
 
          // menampilkan countdown
-         document.querySelector('.day').innerText = day;
-         document.querySelector('.hour').innerText = hours;
-         document.querySelector('.minute').innerText = minutes;
-         document.querySelector('.second').innerText = seconds;
+         let elementDay = document.querySelector('.day');
+         let elementHour = document.querySelector('.hour');
+         let elementMinute = document.querySelector('.minute');
+         let elementSecond = document.querySelector('.second');
+
+        function timeMove(element,value){
+         if(element.innerText != value){
+            element.classList.add('active');
+            setTimeout(() => {
+               element.innerText = value;
+               element.classList.remove('active');
+            },990);
+         }
+        }
+        timeMove(elementDay,days);
+        timeMove(elementHour,hours);
+        timeMove(elementMinute,minutes);
+        timeMove(elementSecond,seconds);
 
           // Jika countdown selesai
         if (distance < 0) {

@@ -102,11 +102,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 .countdown-container .box{
     width: 20%;
     margin: 0px 20px;
-    height: 95%;
+    height: 85%;
     background:linear-gradient(to top,var(--pr-colorDark),var(--sc-color));
     border-radius: 5px;
     color: white;
@@ -117,14 +118,17 @@
     font-weight: 500;
     position: relative;
 }
-.countdown-container .box::before{
-position: absolute;
-content: "";
-width: 115%;
-height: 115%;
-background:linear-gradient(to bottom,var(--pr-colorDark),var(--sc-color));
-z-index: -1;
-border-radius: 5px;
+.countdown-container .box .content-box{
+    position: absolute;
+    content: "";
+    width: 80%;
+    height: 80%;
+    background:linear-gradient(to bottom,var(--pr-colorDark),var(--sc-color));
+    z-index:1;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
 }
 .countdown-container .box:nth-child(1){
     margin-left: 0px;
@@ -137,12 +141,41 @@ border-radius: 5px;
     font-weight: 500;
     margin-bottom: 25px;
 }
-.decription-box{
+.countdown-container .decription-box{
+    position: absolute;
+    top: 7rem;
     font-size: 1.8rem;
     padding: 1rem;
     font-weight: 500;
     font-family: 'merriweather','sans';
 }
+.countdown-container .decription-box:nth-last-of-type(4){
+    left: 1%;
+}
+.countdown-container .decription-box:nth-last-of-type(3){
+    left: 30%;
+}
+.countdown-container .decription-box:nth-last-of-type(2){
+    left: 55%;
+}
+.countdown-container .decription-box:nth-last-of-type(1){
+    right: 0;
+}
+
+.box .time{
+    z-index: 1;
+    transform: translateY(0%);
+}
+.box .time.active{
+animation: timeMove 1s ease-in-out;
+}
+@keyframes timeMove{
+    0%{transform: translateY(0%)}
+    49.9%{transform: translateY(100%)}
+    50.1%{transform: translateY(-100%)}
+    100%{transform: translateY(0%)}
+}
+
 /* event */
 #title-event{
  font-size: 3rem;
