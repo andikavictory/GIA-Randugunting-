@@ -88,10 +88,15 @@
     }
 }
 
+/* title */
+.event-info-content{
+    margin-top: 30px;
+    margin-bottom: 10rem;
+}
+
 /* countdown */
+
 .countdown-container{
-    margin-top: 2rem;
-    margin-bottom: 5rem;
     width: 40rem;
     height: 8rem;
     display: flex;
@@ -131,6 +136,12 @@ border-radius: 5px;
     font-size: 100px;
     font-weight: 500;
     margin-bottom: 25px;
+}
+.decription-box{
+    font-size: 1.8rem;
+    padding: 1rem;
+    font-weight: 500;
+    font-family: 'merriweather','sans';
 }
 /* event */
 #title-event{
