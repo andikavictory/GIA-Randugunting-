@@ -72,4 +72,38 @@ let subtitle = document.getElementById('subtitle-event')
      }},1000);
    }
    startCountdown();
+
+
+
+
+   // carousel event
+   const iconLeft = document.getElementById('iconLeft');
+   const iconRight = document.getElementById('iconRight');
+   const items = document.querySelectorAll(".item");
+   const innerCarousel = document.querySelector('.inner-carousel');
+   let totalItems = items.length;
+   let currentIndex = Math.floor(totalItems/2); //lokasi saat ini
+   
+   function updateCarousel(){
+      innerCarousel.style.transform = `translateX(${(currentIndex-2) * -20}%)`;
+      iconLeft.style.display = (currentIndex === 0) ? "none" : "block";
+      iconRight.style.display = (currentIndex === totalItems - 1) ? "none" : "block";
+   }
+   iconLeft.addEventListener('click',function(){
+         if(currentIndex > 0){
+            items[currentIndex].classList.remove('active');
+            currentIndex--;
+            items[currentIndex].classList.add('active');
+            updateCarousel();
+         }
+
+   })
+   iconRight.addEventListener('click',function(){
+      if(currentIndex < totalItems - 1){
+         items[currentIndex].classList.remove('active');
+         currentIndex++;
+         items[currentIndex].classList.add('active');
+         updateCarousel();
+      }
+})
 })
