@@ -1049,6 +1049,13 @@ footer .copyright{
 
 }
 @media (max-width:400px){
+    footer .container-footer .row1 .col1{
+        margin: 0px 10px;
+    }
+    footer .container-footer .row1 .col1 .row2 {
+        font-size: 0.9rem;
+
+    }
     footer .container-footer .row1 .col1 .row3 .container-icon .feather{
         width: 20px;
     }

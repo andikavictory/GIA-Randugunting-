@@ -848,27 +848,71 @@ animation: timeMove 1s ease-in-out;
     }
 }
 @media (max-width:420px){
+    @keyframes marquee {
+        from {
+            transform: translateX(43%);
+        }
+        to {
+            transform: translateX(-100%);
+        }
+    }
     .countdown-container .box{
-        width: 10%;
-        height: 35%;
+        width: 11%;
+        height: 31%;
         font-size: 1.3rem;
     }
+    .countdown-container .decription-box{
+        top: 4.5rem;
+        font-size: 0.7rem;
+    }
     .countdown-container .decription-box:nth-last-of-type(4){
-        left: 16%;
+        left: 13%;
     }
     .countdown-container .decription-box:nth-last-of-type(3){
-        left: 35%;
+        left: 33.3%;
+    }
+    .countdown-container .decription-box:nth-last-of-type(2){
+        left: 52.5%;
     }
     .countdown-container .decription-box:nth-last-of-type(1){
-        left: 76%;
+        left: 77%;
     }
     .countdown-container p{
         font-size: 50px;
         font-weight: 400;
         margin-bottom: 15px;
     }
+    .description-container .description{
+        font-size: 0.7rem;
+    }
+    .description-container .btn-description{
+        width: 140px;
+        font-size: 0.6rem;
+    }  
+    .description-container .btn-description img{
+        bottom: 11px;
+        right: 7px;
+        width: 15px;
+        height: auto;
+    }
+    .container-ayat{
+        padding: 40px 1rem;
+        font-size: 0.8rem;
+    }
     .galeri .row .img{ 
         width: 10.5rem;
+    }
+    .event .container-carousel{
+        height: 17rem;
+}
+    .event .container-carousel .inner-carousel .item{
+        height: 8rem;
+        width: 6rem;
+        margin: 0px 0.7rem;
+    }
+    .event .container-carousel .inner-carousel .item.active{
+        height: 13.5rem;
+        width: 8rem;
     }
 }
 @media (max-width:340px){
