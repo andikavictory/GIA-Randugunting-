@@ -794,29 +794,32 @@ animation: timeMove 1s ease-in-out;
         margin-bottom: -2rem;
     }
     .countdown-container .box{
-        width: 10%;
+        width: 14%;
         margin: 0px 10px;
-        height: 40%;
-        font-size: 1.5rem;
+        height: 45%;
+        font-size: 1.9rem;
     }
     .countdown-container .decription-box{
         top: 5rem;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
     .countdown-container{
         margin-bottom: -4rem;
     }
     .countdown-container .decription-box:nth-last-of-type(4){
-        left: 17.5%;
+        left: 11.5%;
     }
     .countdown-container .decription-box:nth-last-of-type(3){
-        left: 36%;
+        left: 34%;
     }
     .countdown-container .decription-box:nth-last-of-type(2){
-        left: 52.5%;
+        left: 54%;
     }
     .countdown-container .decription-box:nth-last-of-type(1){
-        left: 74.5%;
+        left: 81%;
+    }
+    .countdown-container p{
+        font-weight: 400;
     }
     .content-event .col-12:nth-child(1){
         font-size: 15px;
@@ -857,25 +860,25 @@ animation: timeMove 1s ease-in-out;
         }
     }
     .countdown-container .box{
-        width: 12%;
-        height: 35%;
-        font-size: 1.5rem;
+        width: 14%;
+        height: 38%;
+        font-size: 1.6rem;
     }
     .countdown-container .decription-box{
         top: 4.5rem;
-        font-size: 0.7rem;
+        font-size: 0.8rem;
     }
     .countdown-container .decription-box:nth-last-of-type(4){
-        left: 14.5%;
+        left: 11.5%;
     }
     .countdown-container .decription-box:nth-last-of-type(3){
-        left: 35%;
+        left: 34%;
     }
     .countdown-container .decription-box:nth-last-of-type(2){
-        left: 53%;
+        left: 54%;
     }
     .countdown-container .decription-box:nth-last-of-type(1){
-        left: 77%;
+        left: 80%;
     }
     .countdown-container p{
         font-size: 50px;
