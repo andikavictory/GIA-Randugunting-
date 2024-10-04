@@ -1084,7 +1084,7 @@ footer .copyright{
     
 }
 
-@media (max-width:900px) and (max-height:660px){
+@media (max-width:900px) and (max-height:550px){
     #navbar{
         width: 1rem!important;
         height: 100vh;
@@ -1116,10 +1116,4 @@ footer .copyright{
     #hero .btn-hero {
         display: none;
     }
-}
-@media (hover: none){
-    #hero .btn-hero {
-        background-color: transparent;
-    }
-
-}
+};

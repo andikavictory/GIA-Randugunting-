@@ -24,6 +24,10 @@
     color: rgb(252, 252, 252) !important;
 }
 
+#hamburger .feather{
+    stroke: black;
+}
+
 /* hero section */
 .hero{
     background: url(../img/ibadah/hero.jpg);
@@ -402,7 +406,7 @@ animation: timeMove 1s ease-in-out;
     width: 100%;
     height: auto;
     box-shadow:3px 3px 6px black;
-    border-radius: 50px;
+    border-radius: 5px;
 }
 
 /* event */
@@ -426,7 +430,7 @@ animation: timeMove 1s ease-in-out;
 .event .container-carousel{
     margin: 0px auto 9rem;
     width: 80%;
-    height: 40rem;
+    height: 45rem;
     background:var(--pr-colorDark);
     position: relative;
     border-radius: 10px;  
@@ -491,5 +495,435 @@ animation: timeMove 1s ease-in-out;
     }
     .container-ayat{
         font-size: 1.9rem;
+    }
+}
+@media (max-width:1115px){
+    .description-container .description{
+        font-size: 18px;
+    }
+    .container-ayat{
+        font-size: 1.6rem;
+    }
+}
+@media (max-width:991px){
+    #navbarNav .nav-item a{
+        color: white;
+    }
+    #navbar .container-fluid .navbar-brand span.active{
+        color: white;
+    }
+    .navbar-brand img{
+        scale: 1.4;
+    }
+    #hamburger .feather{
+        width: 60px;
+        height: auto;
+    }
+    .dropdownMenu li:hover{
+        background-color: rgb(1, 0, 78) !important;
+    }
+    .event-info-content{
+        margin-bottom: 7rem;
+    }
+    #title-event{
+        font-size: 40px;
+    }
+    #subtitle-event{
+        font-size: 30px;
+        margin-bottom: -2rem;
+    }
+    .countdown-container{
+        margin-bottom: -2.5rem;
+    }
+    .countdown-container .box{
+        width: 10%;
+        margin: 0px 10px;
+        height: 55%;
+        font-size: 2.2rem;
+    }
+    .countdown-container .box .content-box{
+        width: 82%;
+        height: 82%;
+    }
+    .countdown-container p{
+        font-size: 60px;
+        margin-bottom: 20px;
+    }
+    .countdown-container .decription-box{
+        top: 5.5rem;
+        font-size: 1.1rem;
+    }
+    .countdown-container .decription-box:nth-last-of-type(4){
+        left: 22.5%;
+    }
+    .countdown-container .decription-box:nth-last-of-type(3){
+        left: 38.2%;
+    }
+    .countdown-container .decription-box:nth-last-of-type(2){
+        left: 52%;
+    }
+    .countdown-container .decription-box:nth-last-of-type(1){
+        right: 19.8%;
+    }
+    .content-event .col-12:nth-child(1){
+        font-size: 20px;
+    }
+    
+    .content-event .col-12:nth-child(2){
+        font-size: 50px;
+    }
+    .content-event .col-12:nth-child(3) .btn-event{
+        font-size: 15px;
+    }
+    .description-container{
+        padding-bottom: 20px;
+    }
+    .description-container .description{
+        font-size: 16px;
+        margin-bottom:20px;
+    }
+    .container-ayat{
+        font-size: 1.3rem;
+    }
+    .description-container .btn-description{
+        width: 240px;
+        font-size: 1.2rem;
+    }   
+    .description-container .btn-description img{
+        bottom: 13px;
+        right: 10px;
+        width: 25px;
+    }
+    .galeri .title{
+        font-size: 3rem;
+    }
+
+    .galeri .row .img{
+        padding: 1rem;
+    }
+    .event .title{
+        font-size: 3rem;
+    }
+    .event .container-carousel{
+        height: 25rem;
+}
+    .event .container-carousel .inner-carousel .item{
+        height: 11rem;
+        width: 8rem;
+        margin: 0px 1rem;
+    }
+    .event .container-carousel .inner-carousel .item.active{
+        height: 20rem;
+        width: 15rem;
+    }
+}
+@media (max-width:768px){
+    .countdown-container{
+        width: 100rem;
+    }
+    .img-container-event .img-small{
+        width: 40%;
+
+        
+    }
+    .img-container-event .img-large{
+        width: 60%;
+    }
+    .img-container-event{
+        margin-bottom: 5rem;
+    }
+    .content-event{
+        margin-bottom: -1rem;
+    }
+    .description-container .description{
+        font-size: 14px;
+        margin-bottom:20px;
+    }
+    .container-ayat{
+        font-size: 1rem;
+    }
+    .description-container .btn-description{
+        width: 180px;
+        font-size: 0.8rem;
+    }  
+    .description-container .btn-description img{
+        bottom: 12px;
+        right: 8px;
+        width: 20px;
+        height: auto;
+    }
+    .galeri .row .img{
+        padding: 2rem; 
+    }
+}
+@media (max-width:620px){
+    .navbar-brand img{
+        scale: 1;
+    }
+    .container-text{
+        height: 50px;
+        
+    }
+    .running-text{
+        font-size: 1.7rem!important;
+    }
+    @keyframes marquee {
+        from {
+            transform: translateX(73%);
+        }
+        to {
+            transform: translateX(-100%);
+        }
+    }
+    .countdown-container .box{
+        width: 12%;
+        margin: 0px 10px;
+        height: 55%;
+        font-size: 2.3rem;
+    }
+    .countdown-container .decription-box{
+        top: 5.5rem;
+        font-size: 1.1rem;
+    }
+    .countdown-container .decription-box:nth-last-of-type(4){
+        left: 18.5%;
+    }
+    .countdown-container .decription-box:nth-last-of-type(3){
+        left: 37%;
+    }
+    .countdown-container .decription-box:nth-last-of-type(2){
+        left: 53%;
+    }
+    .countdown-container .decription-box:nth-last-of-type(1){
+        left: 76%;
+    }
+    .img-container-event .img-small{
+        width: 60%;
+    }
+    .img-container-event .img-large{
+        width: 80%;
+    }
+    .galeri .row .img{
+        padding: 1rem; 
+    }
+}
+@media (max-width:520px){
+    #title-event{
+        font-size: 35px;
+    }
+    #subtitle-event{
+        font-size: 25px;
+        margin-bottom: -2rem;
+    }
+    .countdown-container .box{
+        width: 14%;
+        margin: 0px 10px;
+        height: 55%;
+        font-size: 2.3rem;
+    }
+    .countdown-container .decription-box{
+        top: 5.5rem;
+        font-size: 1.1rem;
+    }
+    .countdown-container .decription-box:nth-last-of-type(4){
+        left: 13%;
+    }
+    .countdown-container .decription-box:nth-last-of-type(3){
+        left: 34%;
+    }
+    .countdown-container .decription-box:nth-last-of-type(2){
+        left: 53%;
+    }
+    .countdown-container .decription-box:nth-last-of-type(1){
+        left: 80%;
+    }
+    .description-container{
+        padding: 40px 2rem;
+    }
+    .container-ayat{
+        padding: 40px 2rem;
+    }
+    .galeri{
+        width: 100vw;
+    }
+    .img{
+        width: 16rem;
+    }
+    .event .container-carousel{
+        height: 32rem;
+}
+    .event .container-carousel .inner-carousel .item{
+        height: 15rem;
+        width: 8rem;
+        margin: 0px 0.7rem;
+    }
+    .event .container-carousel .inner-carousel .item.active{
+        height: 22rem;
+        width: 15rem;
+    }
+}
+@media (max-width:455px){
+    #title-event{
+        font-size: 30px;
+    }
+    #subtitle-event{
+        font-size: 20px;
+        margin-bottom: -2rem;
+    }
+    .countdown-container .box{
+        width: 10%;
+        margin: 0px 10px;
+        height: 40%;
+        font-size: 1.5rem;
+    }
+    .countdown-container .decription-box{
+        top: 5rem;
+        font-size: 0.8rem;
+    }
+    .countdown-container{
+        margin-bottom: -4rem;
+    }
+    .countdown-container .decription-box:nth-last-of-type(4){
+        left: 17.5%;
+    }
+    .countdown-container .decription-box:nth-last-of-type(3){
+        left: 36%;
+    }
+    .countdown-container .decription-box:nth-last-of-type(2){
+        left: 52.5%;
+    }
+    .countdown-container .decription-box:nth-last-of-type(1){
+        left: 74.5%;
+    }
+    .content-event .col-12:nth-child(1){
+        font-size: 15px;
+    }
+    
+    .content-event .col-12:nth-child(2){
+        font-size: 40px;
+    }
+    .content-event .col-12:nth-child(3) .btn-event{
+        font-size: 13px;
+        border-radius: 10px;
+        width: 7.8rem;
+        margin-top: 5px;
+    }
+    .img{
+        width: 13rem;
+    }
+    .event .container-carousel{
+        height: 32rem;
+}
+    .event .container-carousel .inner-carousel .item{
+        height: 15rem;
+        width: 8rem;
+        margin: 0px 0.7rem;
+    }
+    .event .container-carousel .inner-carousel .item.active{
+        height: 22rem;
+        width: 15rem;
+    }
+}
+@media (max-width:420px){
+    .countdown-container .box{
+        width: 10%;
+        height: 35%;
+        font-size: 1.3rem;
+    }
+    .countdown-container .decription-box:nth-last-of-type(4){
+        left: 16%;
+    }
+    .countdown-container .decription-box:nth-last-of-type(3){
+        left: 35%;
+    }
+    .countdown-container .decription-box:nth-last-of-type(1){
+        left: 76%;
+    }
+    .countdown-container p{
+        font-size: 50px;
+        font-weight: 400;
+        margin-bottom: 15px;
+    }
+    .img{
+        width: 10rem;
+    }
+}
+@media (max-width:340px){
+    @keyframes marquee {
+        from {
+            transform: translateX(40%);
+        }
+        to {
+            transform: translateX(-100%);
+        }
+    }
+    #title-event{
+        font-size: 25px;
+    }
+    #subtitle-event{
+        font-size: 15px;
+    }
+    .countdown-container{
+        margin-top: -1rem;
+    }
+    .countdown-container .box{
+        width: 14%;
+        margin: 0px 10px;
+        height: 40%;
+        font-size: 1.5rem;
+    }
+    .countdown-container .decription-box{
+        top: 4.8rem;
+        font-size: 0.7rem;
+    }
+    .countdown-container{
+        margin-bottom: -4rem;
+    }
+    .countdown-container .decription-box:nth-last-of-type(4){
+        left: 6%;
+    }
+    .countdown-container .decription-box:nth-last-of-type(3){
+        left: 31%;
+    }
+    .countdown-container .decription-box:nth-last-of-type(2){
+        left: 52.8%;
+    }
+    .countdown-container .decription-box:nth-last-of-type(1){
+        left: 83%;
+    }
+    .description-container{
+        padding: 40px 1rem;
+        
+    }
+    .description-container .description{
+    font-size: 0.8rem;
+    }
+    .container-ayat{
+        padding: 40px 1rem;
+        font-size: 0.75rem;
+    }
+    .event .container-carousel{
+        height: 17rem;
+}
+    .event .container-carousel .inner-carousel .item{
+        height: 8rem;
+        width: 6rem;
+        margin: 0px 0.7rem;
+    }
+    .event .container-carousel .inner-carousel .item.active{
+        height: 13.5rem;
+        width: 8rem;
+    }
+    .icon-carousel:nth-last-of-type(1){
+        top: 65%;
+        left: 93%;
+        width: 2.5rem;
+        height: auto;
+    }
+    .icon-carousel:nth-last-of-type(2){
+        top: 65%;
+        left: 7%;
+        width: 2.5rem;
+        height: auto;
     }
 }
