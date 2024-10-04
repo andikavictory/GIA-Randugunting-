@@ -857,22 +857,22 @@ animation: timeMove 1s ease-in-out;
         }
     }
     .countdown-container .box{
-        width: 11%;
-        height: 31%;
-        font-size: 1.3rem;
+        width: 12%;
+        height: 35%;
+        font-size: 1.5rem;
     }
     .countdown-container .decription-box{
         top: 4.5rem;
         font-size: 0.7rem;
     }
     .countdown-container .decription-box:nth-last-of-type(4){
-        left: 13%;
+        left: 14.5%;
     }
     .countdown-container .decription-box:nth-last-of-type(3){
-        left: 33.3%;
+        left: 35%;
     }
     .countdown-container .decription-box:nth-last-of-type(2){
-        left: 52.5%;
+        left: 53%;
     }
     .countdown-container .decription-box:nth-last-of-type(1){
         left: 77%;
@@ -911,7 +911,7 @@ animation: timeMove 1s ease-in-out;
         margin: 0px 0.7rem;
     }
     .event .container-carousel .inner-carousel .item.active{
-        height: 11rem;
+        height: 12rem;
         width: 8rem;
     }
 }
