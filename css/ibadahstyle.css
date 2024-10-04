@@ -506,6 +506,16 @@ animation: timeMove 1s ease-in-out;
     }
 }
 @media (max-width:991px){
+    .hero{
+        background: url(../img/ibadah/hero.jpg);
+        width:100%;
+        height: 50vh;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 90%;
+        background-attachment:none;
+        position: relative;
+    }
     #navbarNav .nav-item a{
         color: white;
     }
@@ -705,6 +715,19 @@ animation: timeMove 1s ease-in-out;
     }
     .galeri .row .img{
         padding: 1rem; 
+        width: 14rem;
+    }
+    .icon-carousel:nth-last-of-type(1){
+        top: 65%;
+        left: 93%;
+        width: 2.5rem;
+        height: auto;
+    }
+    .icon-carousel:nth-last-of-type(2){
+        top: 65%;
+        left: 7%;
+        width: 2.5rem;
+        height: auto;
     }
 }
 @media (max-width:520px){
@@ -808,7 +831,7 @@ animation: timeMove 1s ease-in-out;
         width: 7.8rem;
         margin-top: 5px;
     }
-    .img{
+    .galeri .row .img{ 
         width: 13rem;
     }
     .event .container-carousel{
@@ -844,8 +867,8 @@ animation: timeMove 1s ease-in-out;
         font-weight: 400;
         margin-bottom: 15px;
     }
-    .img{
-        width: 10rem;
+    .galeri .row .img{ 
+        width: 10.5rem;
     }
 }
 @media (max-width:340px){
@@ -898,6 +921,9 @@ animation: timeMove 1s ease-in-out;
     .description-container .description{
     font-size: 0.8rem;
     }
+    .galeri .row .img{ 
+        width: 9rem;
+    }
     .container-ayat{
         padding: 40px 1rem;
         font-size: 0.75rem;
@@ -914,16 +940,5 @@ animation: timeMove 1s ease-in-out;
         height: 13.5rem;
         width: 8rem;
     }
-    .icon-carousel:nth-last-of-type(1){
-        top: 65%;
-        left: 93%;
-        width: 2.5rem;
-        height: auto;
-    }
-    .icon-carousel:nth-last-of-type(2){
-        top: 65%;
-        left: 7%;
-        width: 2.5rem;
-        height: auto;
-    }
+
 }
