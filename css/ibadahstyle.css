@@ -397,9 +397,18 @@ animation: timeMove 1s ease-in-out;
     font-family: 'merriweather';
     margin-bottom: 2rem;
 }
+.pagination .page-item {
+    cursor: pointer;
+}
 .pagination .page-item a{
-    border:1px solid rgba(0, 0, 0,0.4);
+    border:1px solid rgba(0, 0, 0,0.6);
     color: black;
+    font-size: 1.8rem;
+    padding: 10px 20px;
+}
+.pagination .page-item.active a{
+    background-color: var(--sc-color);
+    color: white;
 }
 .galeri .row .img{
     padding: 2rem;
@@ -607,6 +616,11 @@ animation: timeMove 1s ease-in-out;
         bottom: 13px;
         right: 10px;
         width: 25px;
+        height: 27px;
+    }
+    .description-container .btn-description::after{
+        width: 16%;
+        height: 80%;
     }
     .galeri .title{
         font-size: 3rem;
@@ -837,6 +851,17 @@ animation: timeMove 1s ease-in-out;
         border-radius: 10px;
         width: 7.8rem;
         margin-top: 5px;
+    }
+    .description-container .btn-description img{
+        bottom: 13px;
+        left: 82%;
+        width: 25px;
+        height: 27px;
+    }
+    .description-container .btn-description::after{
+        width: 18%;
+        height: 75%;
+        left: 87%;
     }
     .galeri .row .img{ 
         width: 13rem;
