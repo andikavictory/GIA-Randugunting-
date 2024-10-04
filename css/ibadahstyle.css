@@ -397,6 +397,10 @@ animation: timeMove 1s ease-in-out;
     font-family: 'merriweather';
     margin-bottom: 2rem;
 }
+.pagination .page-item a{
+    border:1px solid rgba(0, 0, 0,0.4);
+    color: black;
+}
 .galeri .row .img{
     padding: 2rem;
     object-fit: cover;

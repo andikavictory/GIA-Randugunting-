@@ -104,7 +104,30 @@ document.addEventListener('DOMContentLoaded', function(){
    
    
    
-   
+      // pagination galeri
+      const galeriContainer = document.querySelector('.galeri-items');
+      const parentPage = document.querySelector('.pagination');
+      let images = Array.from(galeriContainer.children);
+      let maxImages = 12;
+      let pageNow = 1;
+
+      function showPage(page){
+         const start = (page -1 ) * maxImages;
+         const end = start + maxImages;
+
+         images.forEach((image,index)=>{
+            image.style.display = (index >= start && index < end) ? "block" : "none";
+         })
+
+        let page = Math.floor(images/maxImages);
+        for(let i = 1;i >= page;i++){
+         let newPage = document.createElement('li');
+        }
+        
+      }
+
+      showPage(pageNow);
+
       // carousel event
       const iconLeft = document.getElementById('iconLeft');
       const iconRight = document.getElementById('iconRight');
