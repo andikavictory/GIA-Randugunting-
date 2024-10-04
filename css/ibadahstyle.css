@@ -883,7 +883,7 @@ animation: timeMove 1s ease-in-out;
     .countdown-container p{
         font-size: 50px;
         font-weight: 400;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
     }
     .description-container .description{
         font-size: 0.7rem;
@@ -916,6 +916,20 @@ animation: timeMove 1s ease-in-out;
     .event .container-carousel .inner-carousel .item.active{
         height: 12rem;
         width: 8rem;
+    }
+}
+@media (max-width:380px){
+    .countdown-container .decription-box:nth-last-of-type(4){
+        left: 9%;
+    }
+    .countdown-container .decription-box:nth-last-of-type(3){
+        left: 32%;
+    }
+    .countdown-container .decription-box:nth-last-of-type(2){
+        left: 53.5%;
+    }
+    .countdown-container .decription-box:nth-last-of-type(1){
+        left: 81.5%;
     }
 }
 @media (max-width:340px){
