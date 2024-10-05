@@ -72,10 +72,10 @@ document.addEventListener('DOMContentLoaded', function(){
       timeEvent.innerText = database.waktu[eventIndex];
 
 
-      eventHero.style.background = databackground[eventIndex];
-      eventHero.style.backgroundSize = `cover`;
-      eventHero.style.backgroundRepeat = `no-repeat`;
-      eventHero.style.backgroundPosition = `50% 40%`;
+      // eventHero.style.background = databackground[eventIndex];
+      // eventHero.style.backgroundSize = `cover`;
+      // eventHero.style.backgroundRepeat = `no-repeat`;
+      // eventHero.style.backgroundPosition = `50% 40%`;
 
       // menambahkan Title
       title.innerText = database.sie[eventIndex];
