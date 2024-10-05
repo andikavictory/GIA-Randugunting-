@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function(){
    // get API Spreadsheet
    const API_KEY = "AIzaSyDv7Vs4gYRG0wgsX_hwiqSU1K5hFd_NY_g";
    const SHEET_ID= "102qEJ5r79KoA2KRDl85knGxm2au9XDZPDmHq6mW96Tc";
-   const RANGE= "Sheet1!A2:M";
+   const RANGE= "Sheet1!A2:N";
 
    async function fetchData(){
       try{
@@ -23,9 +23,10 @@ document.addEventListener('DOMContentLoaded', function(){
          const sieAcara = row.map(row => row[10]);
          const humas = row.map(row => row[11]);
          const sieMusik = row.map(row => row[12]);
+         const backgroundHero = row.map(row => row[13]);
          
 
-      return {id,sie,singkatan,hari,waktu,deskripsi,ayat,ketua,sekertaris,bendahara,sieAcara,humas,sieMusik}; 
+      return {id,sie,singkatan,hari,waktu,deskripsi,ayat,ketua,sekertaris,bendahara,sieAcara,humas,sieMusik,backgroundHero}; 
    } 
    // menampilkan jika error
    catch (error) {
@@ -47,6 +48,26 @@ document.addEventListener('DOMContentLoaded', function(){
       const database = await fetchData();
       const eventIndex = database.id.findIndex(item => item === data);
      
+
+      // background hero sesuai index
+      const eventHero = document.querySelector('.hero');
+      
+      const databackground = [
+         "../img/ibadah/background/umum.jpg",
+         "../img/ibadah/background/TPI.jpg",
+         "../img/ibadah/background/komsel_Bethesda.jpg",
+         "../img/ibadah/background/Komsel_Bethel.jpg",
+         "../img/ibadah/background/komsel_Betlehem.jpg",
+         "../img/ibadah/background/PPK.jpg",
+         "../img/ibadah/background/PWK.jpg",
+         "../img/ibadah/background/PRBK.jpg",
+         "../img/ibadah/background/KAA.jpg",
+      ]
+      eventHero.style.background = `url(${databackground[eventIndex]})`;
+      eventHero.style.backgroundSize = `cover`;
+      eventHero.style.backgroundRepeat = `no-repeat`;
+      eventHero.style.backgroundPosition = `50% 40%`;
+
       // menambahkan Title
       title.innerText = database.sie[eventIndex];
       // jika ada tambahkan kepanjangan
@@ -56,15 +77,25 @@ document.addEventListener('DOMContentLoaded', function(){
          subtitle.innerText = "";
       }
       // text berjalan
-      marquee.innerText = database.sie[eventIndex] + " ~ " + cekSingkatan() +  "GIA RANDUGUNTING";
+      marquee.innerText = cekSingkatan();
    
-      function cekSingkatan(){
-         if(typeof database.singkatan[eventIndex] !== "undefined"){
-            return database.singkatan[eventIndex] + " ~ ";
-         }else{
-            return "";
+      function cekSingkatan() {
+         const singkatan = database.singkatan[eventIndex];
+     
+         if (singkatan === undefined || singkatan === "" || singkatan === null) {  // Cek juga apakah kosong atau null
+             return database.sie[eventIndex] + " ~ " + "GIA RANDUGUNTING";
+         } else {
+             return database.sie[eventIndex] + " ~ " + singkatan + " ~ " + "GIA RANDUGUNTING";
          }
-      }
+     }
+
+   //   mengambil deskripsi dan container-ayat
+     const eventDeskripsi = document.querySelector('.description');
+     const eventAyat = document.querySelector('.container-ayat');
+
+     eventDeskripsi.innerText = database.deskripsi[eventIndex];
+     eventAyat.innerText = database.ayat[eventIndex];
+
    }
    displayData();
 
@@ -96,24 +127,38 @@ document.addEventListener('DOMContentLoaded', function(){
       // mendapatkan event time terdekat
        async function eventTime(){
          const database = await fetchData();
+
+         // mendaoatkan jam menit detik mili detik sesuai dengan index yang di mau
          const eventIndex = database.id.findIndex(item => item === data);
          const times = database.waktu[eventIndex];
          const timesArray = times.split(':');
-         const hour = parseInt(timesArray[0]);
-         const minute = parseInt(timesArray[1]);
-         const s = 0;
-         const ms = 0;
+         const eventHour = parseInt(timesArray[0]);
+         const eventMinute = parseInt(timesArray[1]);
+         const eventSecond = 0;
+         const eventMiliSecond = 0;
 
+         // mendapatkan hari
+         const Days = {
+            "Senin" : 1,
+            "Selasa" : 2,
+            "Rabu" : 3,
+            "Kamis" : 4,
+            "Jumat" : 5,
+            "Sabtu" : 6,
+            "Minggu" : 7,
+         }
+         const eventDay = database.hari[eventIndex];
+         const numberDay = Days[eventDay];
 
-
+         // mengambil hari ini
          const now = new Date();
          const dayOfWeek = now.getDay();
-         const eventTimeOffset = (6-dayOfWeek+7)%7;
+         const eventTimeOffset = (numberDay-dayOfWeek+7)%7;
          
       // jika hari ini adalah event time dan untuk menghitung waktu selanjutnya
       const nextEventDay = new Date();
-      nextEventDay.setDate(now.getDate()+(eventTimeOffset === 0 && now.getHours()>=hour && now.getMinutes()>=minute ? 7 : eventTimeOffset));
-      nextEventDay.setHours(hour,minute,s,ms);
+      nextEventDay.setDate(now.getDate()+(eventTimeOffset === 0 && now.getHours()>=eventHour && now.getMinutes()>=eventMinute ? 7 : eventTimeOffset));
+      nextEventDay.setHours(eventHour,eventMinute,eventSecond,eventMiliSecond);
       
       return nextEventDay.getTime();
       }
