@@ -63,6 +63,15 @@ document.addEventListener('DOMContentLoaded', function(){
          "../img/ibadah/background/PRBK.jpg",
          "../img/ibadah/background/KAA.jpg",
       ]
+
+      // content event
+      const dayEvent = document.querySelector('.dayEvent');
+      const timeEvent = document.querySelector('.timeEvent');
+
+      dayEvent.innerText = database.hari[eventIndex];
+      timeEvent.innerText = database.waktu[eventIndex];
+
+
       eventHero.style.background = `url(${databackground[eventIndex]})`;
       eventHero.style.backgroundSize = `cover`;
       eventHero.style.backgroundRepeat = `no-repeat`;
