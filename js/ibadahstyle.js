@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function(){
    // get API Spreadsheet
    const API_KEY = "AIzaSyDv7Vs4gYRG0wgsX_hwiqSU1K5hFd_NY_g";
    const SHEET_ID= "102qEJ5r79KoA2KRDl85knGxm2au9XDZPDmHq6mW96Tc";
-   const RANGE= "Sheet1!A2:L";
+   const RANGE= "Sheet1!A2:M";
 
    async function fetchData(){
       try{
@@ -10,20 +10,22 @@ document.addEventListener('DOMContentLoaded', function(){
          const data = await response.json();
          
          const row = data.values;
-         const sie = row.map(row => row[0]);
-         const hari = row.map(row => row[1]);
-         const waktu = row.map(row => row[2]);
-         const deskripsi = row.map(row => row[3]);
-         const ayat = row.map(row => row[4]);
-         const ketua = row.map(row => row[5]);
-         const sekertaris = row.map(row => row[6]);
-         const bendahara = row.map(row => row[7]);
-         const sieAcara = row.map(row => row[8]);
-         const humas = row.map(row => row[9]);
-         const sieMusik = row.map(row => row[10]);
+         const id = row.map(row => row[0]);
+         const sie = row.map(row => row[1]);
+         const singkatan = row.map(row => row[2]);
+         const hari = row.map(row => row[3]);
+         const waktu = row.map(row => row[4]);
+         const deskripsi = row.map(row => row[5]);
+         const ayat = row.map(row => row[6]);
+         const ketua = row.map(row => row[7]);
+         const sekertaris = row.map(row => row[8]);
+         const bendahara = row.map(row => row[9]);
+         const sieAcara = row.map(row => row[10]);
+         const humas = row.map(row => row[11]);
+         const sieMusik = row.map(row => row[12]);
          
 
-      return {sie,hari,waktu,deskripsi,ayat,ketua,sekertaris,bendahara,sieAcara,humas,sieMusik}; 
+      return {id,sie,singkatan,hari,waktu,deskripsi,ayat,ketua,sekertaris,bendahara,sieAcara,humas,sieMusik}; 
    } 
    // menampilkan jika error
    catch (error) {
@@ -36,12 +38,37 @@ document.addEventListener('DOMContentLoaded', function(){
    // }
    // displayData();
    
+   const data = localStorage.getItem('setEvent');
+   console.log(typeof data);
+
+
+
+   async function displayData() {
+      const database = await fetchData();
+      const eventIndex = database.id.findIndex(item => item === data);
+     
+      // menambahkan Title
+      title.innerText = database.sie[eventIndex];
+      // jika ada tambahkan kepanjangan
+      if(typeof database.sie[eventIndex] !== "undefined"){
+      subtitle.innerText = database.singkatan[eventIndex];
+      }
+      marquee.innerText = database.sie[eventIndex] + " ~ " + cekSingkatan() +  "GIA Randugunting";
    
+      function cekSingkatan(){
+         if(typeof database.singkatan[eventIndex] !== "undefined"){
+            return database.singkatan[eventIndex] + " ~ ";
+         }else{
+            return "";
+         }
+      }
+   }
+   displayData();
 
 
    
    
-   const data = localStorage.getItem('dataIbadah');
+  
    let marquee = document.querySelector('.running-text');
    let title = document.getElementById('title-event');
    let subtitle = document.getElementById('subtitle-event')
@@ -64,25 +91,24 @@ document.addEventListener('DOMContentLoaded', function(){
    })
    
    
-   if(data){
-       marquee.innerText = `${data} ~ GIA RANDUGUNTING`;
-       const dataArray = data.split('~');
-       title.innerText = dataArray[0];
-       if(dataArray[1]){
-          subtitle.innerText = dataArray[1];
-       }
-      }else{
-       marquee.innerText = `Tidak ada data`;
-      }
+   // if(data){
+   //     marquee.innerText = `${data} ~ GIA RANDUGUNTING`;
+   //     const dataArray = data.split('~');
+   //     title.innerText = dataArray[0];
+   //     if(dataArray[1]){
+   //        subtitle.innerText = dataArray[1];
+   //     }
+   //    }else{
+   //     marquee.innerText = `Tidak ada data`;
+   //    }
    
       // mendapatkan event time terdekat
-      async function eventTime(){
-         const data = await fetchData();
-         const times = data.waktu;
-         const timesArray = times.map(times => times.split(':'));
-         const hour = timesArray.map(hour => hour[0]);
-         const minute = timesArray.map(hour => hour[1]);
-         console.log(hour,minute);
+       function eventTime(){
+         // const data = await fetchData();
+         // const times = data.waktu;
+         // const timesArray = times.map(times => times.split(':'));
+         // const hour = timesArray.map(hour => hour[0]);
+         // const minute = timesArray.map(hour => hour[1]);
          const now = new Date();
          const dayOfWeek = now.getDay();
          const eventTimeOffset = (6-dayOfWeek+7)%7;
