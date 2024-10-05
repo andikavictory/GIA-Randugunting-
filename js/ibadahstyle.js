@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function(){
          
          const row = data.values;
          const id = row.map(row => row[0]);
-         const sie = row.map(row => row[1]);
+         const sie = row.map(row => row[1].toUpperCase());
          const singkatan = row.map(row => row[2]);
          const hari = row.map(row => row[3]);
          const waktu = row.map(row => row[4]);
@@ -50,10 +50,13 @@ document.addEventListener('DOMContentLoaded', function(){
       // menambahkan Title
       title.innerText = database.sie[eventIndex];
       // jika ada tambahkan kepanjangan
-      if(typeof database.sie[eventIndex] !== "undefined"){
+      if(typeof database.singkatan[eventIndex] !== "undefined"){
       subtitle.innerText = database.singkatan[eventIndex];
+      }else{
+         subtitle.innerText = "";
       }
-      marquee.innerText = database.sie[eventIndex] + " ~ " + cekSingkatan() +  "GIA Randugunting";
+      // text berjalan
+      marquee.innerText = database.sie[eventIndex] + " ~ " + cekSingkatan() +  "GIA RANDUGUNTING";
    
       function cekSingkatan(){
          if(typeof database.singkatan[eventIndex] !== "undefined"){
@@ -90,40 +93,34 @@ document.addEventListener('DOMContentLoaded', function(){
       },500); 
    })
    
-   
-   // if(data){
-   //     marquee.innerText = `${data} ~ GIA RANDUGUNTING`;
-   //     const dataArray = data.split('~');
-   //     title.innerText = dataArray[0];
-   //     if(dataArray[1]){
-   //        subtitle.innerText = dataArray[1];
-   //     }
-   //    }else{
-   //     marquee.innerText = `Tidak ada data`;
-   //    }
-   
       // mendapatkan event time terdekat
-       function eventTime(){
-         // const data = await fetchData();
-         // const times = data.waktu;
-         // const timesArray = times.map(times => times.split(':'));
-         // const hour = timesArray.map(hour => hour[0]);
-         // const minute = timesArray.map(hour => hour[1]);
+       async function eventTime(){
+         const database = await fetchData();
+         const eventIndex = database.id.findIndex(item => item === data);
+         const times = database.waktu[eventIndex];
+         const timesArray = times.split(':');
+         const hour = parseInt(timesArray[0]);
+         const minute = parseInt(timesArray[1]);
+         const s = 0;
+         const ms = 0;
+
+
+
          const now = new Date();
          const dayOfWeek = now.getDay();
          const eventTimeOffset = (6-dayOfWeek+7)%7;
          
       // jika hari ini adalah event time dan untuk menghitung waktu selanjutnya
       const nextEventDay = new Date();
-      nextEventDay.setDate(now.getDate()+(eventTimeOffset === 0 && now.getHours()>=18 && now.getMinutes()>=30 ? 7 : eventTimeOffset));
-      nextEventDay.setHours(18,30,0,0);
+      nextEventDay.setDate(now.getDate()+(eventTimeOffset === 0 && now.getHours()>=hour && now.getMinutes()>=minute ? 7 : eventTimeOffset));
+      nextEventDay.setHours(hour,minute,s,ms);
       
       return nextEventDay.getTime();
       }
    
    
-      function startCountdown(){
-         const countdownDate = eventTime();
+      async function startCountdown(){
+         const countdownDate = await eventTime();
    
          // update countdown setiap detik
          const interval = setInterval(function(){
