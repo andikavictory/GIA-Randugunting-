@@ -53,15 +53,15 @@ document.addEventListener('DOMContentLoaded', function(){
       const eventHero = document.querySelector('.hero');
       
       const databackground = [
-         "../img/ibadah/background/umum.jpg",
-         "../img/ibadah/background/TPI.jpg",
-         "../img/ibadah/background/komsel_Bethesda.jpg",
-         "../img/ibadah/background/Komsel_Bethel.jpg",
-         "../img/ibadah/background/komsel_Betlehem.jpg",
-         "/img/ibadah/background/PPK.jpg",
-         "/img/ibadah/background/PWK.jpg",
-         "/img/ibadah/background/PRBK.jpg",
-         "/img/ibadah/background/KAA.jpg",
+         "url(../img/ibadah/background/umum.jpg)",
+         "url(../img/ibadah/background/TPI.jpg)",
+         "url(../img/ibadah/background/komsel_Bethesda.jpg)",
+         "url(../img/ibadah/background/Komsel_Bethel.jpg)",
+         "url(../img/ibadah/background/komsel_Betlehem.jpg)",
+         "url(../img/ibadah/background/PPK.jpg)",
+         "url(../img/ibadah/background/PWK.jpg)",
+         "url(../img/ibadah/background/PRBK.jpg)",
+         "url(../img/ibadah/background/KAA.jpg)",
       ]
 
       // content event
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function(){
       timeEvent.innerText = database.waktu[eventIndex];
 
 
-      eventHero.style.background = `url(${databackground[eventIndex]})`;
+      eventHero.style.background = databackground[eventIndex];
       eventHero.style.backgroundSize = `cover`;
       eventHero.style.backgroundRepeat = `no-repeat`;
       eventHero.style.backgroundPosition = `50% 40%`;
