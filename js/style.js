@@ -235,12 +235,4 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 
 });
-
-    // ibadah button
-    function sendData(data1,data2,data3){
-        const data = [data1,data2,data3].filter(Boolean).join(' ~ ');
-        localStorage.setItem("dataIbadah",data);
-        window.location.href="ibadah.html";
-    }
-   
    

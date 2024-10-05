@@ -1,4 +1,46 @@
 document.addEventListener('DOMContentLoaded', function(){
+   // get API Spreadsheet
+   const API_KEY = "AIzaSyDv7Vs4gYRG0wgsX_hwiqSU1K5hFd_NY_g";
+   const SHEET_ID= "102qEJ5r79KoA2KRDl85knGxm2au9XDZPDmHq6mW96Tc";
+   const RANGE= "Sheet1!A2:L";
+
+   async function fetchData(){
+      try{
+         const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`)
+         const data = await response.json();
+         
+         const row = data.values;
+         const sie = row.map(row => row[0]);
+         const hari = row.map(row => row[1]);
+         const waktu = row.map(row => row[2]);
+         const deskripsi = row.map(row => row[3]);
+         const ayat = row.map(row => row[4]);
+         const ketua = row.map(row => row[5]);
+         const sekertaris = row.map(row => row[6]);
+         const bendahara = row.map(row => row[7]);
+         const sieAcara = row.map(row => row[8]);
+         const humas = row.map(row => row[9]);
+         const sieMusik = row.map(row => row[10]);
+         
+
+      return {sie,hari,waktu,deskripsi,ayat,ketua,sekertaris,bendahara,sieAcara,humas,sieMusik}; 
+   } 
+   // menampilkan jika error
+   catch (error) {
+      console.error('error fetching data :', error);
+   }}
+
+   // async function displayData(){
+   //    const data = await fetchData();
+   //    console.log(data.waktu);
+   // }
+   // displayData();
+   
+   
+
+
+   
+   
    const data = localStorage.getItem('dataIbadah');
    let marquee = document.querySelector('.running-text');
    let title = document.getElementById('title-event');
@@ -34,7 +76,13 @@ document.addEventListener('DOMContentLoaded', function(){
       }
    
       // mendapatkan event time terdekat
-      function eventTime(){
+      async function eventTime(){
+         const data = await fetchData();
+         const times = data.waktu;
+         const timesArray = times.map(times => times.split(':'));
+         const hour = timesArray.map(hour => hour[0]);
+         const minute = timesArray.map(hour => hour[1]);
+         console.log(hour,minute);
          const now = new Date();
          const dayOfWeek = now.getDay();
          const eventTimeOffset = (6-dayOfWeek+7)%7;
