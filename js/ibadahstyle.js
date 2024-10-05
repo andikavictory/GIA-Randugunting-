@@ -58,10 +58,10 @@ document.addEventListener('DOMContentLoaded', function(){
          "../img/ibadah/background/komsel_Bethesda.jpg",
          "../img/ibadah/background/Komsel_Bethel.jpg",
          "../img/ibadah/background/komsel_Betlehem.jpg",
-         "../img/ibadah/background/PPK.jpg",
-         "../img/ibadah/background/PWK.jpg",
-         "../img/ibadah/background/PRBK.jpg",
-         "../img/ibadah/background/KAA.jpg",
+         "/img/ibadah/background/PPK.jpg",
+         "/img/ibadah/background/PWK.jpg",
+         "/img/ibadah/background/PRBK.jpg",
+         "/img/ibadah/background/KAA.jpg",
       ]
 
       // content event
