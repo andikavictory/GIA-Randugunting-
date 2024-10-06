@@ -1,4 +1,13 @@
 document.addEventListener('DOMContentLoaded', function(){
+   
+   const loading = document.querySelector('.loading');
+   document.body.classList.add("no-scroll");
+   
+   setTimeout(() => {
+      document.body.classList.remove("no-scroll");
+      loading.style.display ="none";
+   },3000);
+   
    // get API Spreadsheet
    const API_KEY = "AIzaSyDv7Vs4gYRG0wgsX_hwiqSU1K5hFd_NY_g";
    const SHEET_ID= "102qEJ5r79KoA2KRDl85knGxm2au9XDZPDmHq6mW96Tc";
@@ -50,19 +59,9 @@ document.addEventListener('DOMContentLoaded', function(){
      
 
       // background hero sesuai index
-      const eventHero = document.querySelector('.hero');
-      
-      const databackground = [
-         "url('../img/ibadah/background/umum.jpg')",
-         "url('../img/ibadah/background/TPI.jpg')",
-         "url('../img/ibadah/background/komsel_Bethesda.jpg')",
-         "url('../img/ibadah/background/Komsel_Bethel.jpg')",
-         "url('../img/ibadah/background/komsel_Betlehem.jpg')",
-         "url('../img/ibadah/background/PPK.jpg')",
-         "url('../img/ibadah/background/PWK.jpg')",
-         "url('../img/ibadah/background/PRBK.jpg')",
-         "url('../img/ibadah/background/KAA.jpg')",
-      ]
+      const eventHeroImg = document.querySelector('.hero img');
+      const attributesHeroImg = eventHeroImg.getAttribute('src');
+      const databackground = ["umum.jpg","TPI.jpg","komsel_Bethesda.jpg","Komsel_Bethel.jpg","komsel_Betlehem.jpg","PPK.jpg","PWK.jpg","PRBK.jpg","KAA.jpg"]
 
       // content event
       const dayEvent = document.querySelector('.dayEvent');
@@ -71,11 +70,10 @@ document.addEventListener('DOMContentLoaded', function(){
       dayEvent.innerText = database.hari[eventIndex];
       timeEvent.innerText = database.waktu[eventIndex];
 
+      
+      eventHeroImg.src = `img/ibadah/background/${databackground[eventIndex]}`;
+   
 
-      eventHero.style.background = databackground[eventIndex];
-      eventHero.style.backgroundSize = `cover`;
-      eventHero.style.backgroundRepeat = `no-repeat`;
-      eventHero.style.backgroundPosition = `50% 40%`;
 
       // menambahkan Title
       title.innerText = database.sie[eventIndex];

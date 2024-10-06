@@ -1,3 +1,46 @@
+.loading{
+    background-color: var(--pr-colorDark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height:100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4;
+}
+.loading h1{
+    font-size: 3vw;
+    font-family: 'merriweather','sans';
+    font-weight:900;
+    color: transparent;
+    -webkit-text-stroke:0.5px #02DCDC;
+    position: relative;
+    overflow: hidden;
+}
+.loading h1::before{
+    content: "GIA\00a0RANDUGUNTING....";
+    top: 0;
+    left: 0;
+    color: #02DCDC;
+    position: absolute;
+    width: 0%;
+    overflow: hidden;
+    height: 100%;
+    border-right:none solid #02DCDC ;
+    animation:loading 2s infinite ease;
+    transition: width 0.3s ease-in-out;
+    filter:drop-shadow(1px 1px 3px #99fa99dc)
+}
+@keyframes loading{
+    0%{width:0%}
+    1%{border-right:2px solid #02DCDC}
+    50%{width:100%}
+    90%{border-right:2px solid #02DCDC}
+    100%{width:0%}
+}
+
 .navbar{
     position: relative !important;
 }
@@ -30,22 +73,25 @@
 
 /* hero section */
 .hero{
-    background-image:url('../img/ibadah/background/PRBK.jpg');
     width:100%;
     height: 50vh;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 90%;
-    background-attachment: fixed;
     position: relative;
+    
 }
-
-.hero::after{
-    content: "";
-    position: absolute;
+.hero img{
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3);
+    object-fit: cover;
+}
+.hero::after{
+    background: rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
 }
 
 .container-text{
@@ -510,6 +556,9 @@ animation: timeMove 1s ease-in-out;
     .container-ayat{
         font-size: 1.9rem;
     }
+    .loading h1{
+        font-size: 5vw;
+    }
 }
 @media (max-width:1115px){
     .description-container .description{
@@ -520,6 +569,9 @@ animation: timeMove 1s ease-in-out;
     }
 }
 @media (max-width:991px){
+    .loading h1{
+        font-size: 6vw;
+    }
     #navbarNav .nav-item a{
         color: white;
     }
@@ -740,6 +792,9 @@ animation: timeMove 1s ease-in-out;
     }
 }
 @media (max-width:520px){
+    .loading h1{
+        font-size: 7vw;
+    }
     #title-event{
         font-size: 35px;
     }
