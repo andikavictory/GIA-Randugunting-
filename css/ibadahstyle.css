@@ -9,6 +9,7 @@
     top: 0;
     left: 0;
     z-index: 4;
+    flex-direction: column;
 }
 .loading h1{
     font-size: 3vw;
@@ -39,6 +40,58 @@
     50%{width:100%}
     90%{border-right:2px solid #02DCDC}
     100%{width:0%}
+}
+.circle{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin-top: -10rem;
+    margin-bottom: 2rem;
+
+}
+.circle .circle_small{
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    position:absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation:animateCircle 5s linear infinite;
+}
+
+.circle .circle_large{
+    width: 150%;
+    height: 150%;
+    z-index: 5;
+    position:absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateZ(60deg);
+    animation:animateCircle 10s linear infinite;
+}
+.circle_small .circle1, .circle_small .circle2, .circle_small .circle3,.circle_large .circle1, .circle_large .circle2, .circle_large .circle3{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 5px solid transparent;
+    border-top:5px solid #02DCDC;
+}
+.circle_small .circle2, .circle_large .circle2{
+    transform: rotateZ(120deg);
+}
+.circle_small .circle3, .circle_large .circle3{
+    transform: rotateZ(-120deg);
+}
+@keyframes animateCircle{
+    from{transform:  translate(-50%, -50%) rotateZ(0deg)}
+    to{transform:  translate(-50%, -50%) rotateZ(360deg)}
 }
 
 .navbar{
@@ -559,6 +612,10 @@ animation: timeMove 1s ease-in-out;
     .loading h1{
         font-size: 5vw;
     }
+    .circle{
+        width: 80px;
+        height: 80px;
+    }
 }
 @media (max-width:1115px){
     .description-container .description{
@@ -571,6 +628,10 @@ animation: timeMove 1s ease-in-out;
 @media (max-width:991px){
     .loading h1{
         font-size: 6vw;
+    }
+    .circle{
+        width: 70px;
+        height: 70px;
     }
     #navbarNav .nav-item a{
         color: white;
@@ -795,6 +856,10 @@ animation: timeMove 1s ease-in-out;
     .loading h1{
         font-size: 7vw;
     }
+    .circle{
+        width: 60px;
+        height: 60px;
+    }
     #title-event{
         font-size: 35px;
     }
@@ -1008,6 +1073,10 @@ animation: timeMove 1s ease-in-out;
     }
 }
 @media (max-width:340px){
+    .circle{
+        width: 40px;
+        height: 40px;
+    }
     @keyframes marquee {
         from {
             transform: translateX(40%);
