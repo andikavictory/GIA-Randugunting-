@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', function(){
          setTimeout(() => {
             front.classList.remove('active');
             back.classList.remove('active');
-         }, 980);
+         }, 900);
          }
                }
       startCountdown();
