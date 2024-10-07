@@ -181,6 +181,7 @@ document.addEventListener('DOMContentLoaded', function(){
             const front = element.querySelector('.tear-off-front');
             const back = element.querySelector('.tear-off-back');
 
+            // mengisi front dan back dengan waktu terbaru
             front.innerText = newValue;
             back.innerText = newValue;
 
@@ -197,42 +198,20 @@ document.addEventListener('DOMContentLoaded', function(){
             const hours = Math.floor(distance % (1000*60*60*24)/(1000*60*60));
             const minutes = Math.floor(distance % (1000*60*60)/(1000*60));
             const seconds = Math.floor(distance % (1000*60)/1000);
-   
-            // // menampilkan countdown
-            // let elementDay = document.querySelector('.day');
-            // let elementHour = document.querySelector('.hour');
-            // let elementMinute = document.querySelector('.minute');
-            // let elementSecond = document.querySelector('.second');
-            
 
+
+            // function mengambil container tear off dan waktu terbaru dan membandingkannya
+            timeMove(containerTearOff[0],days);
+            timeMove(containerTearOff[1],hours);
+            timeMove(containerTearOff[2],minutes);
+            timeMove(containerTearOff[3],seconds);
+      
+            // function menambil container tear off dan mengambil value hari waktu dengan + 0 didepan
             tearOff(containerTearOff[0],days.toString().padStart(2,"0"));
             tearOff(containerTearOff[1],hours.toString().padStart(2,"0"));
             tearOff(containerTearOff[2],minutes.toString().padStart(2,"0"));
             tearOff(containerTearOff[3],seconds.toString().padStart(2,"0"));
-         //   function timeMove(element,value){
-         //    if(element.innerText != value){
-         //       element.classList.add('active');
-         //       setTimeout(() => {
-         //          element.innerText = value;
-         //          element.classList.remove('active');
-         //       },cekMaxWidth())
-         //    }
-         //   }
-   
-         //   function cekMaxWidth(){
-         //    if(window.innerWidth > 991){
-         //       return 950;
-         //    }
-         //    if(window.innerWidth < 991){
-         //       return 935;
-         //    }
-            
-         //   }
-   
-         //   timeMove(elementDay,days);
-         //   timeMove(elementHour,hours);
-         //   timeMove(elementMinute,minutes);
-         //   timeMove(elementSecond,seconds);
+
    
              // Jika countdown selesai
            if (distance < 0) {
@@ -240,6 +219,21 @@ document.addEventListener('DOMContentLoaded', function(){
             setTimeout(startCountdown, 1000); // Mulai countdown untuk Sabtu berikutnya
         }},1000);
       }
+
+  // kondisi dimana inner berbeda yang memicu animation active
+      function timeMove(element,value){
+         const front = element.querySelector('.tear-off-front');
+         const back = element.querySelector('.tear-off-back')
+       
+      if (front.innerText != value) {
+         front.classList.add('active');
+         back.classList.add('active');
+         setTimeout(() => {
+            front.classList.remove('active');
+            back.classList.remove('active');
+         }, 980);
+         }
+               }
       startCountdown();
    
    

@@ -207,11 +207,15 @@
     align-items: center;
 }
 .countdown .countdown-container{
-    width: 40%;
+    width: 50%;
+    height: 180px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: top;
+    padding-top: 10px;
     gap: 20px;
+    overflow: hidden;
+    margin-bottom: 5rem;
 }
 .countdown .countdown-container .tear-off-calender{
     width: 15%;
@@ -220,19 +224,56 @@
     justify-content: center;
     align-items: center;
     height: 130px;
+    background-color: #6467b8;
 }
 
 .countdown .countdown-container .tear-off-calender .title{
-    width: 100%;
+    width: 90%;
     height: 30%;
-    background-color:#07037a;
+    background:linear-gradient(to bottom,#0007c7 90%,#6467b8);
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 1px;
+    margin-top: -0.6rem;
+    position: relative;
 }
+.countdown .countdown-container .tear-off-calender .title .circle1,.countdown .countdown-container .tear-off-calender .title .circle2 {
+    position: absolute;
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #000469;
+    z-index: 1;
+}
+.countdown .countdown-container .tear-off-calender .title .circle1{
+    left: 8px;
+    top: 6px;
+}
+.countdown .countdown-container .tear-off-calender .title .circle2{
+    right:8px;
+    top: 6px;
+}
+.countdown .countdown-container .tear-off-calender .title::before, .countdown .countdown-container .tear-off-calender .title::after{
+    content: "";
+    height: 20px;
+    width: 7px;
+    background-color: #6467b8;
+    position: absolute;
+    bottom: 25px;
+    border-radius: 5px;
+    z-index: 2;
+}
+.countdown .countdown-container .tear-off-calender .title::after{
+    right:10px;
+}
+.countdown .countdown-container .tear-off-calender .title::before{
+    left:10px;
+}
+
 
 .countdown .countdown-container .tear-off-calender .tear-off-container{
     width: 95%;
@@ -240,12 +281,19 @@
     background-color: #ffffff;
     border: 2px solid #000120;
     position: relative;
-}
-.countdown .countdown-container .tear-off-calender .tear-off-container.tear-off{
-    animation: tier-off 3s infinite ease-in;
+    max-height: 100px;
 }
 @keyframes tier-off{
-    0%{}
+    0%{transform: translateY(0%);}
+    99%{transform: translateX(20%) translateY(150%) rotateZ(-20deg)}
+    99.1%{opacity: 1;transform: translateY(0%) rotateZ(0deg)}
+    99.2%{opacity: 0;}
+    100%{opacity: 1;}
+}
+@keyframes tier-off-back{
+    10%{background-color: rgb(171, 171, 171);}
+    80%{background-color: rgb(234, 234, 235);}
+    100%{background-color: rgb(234, 234, 235);}
 }
 .countdown .countdown-container .tear-off-calender .tear-off-container .tear-off-front{
     position: absolute;
@@ -253,7 +301,7 @@
     left: 0;
     width: 100%;
     height: 96%;
-    background:linear-gradient(rgb(255, 255, 255) 95%,#000120);
+    background:rgb(234, 234, 235);
     z-index: 1;
     font-size: 2rem;
     display: flex;
@@ -262,98 +310,26 @@
     font-family: 'sans serif';
     font-weight: 500;
 }
+.countdown .countdown-container .tear-off-calender .tear-off-container .tear-off-front.active{
+    animation: tier-off 1s infinite ease-in;
+}
+.countdown .countdown-container .tear-off-calender .tear-off-container .tear-off-back.active{
+    animation: tier-off-back 1s infinite ease-in;
+}
 .countdown .countdown-container .tear-off-calender .tear-off-container .tear-off-back{
     position: absolute;
     top: 0;
     height: 0;
     width: 100%;
     height: 100%;
-    background:white;
-}
-
-/* countdown
-
-.countdown-container{
-    width: 40rem;
-    height: 8rem;
+    background:rgb(234, 234, 235);
+    font-family: 'sans serif';
+    font-weight: 500;
+    font-size: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    margin-bottom: 5rem;
 }
-.countdown-container .box{
-    width: 20%;
-    margin: 0px 20px;
-    height: 85%;
-    background:linear-gradient(to top,var(--pr-colorDark),var(--sc-color));
-    border-radius: 5px;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 3.5rem;
-    font-weight: 500;
-    position: relative;
-}
-.countdown-container .box .content-box{
-    position: absolute;
-    content: "";
-    width: 80%;
-    height: 80%;
-    background:linear-gradient(to bottom,var(--pr-colorDark),var(--sc-color));
-    z-index:1;
-    border-radius: 5px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-}
-.countdown-container .box:nth-child(1){
-    margin-left: 0px;
-}
-.countdown-container .box:nth-child(4){
-    margin-right: 0px;
-}
-.countdown-container p{
-    font-size: 100px;
-    font-weight: 500;
-    margin-bottom: 25px;
-}
-.countdown-container .decription-box{
-    position: absolute;
-    top: 6.5rem;
-    font-size: 1.8rem;
-    padding: 1rem;
-    font-weight: 500;
-    font-family: 'merriweather','sans';
-}
-.countdown-container .decription-box:nth-last-of-type(4){
-    left: 1%;
-}
-.countdown-container .decription-box:nth-last-of-type(3){
-    left: 30%;
-}
-.countdown-container .decription-box:nth-last-of-type(2){
-    left: 55%;
-}
-.countdown-container .decription-box:nth-last-of-type(1){
-    right: 0;
-}
-
-.box .time{
-    z-index: 1;
-    transform: translateY(0%);
-}
-.box .time.active{
-animation: timeMove 1s ease-in-out;
-}
-@keyframes timeMove{
-    0%{transform: translateY(0%)}
-    49.9%{transform: translateY(100%)}
-    50%{transform: translateY(-100%)}
-    50.1%{transform: translateY(-100%)}
-    100%{transform: translateY(0%)}
-} */
 
 /* event */
 #title-event{
@@ -665,6 +641,9 @@ animation: timeMove 1s ease-in-out;
 }
 
 @media (max-width:1310px){
+    .countdown .countdown-container{
+        width: 50%;
+    }
     .content-event .col-12:nth-child(1){
         font-size: 30px;
     }
@@ -690,6 +669,9 @@ animation: timeMove 1s ease-in-out;
     }
 }
 @media (max-width:1115px){
+    .countdown .countdown-container{
+        width: 60%;
+    }
     .description-container .description{
         font-size: 18px;
     }
@@ -698,6 +680,28 @@ animation: timeMove 1s ease-in-out;
     }
 }
 @media (max-width:991px){
+    .countdown .countdown-container{
+        width: 55%;
+        margin-top: 2rem;
+        height: 140px;
+    }
+    .countdown .countdown-container .tear-off-calender{
+      height: 105px;
+    }
+    .countdown .countdown-container .tear-off-calender .title{
+        font-size: 10px;
+    }
+    .countdown .countdown-container .tear-off-calender .title .circle1,.countdown .countdown-container .tear-off-calender .title .circle2 {
+        width: 7px;
+        height: 7px;
+        z-index: 1;
+    }
+    .countdown .countdown-container .tear-off-calender .title::before, .countdown .countdown-container .tear-off-calender .title::after{
+        content: "";
+        height: 30px;
+        width: 4px;
+        top: -20px;
+    }
     .loading h1{
         font-size: 6vw;
     }
@@ -730,39 +734,6 @@ animation: timeMove 1s ease-in-out;
     #subtitle-event{
         font-size: 30px;
         margin-bottom: -2rem;
-    }
-    .countdown-container{
-        margin-bottom: -2.5rem;
-    }
-    .countdown-container .box{
-        width: 10%;
-        margin: 0px 10px;
-        height: 55%;
-        font-size: 2.2rem;
-    }
-    .countdown-container .box .content-box{
-        width: 82%;
-        height: 82%;
-    }
-    .countdown-container p{
-        font-size: 60px;
-        margin-bottom: 20px;
-    }
-    .countdown-container .decription-box{
-        top: 5.5rem;
-        font-size: 1.1rem;
-    }
-    .countdown-container .decription-box:nth-last-of-type(4){
-        left: 22.5%;
-    }
-    .countdown-container .decription-box:nth-last-of-type(3){
-        left: 38.2%;
-    }
-    .countdown-container .decription-box:nth-last-of-type(2){
-        left: 52%;
-    }
-    .countdown-container .decription-box:nth-last-of-type(1){
-        right: 19.8%;
     }
     .content-event .col-12:nth-child(1){
         font-size: 20px;
@@ -821,14 +792,18 @@ animation: timeMove 1s ease-in-out;
         width: 15rem;
     }
 }
+@media (max-width:850px){
+    .countdown .countdown-container{
+        width: 65%;
+    }
+}
 @media (max-width:768px){
-    .countdown-container{
-        width: 100rem;
+    .countdown .countdown-container{
+        width: 75%;
     }
     .img-container-event .img-small{
         width: 40%;
 
-        
     }
     .img-container-event .img-large{
         width: 60%;
@@ -861,6 +836,19 @@ animation: timeMove 1s ease-in-out;
     }
 }
 @media (max-width:620px){
+    .countdown .countdown-container{
+        width: 85%;
+        margin-top: 2rem;
+    }
+    .countdown .countdown-container .tear-off-calender{
+      height: 105px;
+    }
+    .countdown .countdown-container .tear-off-calender .title{
+        font-size: 10px;
+    }
+    .countdown .countdown-container .tear-off-calender .tear-off-container .tear-off-front,.countdown .countdown-container .tear-off-calender .tear-off-container .tear-off-back{
+        font-size: 1.5rem;
+    }
     .navbar-brand img{
         scale: 1;
     }
@@ -878,28 +866,6 @@ animation: timeMove 1s ease-in-out;
         to {
             transform: translateX(-100%);
         }
-    }
-    .countdown-container .box{
-        width: 12%;
-        margin: 0px 10px;
-        height: 55%;
-        font-size: 2.3rem;
-    }
-    .countdown-container .decription-box{
-        top: 5.5rem;
-        font-size: 1.1rem;
-    }
-    .countdown-container .decription-box:nth-last-of-type(4){
-        left: 18.5%;
-    }
-    .countdown-container .decription-box:nth-last-of-type(3){
-        left: 37%;
-    }
-    .countdown-container .decription-box:nth-last-of-type(2){
-        left: 53%;
-    }
-    .countdown-container .decription-box:nth-last-of-type(1){
-        left: 76%;
     }
     .img-container-event .img-small{
         width: 60%;
@@ -925,6 +891,20 @@ animation: timeMove 1s ease-in-out;
     }
 }
 @media (max-width:520px){
+    .countdown .countdown-container{
+        width: 90%;
+        margin-top: 2rem;
+        height: 110px;
+    }
+    .countdown .countdown-container .tear-off-calender{
+      height: 80%;
+    }
+    .countdown .countdown-container .tear-off-calender .title{
+        font-size: 10px;
+    }
+    .countdown .countdown-container .tear-off-calender .tear-off-container .tear-off-front,.countdown .countdown-container .tear-off-calender .tear-off-container .tear-off-back{
+        font-size: 1.4rem;
+    }
     .loading h1{
         font-size: 7vw;
     }
@@ -939,28 +919,7 @@ animation: timeMove 1s ease-in-out;
         font-size: 25px;
         margin-bottom: -2rem;
     }
-    .countdown-container .box{
-        width: 14%;
-        margin: 0px 10px;
-        height: 55%;
-        font-size: 2.3rem;
-    }
-    .countdown-container .decription-box{
-        top: 5.5rem;
-        font-size: 1.1rem;
-    }
-    .countdown-container .decription-box:nth-last-of-type(4){
-        left: 13%;
-    }
-    .countdown-container .decription-box:nth-last-of-type(3){
-        left: 34%;
-    }
-    .countdown-container .decription-box:nth-last-of-type(2){
-        left: 53%;
-    }
-    .countdown-container .decription-box:nth-last-of-type(1){
-        left: 80%;
-    }
+    
     .description-container{
         padding: 40px 2rem;
     }
@@ -987,6 +946,41 @@ animation: timeMove 1s ease-in-out;
     }
 }
 @media (max-width:455px){
+    .countdown .countdown-container{
+        width: 100%;
+        gap: 1rem;
+        margin-top: 2rem;
+        margin-bottom: 0;
+    }
+    .countdown .countdown-container .tear-off-calender{
+      height: 80px;
+    }
+    .countdown .countdown-container .tear-off-calender .title{
+        font-size: 10px;
+    }
+    .countdown .countdown-container .tear-off-calender .title .circle1,.countdown .countdown-container .tear-off-calender .title .circle2 {
+        width: 6px;
+        height: 6px;
+        z-index: 1;
+    }
+    .countdown .countdown-container .tear-off-calender .title .circle1{
+        left: 5.5px;
+    }
+    .countdown .countdown-container .tear-off-calender .title .circle2{
+        right: 5.5px;
+    }
+    .countdown .countdown-container .tear-off-calender .title::before, .countdown .countdown-container .tear-off-calender .title::after{
+        content: "";
+        height: 30px;
+        width: 3px;
+        top: -20px;
+    }
+    .countdown .countdown-container .tear-off-calender .title::before{
+        left: 7px;
+    }
+    .countdown .countdown-container .tear-off-calender .title::after{
+        right: 7px;
+    }
     #title-event{
         font-size: 30px;
     }
@@ -994,34 +988,7 @@ animation: timeMove 1s ease-in-out;
         font-size: 20px;
         margin-bottom: -2rem;
     }
-    .countdown-container .box{
-        width: 14%;
-        margin: 0px 10px;
-        height: 45%;
-        font-size: 1.9rem;
-    }
-    .countdown-container .decription-box{
-        top: 5rem;
-        font-size: 0.9rem;
-    }
-    .countdown-container{
-        margin-bottom: -4rem;
-    }
-    .countdown-container .decription-box:nth-last-of-type(4){
-        left: 11.5%;
-    }
-    .countdown-container .decription-box:nth-last-of-type(3){
-        left: 34%;
-    }
-    .countdown-container .decription-box:nth-last-of-type(2){
-        left: 54%;
-    }
-    .countdown-container .decription-box:nth-last-of-type(1){
-        left: 81%;
-    }
-    .countdown-container p{
-        font-weight: 400;
-    }
+    
     .content-event .col-12:nth-child(1){
         font-size: 15px;
     }
@@ -1071,32 +1038,7 @@ animation: timeMove 1s ease-in-out;
             transform: translateX(-100%);
         }
     }
-    .countdown-container .box{
-        width: 14%;
-        height: 38%;
-        font-size: 1.6rem;
-    }
-    .countdown-container .decription-box{
-        top: 4.5rem;
-        font-size: 0.8rem;
-    }
-    .countdown-container .decription-box:nth-last-of-type(4){
-        left: 11.5%;
-    }
-    .countdown-container .decription-box:nth-last-of-type(3){
-        left: 34%;
-    }
-    .countdown-container .decription-box:nth-last-of-type(2){
-        left: 54%;
-    }
-    .countdown-container .decription-box:nth-last-of-type(1){
-        left: 80%;
-    }
-    .countdown-container p{
-        font-size: 50px;
-        font-weight: 400;
-        margin-bottom: 10px;
-    }
+    
     .description-container .description{
         font-size: 0.7rem;
     }
@@ -1131,20 +1073,85 @@ animation: timeMove 1s ease-in-out;
     }
 }
 @media (max-width:380px){
-    .countdown-container .decription-box:nth-last-of-type(4){
-        left: 9%;
+    .countdown .countdown-container{
+        width: 100%;
+        gap: 1rem;
+        margin-top: 2rem;
+        margin-bottom: 0;
     }
-    .countdown-container .decription-box:nth-last-of-type(3){
-        left: 32%;
+    .countdown .countdown-container .tear-off-calender{
+      height: 65px;
     }
-    .countdown-container .decription-box:nth-last-of-type(2){
-        left: 53.5%;
+    .countdown .countdown-container .tear-off-calender .title{
+        font-size: 8px;
     }
-    .countdown-container .decription-box:nth-last-of-type(1){
-        left: 81.5%;
+    .countdown .countdown-container .tear-off-calender .title .circle1,.countdown .countdown-container .tear-off-calender .title .circle2 {
+        width: 4px;
+        height: 4px;
+        z-index: 1;
+    }
+    .countdown .countdown-container .tear-off-calender .title .circle1{
+        left: 6px;
+    }
+    .countdown .countdown-container .tear-off-calender .title .circle2{
+        right: 6px;
+    }
+    .countdown .countdown-container .tear-off-calender .title::before, .countdown .countdown-container .tear-off-calender .title::after{
+        content: "";
+        height: 12px;
+        width: 2px;
+        top: -3px;
+    }
+    .countdown .countdown-container .tear-off-calender .title::before{
+        left: 7px;
+    }
+    .countdown .countdown-container .tear-off-calender .title::after{
+        right: 7px;
+    }
+    .countdown .countdown-container .tear-off-calender .tear-off-container .tear-off-front,.countdown .countdown-container .tear-off-calender .tear-off-container .tear-off-back{
+        font-size: 1.2rem;
     }
 }
 @media (max-width:340px){
+    .countdown .countdown-container{
+        width: 100%;
+        height: 80px;
+        gap: 1rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+    .countdown .countdown-container .tear-off-calender{
+      height: 55px;
+    }
+    .countdown .countdown-container .tear-off-calender .title{
+        font-size: 6px;
+    }
+    .countdown .countdown-container .tear-off-calender .title .circle1,.countdown .countdown-container .tear-off-calender .title .circle2 {
+        width: 4px;
+        height: 4px;
+        z-index: 1;
+    }
+    .countdown .countdown-container .tear-off-calender .title .circle1{
+        left: 6px;
+    }
+    .countdown .countdown-container .tear-off-calender .title .circle2{
+        right: 6px;
+    }
+    .countdown .countdown-container .tear-off-calender .title::before, .countdown .countdown-container .tear-off-calender .title::after{
+        content: "";
+        height: 12px;
+        width: 2px;
+        top: -3px;
+    }
+    .countdown .countdown-container .tear-off-calender .title::before{
+        left: 7px;
+    }
+    .countdown .countdown-container .tear-off-calender .title::after{
+        right: 7px;
+    }
+    .countdown .countdown-container .tear-off-calender .tear-off-container .tear-off-front,.countdown .countdown-container .tear-off-calender .tear-off-container .tear-off-back{
+        font-size: 1.2rem;
+    }
     .circle{
         width: 30px;
         height: 30px;
@@ -1164,34 +1171,7 @@ animation: timeMove 1s ease-in-out;
     #subtitle-event{
         font-size: 15px;
     }
-    .countdown-container{
-        margin-top: -1rem;
-    }
-    .countdown-container .box{
-        width: 14%;
-        margin: 0px 10px;
-        height: 40%;
-        font-size: 1.5rem;
-    }
-    .countdown-container .decription-box{
-        top: 4.8rem;
-        font-size: 0.7rem;
-    }
-    .countdown-container{
-        margin-bottom: -4rem;
-    }
-    .countdown-container .decription-box:nth-last-of-type(4){
-        left: 6%;
-    }
-    .countdown-container .decription-box:nth-last-of-type(3){
-        left: 31%;
-    }
-    .countdown-container .decription-box:nth-last-of-type(2){
-        left: 52.8%;
-    }
-    .countdown-container .decription-box:nth-last-of-type(1){
-        left: 83%;
-    }
+    
     .description-container{
         padding: 40px 1rem;
         
