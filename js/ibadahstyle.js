@@ -173,6 +173,18 @@ document.addEventListener('DOMContentLoaded', function(){
    
       async function startCountdown(){
          const countdownDate = await eventTime();
+
+         // ambil element div tear-off-container
+         const containerTearOff = document.querySelectorAll('.tear-off-container');
+
+         function tearOff(element,newValue){
+            const front = element.querySelector('.tear-off-front');
+            const back = element.querySelector('.tear-off-back');
+
+            front.innerText = newValue;
+            back.innerText = newValue;
+
+         }
    
          // update countdown setiap detik
          const interval = setInterval(function(){
@@ -186,36 +198,41 @@ document.addEventListener('DOMContentLoaded', function(){
             const minutes = Math.floor(distance % (1000*60*60)/(1000*60));
             const seconds = Math.floor(distance % (1000*60)/1000);
    
-            // menampilkan countdown
-            let elementDay = document.querySelector('.day');
-            let elementHour = document.querySelector('.hour');
-            let elementMinute = document.querySelector('.minute');
-            let elementSecond = document.querySelector('.second');
-   
-           function timeMove(element,value){
-            if(element.innerText != value){
-               element.classList.add('active');
-               setTimeout(() => {
-                  element.innerText = value;
-                  element.classList.remove('active');
-               },cekMaxWidth())
-            }
-           }
-   
-           function cekMaxWidth(){
-            if(window.innerWidth > 991){
-               return 950;
-            }
-            if(window.innerWidth < 991){
-               return 935;
-            }
+            // // menampilkan countdown
+            // let elementDay = document.querySelector('.day');
+            // let elementHour = document.querySelector('.hour');
+            // let elementMinute = document.querySelector('.minute');
+            // let elementSecond = document.querySelector('.second');
             
-           }
+
+            tearOff(containerTearOff[0],days.toString().padStart(2,"0"));
+            tearOff(containerTearOff[1],hours.toString().padStart(2,"0"));
+            tearOff(containerTearOff[2],minutes.toString().padStart(2,"0"));
+            tearOff(containerTearOff[3],seconds.toString().padStart(2,"0"));
+         //   function timeMove(element,value){
+         //    if(element.innerText != value){
+         //       element.classList.add('active');
+         //       setTimeout(() => {
+         //          element.innerText = value;
+         //          element.classList.remove('active');
+         //       },cekMaxWidth())
+         //    }
+         //   }
    
-           timeMove(elementDay,days);
-           timeMove(elementHour,hours);
-           timeMove(elementMinute,minutes);
-           timeMove(elementSecond,seconds);
+         //   function cekMaxWidth(){
+         //    if(window.innerWidth > 991){
+         //       return 950;
+         //    }
+         //    if(window.innerWidth < 991){
+         //       return 935;
+         //    }
+            
+         //   }
+   
+         //   timeMove(elementDay,days);
+         //   timeMove(elementHour,hours);
+         //   timeMove(elementMinute,minutes);
+         //   timeMove(elementSecond,seconds);
    
              // Jika countdown selesai
            if (distance < 0) {

@@ -219,7 +219,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 120px;
+    height: 130px;
 }
 
 .countdown .countdown-container .tear-off-calender .title{
@@ -241,14 +241,26 @@
     border: 2px solid #000120;
     position: relative;
 }
+.countdown .countdown-container .tear-off-calender .tear-off-container.tear-off{
+    animation: tier-off 3s infinite ease-in;
+}
+@keyframes tier-off{
+    0%{}
+}
 .countdown .countdown-container .tear-off-calender .tear-off-container .tear-off-front{
     position: absolute;
     top: 0;
-    height: 0;
+    left: 0;
     width: 100%;
     height: 96%;
     background:linear-gradient(rgb(255, 255, 255) 95%,#000120);
     z-index: 1;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'sans serif';
+    font-weight: 500;
 }
 .countdown .countdown-container .tear-off-calender .tear-off-container .tear-off-back{
     position: absolute;
