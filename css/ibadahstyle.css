@@ -1073,6 +1073,13 @@
     }
 }
 @media (max-width:380px){
+    @keyframes tier-off{
+        0%{transform: translateY(0%);}
+        99%{transform: translateX(20%) translateY(250%) rotateZ(-20deg)}
+        99.1%{opacity: 1;transform: translateY(0%) rotateZ(0deg)}
+        99.2%{opacity: 0;}
+        100%{opacity: 1;}
+    }
     .countdown .countdown-container{
         width: 100%;
         gap: 1rem;

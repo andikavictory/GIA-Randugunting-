@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function(){
             const back = element.querySelector('.tear-off-back');
 
             // mengisi front dan back dengan waktu terbaru
-            front.innerText = newValue;
+            setTimeout(() => {front.innerText = newValue;},900);
             back.innerText = newValue;
 
          }
@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function(){
          const front = element.querySelector('.tear-off-front');
          const back = element.querySelector('.tear-off-back')
        
-      if (front.innerText != value) {
+      if (back.innerText != value) {
          front.classList.add('active');
          back.classList.add('active');
          setTimeout(() => {
