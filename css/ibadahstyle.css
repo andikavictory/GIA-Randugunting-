@@ -561,15 +561,16 @@
     z-index: 1;
 }
 .galeri .row .img{
-    padding: 2rem;
-    object-fit: cover;
+    padding: 1.5rem;
     overflow: hidden;
+    height: 320px;
 }
 .galeri .row .img img{
     width: 100%;
-    height: auto;
-    box-shadow:3px 3px 6px black;
+    height: 100%;
+    box-shadow:3px 5px 6px black;
     border-radius: 5px;
+    object-fit: cover;
 }
 
 /* event */

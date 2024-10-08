@@ -3,9 +3,11 @@ import { getStorage, ref, listAll, getDownloadURL } from "https://www.gstatic.co
 
 document.addEventListener('DOMContentLoaded', function(){
    
+   // memunculkan animasi loading 3 detik untuk menunggu data di load terlebih dahulu
    const loading = document.querySelector('.loading');
    document.body.classList.add("no-scroll");
    
+   // setelah 3 detik, loading dimatikan
    setTimeout(() => {
       document.body.classList.remove("no-scroll");
       loading.style.display ="none";
@@ -103,10 +105,69 @@ document.addEventListener('DOMContentLoaded', function(){
       }
    }
 
-   async function test(){
+   // memasukkan gallery terlebih dahulu, setelah  itu lakukan pengecekkan pagination
+   async function runGallery(){
       await APIFirebase();
+
+      // pagination galeri
+      const galeriContainer = document.querySelector('.galeri-items');
+      const parentPage = document.querySelector('.pagination');
+      let images = Array.from(galeriContainer.children);
+      let maxImages = setMaxImages();
+      let pageNow = 1;
+
+      function setMaxImages(){
+      if(window.innerWidth >= 1200){
+         return 12;
+      } else if(window.innerWidth < 1200 && window.innerWidth >= 768) {
+         return 9;
+      } else if(window.innerWidth < 768){
+         return 6;
+      }
    }
-   test();
+
+      // jumlah yang masuk dalam galeri Container
+      function showPage(page){
+         const start = (page -1 ) * maxImages;
+         const end = start + maxImages;
+
+         images.forEach((image,index)=>{
+            image.style.display = (index >= start && index < end) ? "block" : "none";
+            })
+      }
+
+      // menghitung pagination
+      let numberpage = Math.ceil(images.length/maxImages);
+         
+        for(let i = 1;i <= numberpage;i++){
+         let newPage = document.createElement('li');
+         newPage.classList.add('page-item');
+
+         let newLink = document.createElement('a');
+         newLink.classList.add('page-link');
+         newLink.innerText = i;
+
+         newPage.appendChild(newLink);
+         parentPage.appendChild(newPage);
+
+         // saat paination di klik maka pageNow berubah angka yang akan diproses
+         newPage.addEventListener('click',function(){
+            // menghilangkan semua kelas aktif terlebih dahulu
+            const allPage = parentPage.querySelectorAll('.page-item');
+            allPage.forEach((page)=>{
+               page.classList.remove('active');
+            })
+            // merubah nilai pageNow setelah itu menambahkan kelas active, baru di proses shoPage()
+            pageNow = i;
+            newPage.classList.add('active');
+            showPage(pageNow);
+         })
+        }
+        const pageFirst = parentPage.querySelector('.page-item:first-child');
+        pageFirst.classList.add('active');
+      showPage(pageNow);
+   }
+   runGallery();
 
 
 
@@ -289,66 +350,6 @@ document.addEventListener('DOMContentLoaded', function(){
          }
                }
       startCountdown();
-   
-   
-   
-      // pagination galeri
-      const galeriContainer = document.querySelector('.galeri-items');
-      const parentPage = document.querySelector('.pagination');
-      let images = Array.from(galeriContainer.children);
-      let maxImages = setMaxImages();
-      let pageNow = 1;
-
-      function setMaxImages(){
-      if(window.innerWidth >= 1200){
-         return 12;
-      } else if(window.innerWidth < 1200 && window.innerWidth >= 768) {
-         return 9;
-      } else if(window.innerWidth < 768){
-         return 6;
-      }
-   }
-
-      // jumlah yang masuk dalam galeri Container
-      function showPage(page){
-         const start = (page -1 ) * maxImages;
-         const end = start + maxImages;
-
-         images.forEach((image,index)=>{
-            image.style.display = (index >= start && index < end) ? "block" : "none";
-            })
-      }
-
-      // menghitung pagination
-      let numberpage = Math.ceil(images.length/maxImages);
-         
-        for(let i = 1;i <= numberpage;i++){
-         let newPage = document.createElement('li');
-         newPage.classList.add('page-item');
-
-         let newLink = document.createElement('a');
-         newLink.classList.add('page-link');
-         newLink.innerText = i;
-
-         newPage.appendChild(newLink);
-         parentPage.appendChild(newPage);
-
-         // saat paination di klik maka pageNow berubah angka yang akan diproses
-         newPage.addEventListener('click',function(){
-            // menghilangkan semua kelas aktif terlebih dahulu
-            const allPage = parentPage.querySelectorAll('.page-item');
-            allPage.forEach((page)=>{
-               page.classList.remove('active');
-            })
-            // merubah nilai pageNow setelah itu menambahkan kelas active, baru di proses shoPage()
-            pageNow = i;
-            newPage.classList.add('active');
-            showPage(pageNow);
-         })
-        }
-        const pageFirst = parentPage.querySelector('.page-item:first-child');
-        pageFirst.classList.add('active');
-      showPage(pageNow);
 
       // carousel event
       const iconLeft = document.getElementById('iconLeft');
