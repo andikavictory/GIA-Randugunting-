@@ -7,6 +7,42 @@ document.addEventListener('DOMContentLoaded', function(){
       document.body.classList.remove("no-scroll");
       loading.style.display ="none";
    },3000);
+   // get API Firebase
+
+   const firebaseConfig = {
+      apiKey: "AIzaSyDeHv0Q7ImUx3O1Gd2UihMcwY3gG4rDBTQ",
+      authDomain: "website-giar.firebaseapp.com",
+      projectId: "website-giar",
+      storageBucket: "website-giar.appspot.com",
+      messagingSenderId: "748369602327",
+      appId: "1:748369602327:web:8b65fcbe2106612fdeb952",
+   }
+   // Inisialisasi Firebase
+   firebase.initializeApp(firebaseConfig);
+   // masuk ke storage
+   const storage = firebase.storage();
+   const storageRef = storage.ref('Foto/');
+
+   async function APIFirebase() {
+      try{
+         storageRef.listAll().then((result)=> {
+            result.items.forEach((fileRef) => {
+               fileRef.getDownloadURL().then((url) => {
+                  console.log(url);
+               })
+            })
+         })
+      }
+      catch(error){
+         console.error('error API Firebase :', error);
+      }
+      
+   }
+   async function test(){
+    const test = await APIFirebase();
+    console.log(test);
+   }
+   test()
    
    // get API Spreadsheet
    const API_KEY = "AIzaSyDv7Vs4gYRG0wgsX_hwiqSU1K5hFd_NY_g";
