@@ -225,6 +225,7 @@
     align-items: center;
     height: 130px;
     background-color: #6467b8;
+    box-shadow: 0px 4px 5px black;
 }
 
 .countdown .countdown-container .tear-off-calender .title{
@@ -303,7 +304,7 @@
     height: 96%;
     background:rgb(234, 234, 235);
     z-index: 1;
-    font-size: 2rem;
+    font-size: 2.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -325,7 +326,7 @@
     background:rgb(234, 234, 235);
     font-family: 'sans serif';
     font-weight: 500;
-    font-size: 2rem;
+    font-size: 2.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -557,6 +558,7 @@
 .pagination .page-item.active a{
     background-color: var(--sc-color);
     color: white;
+    z-index: 1;
 }
 .galeri .row .img{
     padding: 2rem;
@@ -1205,4 +1207,18 @@
         width: 8rem;
     }
 
+}
+
+@media (max-width:900px) and (max-height:550px){
+    #navbar{
+        position: fixed!important;
+        background-color: transparent!important;
+    }
+    #hamburger {
+        border: 2px solid rgb(255, 255, 255)!important;
+        background-color: rgb(0, 0, 0)!important;  
+    }
+    #hamburger .feather {
+        stroke: white;
+    }
 }
