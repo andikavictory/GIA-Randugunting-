@@ -564,6 +564,9 @@
     padding: 1.5rem;
     overflow: hidden;
     height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .galeri .row .img img{
     width: 100%;
@@ -799,6 +802,10 @@
     .countdown .countdown-container{
         width: 65%;
     }
+    .galeri .row .img{
+        height: 280px;
+    }
+
 }
 @media (max-width:768px){
     .countdown .countdown-container{
@@ -835,7 +842,7 @@
         height: auto;
     }
     .galeri .row .img{
-        padding: 2rem; 
+        padding: 1rem; 
     }
 }
 @media (max-width:620px){
@@ -879,6 +886,7 @@
     .galeri .row .img{
         padding: 1rem; 
         width: 14rem;
+        height: 240px;
     }
     .icon-carousel:nth-last-of-type(1){
         top: 65%;
@@ -1060,7 +1068,9 @@
         font-size: 0.8rem;
     }
     .galeri .row .img{ 
-        width: 10.5rem;
+        width: 11rem;
+        height: 150px;
+        padding: 0.5rem;
     }
     .event .container-carousel{
         height: 17rem;
@@ -1121,6 +1131,11 @@
     .countdown .countdown-container .tear-off-calender .tear-off-container .tear-off-front,.countdown .countdown-container .tear-off-calender .tear-off-container .tear-off-back{
         font-size: 1.2rem;
     }
+    .galeri .row .img{
+        height: 200px;
+        width: 10rem;
+    }
+
 }
 @media (max-width:340px){
     .countdown .countdown-container{
@@ -1190,6 +1205,7 @@
     }
     .galeri .row .img{ 
         width: 9rem;
+        height: 180px;
     }
     .container-ayat{
         padding: 40px 1rem;
@@ -1208,6 +1224,12 @@
         width: 8rem;
     }
 
+}
+@media (max-width:288px){
+    .galeri .row .img{ 
+        width: 14rem;
+        height: 250px;
+    }
 }
 
 @media (max-width:900px) and (max-height:550px){
