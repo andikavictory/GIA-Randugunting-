@@ -1,3 +1,6 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+import { getStorage, ref, listAll, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js";
+
 document.addEventListener('DOMContentLoaded', function(){
    
    const loading = document.querySelector('.loading');
@@ -7,42 +10,6 @@ document.addEventListener('DOMContentLoaded', function(){
       document.body.classList.remove("no-scroll");
       loading.style.display ="none";
    },3000);
-   // get API Firebase
-
-   const firebaseConfig = {
-      apiKey: "AIzaSyDeHv0Q7ImUx3O1Gd2UihMcwY3gG4rDBTQ",
-      authDomain: "website-giar.firebaseapp.com",
-      projectId: "website-giar",
-      storageBucket: "website-giar.appspot.com",
-      messagingSenderId: "748369602327",
-      appId: "1:748369602327:web:8b65fcbe2106612fdeb952",
-   }
-   // Inisialisasi Firebase
-   firebase.initializeApp(firebaseConfig);
-   // masuk ke storage
-   const storage = firebase.storage();
-   const storageRef = storage.ref('Foto/');
-
-   async function APIFirebase() {
-      try{
-         storageRef.listAll().then((result)=> {
-            result.items.forEach((fileRef) => {
-               fileRef.getDownloadURL().then((url) => {
-                  console.log(url);
-               })
-            })
-         })
-      }
-      catch(error){
-         console.error('error API Firebase :', error);
-      }
-      
-   }
-   async function test(){
-    const test = await APIFirebase();
-    console.log(test);
-   }
-   test()
    
    // get API Spreadsheet
    const API_KEY = "AIzaSyDv7Vs4gYRG0wgsX_hwiqSU1K5hFd_NY_g";
@@ -77,15 +44,69 @@ document.addEventListener('DOMContentLoaded', function(){
    catch (error) {
       console.error('error fetching data :', error);
    }}
-
-   // async function displayData(){
-   //    const data = await fetchData();
-   //    console.log(data.waktu);
-   // }
-   // displayData();
    
    const data = localStorage.getItem('setEvent');
-   console.log(typeof data);
+
+   // get API Firebase
+   const firebaseConfig = {
+      apiKey: "AIzaSyDeHv0Q7ImUx3O1Gd2UihMcwY3gG4rDBTQ",
+      authDomain: "website-giar.firebaseapp.com",
+      projectId: "website-giar",
+      storageBucket: "website-giar.appspot.com",
+      messagingSenderId: "748369602327",
+      appId: "1:748369602327:web:8b65fcbe2106612fdeb952",
+   }
+   // masuk ke storage
+   const app = initializeApp(firebaseConfig);
+   const storage = getStorage(app);
+   const storageName = ["","Umum","TPI Berkat Sion","Komsel Bethesda","Komsel Bethel","Komsel Betlehem","PPK","PWK","PRBK","KAA"];
+   const storageReff = ref(storage,`Foto/${storageName[data]}/`);
+
+   async function APIFirebase() {
+     
+      try{
+         // Mendapatkan semua file di folder 'Foto/'
+         const result = await listAll(storageReff);
+         
+         
+
+         if(result.items.length === 0 ){
+            console.log("Tidak ada file didalam Folder");
+            return;
+         }
+
+         for(const item of result.items){
+            try{
+               const url = await getDownloadURL(item);
+               // menampilkan Gambar pada galeri sesuai index
+               // membuat div pembungkus baru
+               const containerImg = document.createElement('div');
+               containerImg.classList.add('col-sm-6','col-md-4','col-lg-4','col-xl-3','img');
+               // membuat img baru
+               const img = document.createElement('img');
+               img.src = url;
+               img.alt = storageName[data];
+
+               // menjadikan img anak dari DIV containerImg
+               containerImg.appendChild(img);
+
+               // Mengambil div galeri sebagai container utama
+               const containerGaleri = document.querySelector('.galeri-items');
+               containerGaleri.appendChild(containerImg);
+
+            }catch(error){
+               console.error("Tidak mendapatkan URL",error)
+            }
+         }
+      } catch (error){
+         console.error("Error API firebaseConfig",error);
+      }
+   }
+
+   async function test(){
+      await APIFirebase();
+   }
+   test();
 
 
 
@@ -96,7 +117,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
       // background hero sesuai index
       const eventHeroImg = document.querySelector('.hero img');
-      const attributesHeroImg = eventHeroImg.getAttribute('src');
       const databackground = ["umum.jpg","TPI.jpg","komsel_Bethesda.jpg","Komsel_Bethel.jpg","komsel_Betlehem.jpg","PPK.jpg","PWK.jpg","PRBK.jpg","KAA.jpg"]
 
       // content event
@@ -141,8 +161,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
    }
    displayData();
-
-
    
    
   
