@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function(){
       try{
          // Mendapatkan semua file di folder 'Foto/'
          const result = await listAll(storageReff);
-         
+         let indexData = 0;
          
 
          if(result.items.length === 0 ){
@@ -88,6 +88,8 @@ document.addEventListener('DOMContentLoaded', function(){
                const img = document.createElement('img');
                img.src = url;
                img.alt = storageName[data];
+               img.dataid = indexData;
+               indexData ++;
 
                // menjadikan img anak dari DIV containerImg
                containerImg.appendChild(img);
@@ -107,7 +109,11 @@ document.addEventListener('DOMContentLoaded', function(){
 
    // memasukkan gallery terlebih dahulu, setelah  itu lakukan pengecekkan pagination
    async function runGallery(){
-      await APIFirebase();
+      const dataAPIFirebase = await APIFirebase();
+      let indexData = dataAPIFirebase.indexData;
+
+      
+
 
       // pagination galeri
       const galeriContainer = document.querySelector('.galeri-items');
