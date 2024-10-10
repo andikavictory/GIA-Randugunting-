@@ -98,7 +98,10 @@ document.addEventListener('DOMContentLoaded', function(){
                const containerGaleri = document.querySelector('.galeri-items');
                containerGaleri.appendChild(containerImg);
 
+               // mengambil div modal galeri
                const modalGaleri = document.querySelector('.modal-galeri')
+              
+            //   saat DIV container IMG di klik maka akan memunculkan halaman putih fixed/ modalGaleri ada class "active"
                containerImg.addEventListener('click',function(){
                   modalGaleri.classList.add('active');
                   const containerImgModal = modalGaleri.querySelector('.container-img');
@@ -112,6 +115,43 @@ document.addEventListener('DOMContentLoaded', function(){
                   containerImgModal.appendChild(imgModal);
                })
 
+               // event scroll div modalGaleri untuk zoomIn dan zoomOut
+               let scale = 1;
+              
+               modalGaleri.addEventListener('wheel',function(e){
+                  e.preventDefault();
+
+                  const imgModal = modalGaleri.querySelector('.container-img img');
+
+                  if(e.deltaY < 0){
+                     scale += 0.1;
+                  } else{
+                     scale = Math.max(1,scale -0.1); 
+                  }
+                  imgModal.style.transform = `scale(${scale})`;
+                  console.log( imgModal.style.transform = `scale(${scale})`);
+               })
+
+
+               // drag gambar untuk menggeser
+             let translateX = 0, translateY = 0;
+             let isDragging = false;
+             
+             imgModal.addEventListener('mousedown',function(e){
+               isDragging = true;
+               startX = e.clientX - translateX;
+               startY = e.clientY - translateY;
+               imgModal.style.cursor = "dragging";
+             })
+
+             imgModal.addEventListener('mousemove',function(e){
+               translateX = e.clientX - startX;
+               translateY = e.clientY - startY;
+               imgModal.style
+             })
+
+
+               // menutup modal saat klik bagian luar
                modalGaleri.addEventListener('click',function(e){
                   if(e.target === modalGaleri){
                      modalGaleri.classList.remove('active');
