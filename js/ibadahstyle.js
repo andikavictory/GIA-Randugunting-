@@ -106,12 +106,12 @@ document.addEventListener('DOMContentLoaded', function(){
                   const imgModal = document.createElement('img');
                   imgModal.src = url;
                   img.alt = storageName[data]+indexData;
-                  imgModal.style.height = "100%";
+                  imgModal.style.height = "auto";
                   imgModal.style.width = "100%";
                   imgModal.style.objectFit = "cover";
                   containerImgModal.appendChild(imgModal);
                })
-               containerModal = modalGaleri.querySelector('.container-modal');
+
                modalGaleri.addEventListener('click',function(e){
                   if(e.target === modalGaleri){
                      modalGaleri.classList.remove('active');
