@@ -87,8 +87,8 @@ document.addEventListener('DOMContentLoaded', function(){
                // membuat img baru
                const img = document.createElement('img');
                img.src = url;
-               img.alt = storageName[data];
-               img.dataid = indexData;
+               img.alt = storageName[data]+indexData;
+               img.dataset.id = indexData;
                indexData ++;
 
                // menjadikan img anak dari DIV containerImg
@@ -97,6 +97,26 @@ document.addEventListener('DOMContentLoaded', function(){
                // Mengambil div galeri sebagai container utama
                const containerGaleri = document.querySelector('.galeri-items');
                containerGaleri.appendChild(containerImg);
+
+               const modalGaleri = document.querySelector('.modal-galeri')
+               containerImg.addEventListener('click',function(){
+                  modalGaleri.classList.add('active');
+                  const containerImgModal = modalGaleri.querySelector('.container-img');
+                  containerImgModal.innerHTML='';
+                  const imgModal = document.createElement('img');
+                  imgModal.src = url;
+                  img.alt = storageName[data]+indexData;
+                  imgModal.style.height = "100%";
+                  imgModal.style.width = "100%";
+                  imgModal.style.objectFit = "cover";
+                  containerImgModal.appendChild(imgModal);
+               })
+               containerModal = modalGaleri.querySelector('.container-modal');
+               modalGaleri.addEventListener('click',function(e){
+                  if(e.target === modalGaleri){
+                     modalGaleri.classList.remove('active');
+                  }
+               })
 
             }catch(error){
                console.error("Tidak mendapatkan URL",error)
@@ -110,8 +130,8 @@ document.addEventListener('DOMContentLoaded', function(){
    // memasukkan gallery terlebih dahulu, setelah  itu lakukan pengecekkan pagination
    async function runGallery(){
       const dataAPIFirebase = await APIFirebase();
-      let indexData = dataAPIFirebase.indexData;
-
+      // let indexData = dataAPIFirebase.indexData;
+      // console.log(indexData);
       
 
 
