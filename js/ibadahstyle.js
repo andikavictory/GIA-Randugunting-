@@ -98,61 +98,11 @@ document.addEventListener('DOMContentLoaded', function(){
                const containerGaleri = document.querySelector('.galeri-items');
                containerGaleri.appendChild(containerImg);
 
-               // mengambil div modal galeri
-               const modalGaleri = document.querySelector('.modal-galeri')
-              
-            //   saat DIV container IMG di klik maka akan memunculkan halaman putih fixed/ modalGaleri ada class "active"
-               containerImg.addEventListener('click',function(){
-                  modalGaleri.classList.add('active');
-                  document.body.classList.add('no-scroll')
-                  const containerImgModal = modalGaleri.querySelector('.container-img');
-                  containerImgModal.innerHTML='';
-                  const imgModal = document.createElement('img');
-                  imgModal.src = url;
-                  img.alt = storageName[data]+indexData;
-                  imgModal.style.height = "auto";
-                  imgModal.style.width = "100%";
-                  imgModal.style.objectFit = "cover";
-                  containerImgModal.appendChild(imgModal);
-
-                  // tombol download
-               const btnDownload = modalGaleri.querySelector('.btn-img-download');
-
-                  btnDownload.removeAttribute('href');
-                  btnDownload.removeAttribute('download');
-                  
-                  btnDownload.href = url;
-                  btnDownload.download =  storageName[data]+indexData+".jpg";
-
-               btnDownload.addEventListener('click',function(event){
-                  // Mencegah aksi default link
-                  event.preventDefault();
-
-                  // Buat elemen anchor sementara untuk memicu download
-                  const link = document.createElement('a');
-                  link.href = btnDownload.href; // Menggunakan URL dari btnDownload
-                  link.download = btnDownload.download; // Menggunakan nama file dari btnDownload
-
-                  // Memicu click pada link
-                  document.body.appendChild(link);
-                  link.click(); // Memicu download
-                  document.body.removeChild(link); // Menghapus elemen setelah digunakan
-               })
-               });
-               // menutup modal saat klik bagian luar
-               modalGaleri.addEventListener('click',function(e){
-                  if(e.target === modalGaleri){
-                     modalGaleri.classList.remove('active');
-                     document.body.classList.remove('no-scroll')
-                  }
-               })
-
-               
-
             }catch(error){
                console.error("Tidak mendapatkan URL",error)
             }
          }
+      
       } catch (error){
          console.error("Error API firebaseConfig",error);
       }
@@ -160,11 +110,69 @@ document.addEventListener('DOMContentLoaded', function(){
 
    // memasukkan gallery terlebih dahulu, setelah  itu lakukan pengecekkan pagination
    async function runGallery(){
-      const dataAPIFirebase = await APIFirebase();
-      // let indexData = dataAPIFirebase.indexData;
-      // console.log(indexData);
+      await APIFirebase();
+   
       
+      // mengambil div modal galeri
+      const containerGaleri = document.getElementById('container-galeri');
+      const containerImgAll = containerGaleri.querySelectorAll('.img');
 
+      const modalGaleri = document.querySelector('.modal-galeri');
+      const containerModal = modalGaleri.querySelector('.container-modal');
+      const containerImgModal = containerModal.querySelector('.container-img');
+
+      //   saat DIV container IMG di klik maka akan memunculkan halaman putih fixed/ modalGaleri ada class "active"
+      containerImgAll.forEach(containerImg => {
+         const img = containerImg.querySelector('img');
+
+         img.addEventListener('click',function(e){
+            console.log(e.target);
+            if(e.target.tagName === 'IMG'){
+            modalGaleri.classList.add('active');
+            document.body.classList.add('no-scroll')
+
+            containerImgModal.innerHTML='';
+            const imgModal = document.createElement('img');
+            imgModal.src = e.target.src;
+            imgModal.alt = e.target.alt;
+            imgModal.style.height = "auto";
+            imgModal.style.width = "100%";
+            imgModal.style.objectFit = "cover";
+            containerImgModal.appendChild(imgModal);
+         }
+      })   
+      
+            // tombol download
+         const btnDownload = modalGaleri.querySelector('.btn-img-download');
+
+            btnDownload.removeAttribute('href');
+            btnDownload.removeAttribute('download');
+
+         btnDownload.addEventListener('click',function(event){
+            // Mencegah aksi default link
+            event.preventDefault();
+
+            fetch(url)
+               .then(response => response.blob())
+               .then(blob => {
+                  const blobUrl = window.URL.createObjectURL(blob);
+                  btnDownload.href = blobUrl;
+                  btnDownload.download =storageName[data]+indexData+".jpg";
+                  btnDownload.click();
+
+                  window.URL.revokeObjectURL(blobUrl);
+               })
+               .catch(error => console.error("error saat mengunduh Gambar", error));
+         })
+         });
+         // menutup modal saat klik bagian luar
+         modalGaleri.addEventListener('click',function(e){
+            if(e.target === modalGaleri){
+               modalGaleri.classList.remove('active');
+               document.body.classList.remove('no-scroll')
+            }
+         })
+      
 
       // pagination galeri
       const galeriContainer = document.querySelector('.galeri-items');
@@ -225,8 +233,6 @@ document.addEventListener('DOMContentLoaded', function(){
       showPage(pageNow);
    }
    runGallery();
-
-
 
    async function displayData() {
       const database = await fetchData();
