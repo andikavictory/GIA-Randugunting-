@@ -104,6 +104,7 @@ document.addEventListener('DOMContentLoaded', function(){
             //   saat DIV container IMG di klik maka akan memunculkan halaman putih fixed/ modalGaleri ada class "active"
                containerImg.addEventListener('click',function(){
                   modalGaleri.classList.add('active');
+                  document.body.classList.add('no-scroll')
                   const containerImgModal = modalGaleri.querySelector('.container-img');
                   containerImgModal.innerHTML='';
                   const imgModal = document.createElement('img');
@@ -113,50 +114,40 @@ document.addEventListener('DOMContentLoaded', function(){
                   imgModal.style.width = "100%";
                   imgModal.style.objectFit = "cover";
                   containerImgModal.appendChild(imgModal);
+
+                  // tombol download
+               const btnDownload = modalGaleri.querySelector('.btn-img-download');
+
+                  btnDownload.removeAttribute('href');
+                  btnDownload.removeAttribute('download');
+                  
+                  btnDownload.href = url;
+                  btnDownload.download =  storageName[data]+indexData+".jpg";
+
+               btnDownload.addEventListener('click',function(event){
+                  // Mencegah aksi default link
+                  event.preventDefault();
+
+                  // Buat elemen anchor sementara untuk memicu download
+                  const link = document.createElement('a');
+                  link.href = btnDownload.href; // Menggunakan URL dari btnDownload
+                  link.download = btnDownload.download; // Menggunakan nama file dari btnDownload
+
+                  // Memicu click pada link
+                  document.body.appendChild(link);
+                  link.click(); // Memicu download
+                  document.body.removeChild(link); // Menghapus elemen setelah digunakan
                })
-
-               // event scroll div modalGaleri untuk zoomIn dan zoomOut
-               let scale = 1;
-              
-               modalGaleri.addEventListener('wheel',function(e){
-                  e.preventDefault();
-
-                  const imgModal = modalGaleri.querySelector('.container-img img');
-
-                  if(e.deltaY < 0){
-                     scale += 0.1;
-                  } else{
-                     scale = Math.max(1,scale -0.1); 
-                  }
-                  imgModal.style.transform = `scale(${scale})`;
-                  console.log( imgModal.style.transform = `scale(${scale})`);
-               })
-
-
-               // drag gambar untuk menggeser
-             let translateX = 0, translateY = 0;
-             let isDragging = false;
-             
-             imgModal.addEventListener('mousedown',function(e){
-               isDragging = true;
-               startX = e.clientX - translateX;
-               startY = e.clientY - translateY;
-               imgModal.style.cursor = "dragging";
-             })
-
-             imgModal.addEventListener('mousemove',function(e){
-               translateX = e.clientX - startX;
-               translateY = e.clientY - startY;
-               imgModal.style
-             })
-
-
+               });
                // menutup modal saat klik bagian luar
                modalGaleri.addEventListener('click',function(e){
                   if(e.target === modalGaleri){
                      modalGaleri.classList.remove('active');
+                     document.body.classList.remove('no-scroll')
                   }
                })
+
+               
 
             }catch(error){
                console.error("Tidak mendapatkan URL",error)
