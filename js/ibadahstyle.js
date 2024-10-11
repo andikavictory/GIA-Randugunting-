@@ -126,7 +126,6 @@ document.addEventListener('DOMContentLoaded', function(){
          const img = containerImg.querySelector('img');
 
          img.addEventListener('click',function(e){
-            console.log(e.target);
             if(e.target.tagName === 'IMG'){
             modalGaleri.classList.add('active');
             document.body.classList.add('no-scroll')
@@ -134,36 +133,26 @@ document.addEventListener('DOMContentLoaded', function(){
             containerImgModal.innerHTML='';
             const imgModal = document.createElement('img');
             imgModal.src = e.target.src;
+            console.log(imgModal.src);
             imgModal.alt = e.target.alt;
             imgModal.style.height = "auto";
             imgModal.style.width = "100%";
             imgModal.style.objectFit = "cover";
             containerImgModal.appendChild(imgModal);
-         }
-      })   
-      
-            // tombol download
-         const btnDownload = modalGaleri.querySelector('.btn-img-download');
+
+            const btnDownload = modalGaleri.querySelector('.btn-img-download');
 
             btnDownload.removeAttribute('href');
             btnDownload.removeAttribute('download');
 
-         btnDownload.addEventListener('click',function(event){
-            // Mencegah aksi default link
-            event.preventDefault();
+            btnDownload.addEventListener('click',function(event){
+               // Mencegah aksi default link
+               event.preventDefault();
 
-            fetch(url)
-               .then(response => response.blob())
-               .then(blob => {
-                  const blobUrl = window.URL.createObjectURL(blob);
-                  btnDownload.href = blobUrl;
-                  btnDownload.download =storageName[data]+indexData+".jpg";
-                  btnDownload.click();
-
-                  window.URL.revokeObjectURL(blobUrl);
-               })
-               .catch(error => console.error("error saat mengunduh Gambar", error));
-         })
+               btnDownload.href = imgModal.src;
+               btnDownload.download = imgModal.alt;
+      })   
+         }})
          });
          // menutup modal saat klik bagian luar
          modalGaleri.addEventListener('click',function(e){
