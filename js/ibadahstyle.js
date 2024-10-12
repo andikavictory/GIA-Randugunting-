@@ -111,7 +111,6 @@ document.addEventListener('DOMContentLoaded', function(){
    // memasukkan gallery terlebih dahulu, setelah  itu lakukan pengecekkan pagination
    async function runGallery(){
       await APIFirebase();
-   
       
       // mengambil div modal galeri
       const containerGaleri = document.getElementById('container-galeri');
@@ -133,25 +132,11 @@ document.addEventListener('DOMContentLoaded', function(){
             containerImgModal.innerHTML='';
             const imgModal = document.createElement('img');
             imgModal.src = e.target.src;
-            console.log(imgModal.src);
             imgModal.alt = e.target.alt;
             imgModal.style.height = "auto";
             imgModal.style.width = "100%";
             imgModal.style.objectFit = "cover";
             containerImgModal.appendChild(imgModal);
-
-            const btnDownload = modalGaleri.querySelector('.btn-img-download');
-
-            btnDownload.removeAttribute('href');
-            btnDownload.removeAttribute('download');
-
-            btnDownload.addEventListener('click',function(event){
-               // Mencegah aksi default link
-               event.preventDefault();
-
-               btnDownload.href = imgModal.src;
-               btnDownload.download = imgModal.alt;
-      })   
          }})
          });
          // menutup modal saat klik bagian luar
