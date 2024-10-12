@@ -708,6 +708,9 @@
         width: 50px;
         height: 50px;
     }
+    .modal-galeri .container-modal{
+        width: 70vw;
+    }
 }
 @media (max-width:1115px){
     .countdown .countdown-container{
@@ -878,6 +881,8 @@
     }
     .galeri .row .img{
         padding: 1rem; 
+    }.modal-galeri .container-modal{
+        width: 80vw;
     }
 }
 @media (max-width:620px){

@@ -111,7 +111,6 @@ document.addEventListener('DOMContentLoaded', function(){
    // memasukkan gallery terlebih dahulu, setelah  itu lakukan pengecekkan pagination
    async function runGallery(){
       await APIFirebase();
-   
       
       // mengambil div modal galeri
       const containerGaleri = document.getElementById('container-galeri');
