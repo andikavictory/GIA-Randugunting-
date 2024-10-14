@@ -520,6 +520,32 @@
     
 }
 
+.management-modal-background {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    z-index: 999;
+}
+.management-modal-background .management-modal{
+    background-color: #ffffff;
+    width: 40vw;
+    height: 800px;
+    position: relative;
+}
+.management-modal-background .management-modal img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width:400px;
+    opacity: 0.1;
+    height: auto;
+}
+
 /* ayat */
 .container-ayat{
     background-color: rgb(236, 244, 255);
