@@ -250,6 +250,78 @@ document.addEventListener('DOMContentLoaded', function(){
              return database.sie[eventIndex] + " ~ " + singkatan + " ~ " + "GIA RANDUGUNTING";
          }
      }
+      // modal Kepengurusan
+      const openBtnPengurus = document.querySelector('.btn-pengurus');
+      const managementModalBackground = document.querySelector('.management-modal-background');
+
+      // event saat btn di klik
+      if(openBtnPengurus){
+      openBtnPengurus.addEventListener('click',() => {
+         // mengambil element modal management dan childnya
+         managementModalBackground.classList.add('active');
+
+         const managementModal = managementModalBackground.querySelector('.management-modal');
+         const modalContent = managementModal.querySelector('.modal-content');
+
+         // mengosongkan isi container dulu sebelum menambahkan isi lain
+         modalContent.innerHTML ="";
+
+         // membuat container grid dengan konsep 3 colom 5 baris
+         const containerGrid = document.createElement('div');
+         containerGrid.classList.add('container-fluid','container-grid','mx-auto');
+         modalContent.appendChild(containerGrid);
+         
+         // membuat array yang berisi posisi dan nama orang
+         const arrayPosisi = ['Ketua','Sekertaris','Bedahara','Humas','Sie Musik'];
+         const arrayNama = [
+            database.ketua[eventIndex],
+            database.sekertaris[eventIndex],
+            database.bendahara[eventIndex],
+            database.sieAcara[eventIndex],
+            database.sieMusik[eventIndex],
+         ];
+
+         // looping pembuatan element 3 colom 5 baris
+         for(let i = 0;i < 5;i++){
+            const row = document.createElement('div');
+            row.classList.add('row', 'd-flex','justify-content-center','mx-auto');
+            containerGrid.appendChild(row);
+
+            const colPosisi = document.createElement('div');
+            colPosisi.classList.add('col-5','posisi', 'd-flex','justify-content-end','align-items-center');
+            const posisi = document.createElement('div');
+            // membuat div didalam column agar dapat dirapikan dengan d-flex, justify content 
+            posisi.classList.add('isi-posisi');
+            posisi.innerText = arrayPosisi[i];
+            colPosisi.appendChild(posisi);
+            
+
+            // column khusus titik dua
+            const colTitik2 = document.createElement('div');
+            colTitik2.classList.add('col-1','titik2', 'd-flex','justify-content-center','align-items-center');
+            colTitik2.innerText = ':';
+            
+
+            const colNama = document.createElement('div');
+            colNama.classList.add('col-5','nama', 'd-flex','justify-content-start','align-items-center');
+            // membuat div didalam column agar dapat dirapikan dengan d-flex, justify content 
+            const nama = document.createElement('div');
+            nama.classList.add('isi-nama');
+            nama.innerText = arrayNama[i];
+            colNama.appendChild(nama);
+      
+
+            row.append(colPosisi,colTitik2,colNama);
+         }
+      })}
+      // menutup modal
+      managementModalBackground.addEventListener('click',function(e){
+         if(e.target === managementModalBackground){
+            managementModalBackground.classList.remove('active');
+            document.body.classList.remove('no-scroll')
+         }
+      })
+
 
    //   mengambil deskripsi dan container-ayat
      const eventDeskripsi = document.querySelector('.description');

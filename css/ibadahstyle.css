@@ -517,7 +517,6 @@
     z-index: 2;
     bottom: 17px;
     right: 18px;
-    
 }
 
 .management-modal-background {
@@ -529,6 +528,14 @@
     background: rgba(0, 0, 0, 0.4);
     position: fixed;
     z-index: 999;
+    transform: scale(0);
+    opacity: 0;
+    transition:opacity 0.3s ease;
+    
+}
+.management-modal-background.active {
+    transform: scale(1);
+    opacity: 1;
 }
 .management-modal-background .management-modal{
     background-color: #ffffff;
@@ -544,6 +551,22 @@
     width:400px;
     opacity: 0.1;
     height: auto;
+}
+.management-modal-background .management-modal .title-modal{
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    font-size: 30px;
+    font-family: 'merriweather', 'sans';
+}
+.management-modal-background .management-modal .container-grid .row div{
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 400;
+}
+.management-modal-background .management-modal .container-grid .row .posisi .isi-posisi{
+    width: 105px;
 }
 
 /* ayat */
