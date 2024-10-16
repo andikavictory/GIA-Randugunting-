@@ -259,6 +259,7 @@ document.addEventListener('DOMContentLoaded', function(){
       openBtnPengurus.addEventListener('click',() => {
          // mengambil element modal management dan childnya
          managementModalBackground.classList.add('active');
+         document.body.classList.add('no-scroll');
 
          const managementModal = managementModalBackground.querySelector('.management-modal');
          const modalContent = managementModal.querySelector('.modal-content');
@@ -307,7 +308,11 @@ document.addEventListener('DOMContentLoaded', function(){
             // membuat div didalam column agar dapat dirapikan dengan d-flex, justify content 
             const nama = document.createElement('div');
             nama.classList.add('isi-nama');
-            nama.innerText = arrayNama[i];
+            if(arrayNama[i] === undefined || typeof arrayNama[i] === "undefined"){
+               nama.innerText = arrayNama[i];
+            } else {
+               nama.innerText = "";
+            }
             colNama.appendChild(nama);
       
 

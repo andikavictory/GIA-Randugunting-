@@ -538,10 +538,20 @@
     opacity: 1;
 }
 .management-modal-background .management-modal{
-    background-color: #ffffff;
-    width: 40vw;
-    height: 800px;
+    background-color: transparent;
+    width: 30vw;
+    height: 600px;
+    border-radius: 10px;
     position: relative;
+}
+.management-modal-background .management-modal::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height:100%;
+    background-color: white;
+    filter: blur(5px);
+    z-index: -1;
 }
 .management-modal-background .management-modal img{
     position: absolute;
@@ -558,15 +568,16 @@
     margin-top: 30px;
     margin-bottom: 50px;
     font-size: 30px;
-    font-family: 'merriweather', 'sans';
+    font-family: 'Georgia', serif;
 }
 .management-modal-background .management-modal .container-grid .row div{
-    padding: 10px;
+    padding: 10px 0px;
     font-size: 20px;
     font-weight: 400;
+    font-family: 'Arial', sans-serif
 }
 .management-modal-background .management-modal .container-grid .row .posisi .isi-posisi{
-    width: 105px;
+    width: 110px;
 }
 
 /* ayat */
@@ -768,6 +779,10 @@
     .description-container .description{
         font-size: 18px;
     }
+    .management-modal-background .management-modal{
+        width: 40vw;
+        height: 600px;
+    }
     .container-ayat{
         font-size: 1.6rem;
     }
@@ -861,6 +876,9 @@
     .description-container .btn-description::after{
         width: 16%;
         height: 80%;
+    }
+    .management-modal-background .management-modal{
+        width: 50vw;
     }
     .galeri .title{
         font-size: 3rem;
@@ -971,6 +989,9 @@
     }
     .img-container-event .img-large{
         width: 80%;
+    }
+    .management-modal-background .management-modal{
+        width: 70vw;
     }
     .galeri .row .img{
         padding: 1rem; 
@@ -1112,6 +1133,16 @@
         width: 18%;
         height: 75%;
         left: 87%;
+    }
+    .management-modal-background .management-modal {
+        height: 400px;
+    }
+    .management-modal-background .management-modal .title-modal{
+        font-size: 20px;
+    }
+    .management-modal-background .management-modal .container-grid .row div{
+        padding: 5px;
+        font-size: 15px;
     }
     .galeri .row .img{ 
         width: 13rem;
@@ -1291,6 +1322,19 @@
     }
     .description-container .description{
     font-size: 0.8rem;
+    }
+    .management-modal-background .management-modal {
+        height: 400px;
+    }
+    .management-modal-background .management-modal .title-modal{
+        font-size: 20px;
+    }
+    .management-modal-background .management-modal .container-grid .row div{
+        padding: 5px;
+        font-size: 13px;
+    }
+    .management-modal-background .management-modal .container-grid .row .posisi .isi-posisi{
+        width: 110px;
     }
     .galeri .row .img{ 
         width: 9rem;
