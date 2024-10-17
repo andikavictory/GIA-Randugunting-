@@ -308,10 +308,10 @@ document.addEventListener('DOMContentLoaded', function(){
             // membuat div didalam column agar dapat dirapikan dengan d-flex, justify content 
             const nama = document.createElement('div');
             nama.classList.add('isi-nama');
-            if(arrayNama[i] === undefined || typeof arrayNama[i] === "undefined"){
-               nama.innerText = arrayNama[i];
-            } else {
+            if(arrayNama[i] === undefined){
                nama.innerText = "";
+            } else {
+               nama.innerText = arrayNama[i];
             }
             colNama.appendChild(nama);
       
