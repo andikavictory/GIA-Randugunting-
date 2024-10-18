@@ -1,4 +1,5 @@
 
+
 document.addEventListener('DOMContentLoaded', function(){
    
    // memunculkan animasi loading 3 detik untuk menunggu data di load terlebih dahulu
@@ -46,4 +47,77 @@ document.addEventListener('DOMContentLoaded', function(){
    }}
    
    const data = localStorage.getItem('setEvent');
+
+   // scroll trigger animation
+   gsap.registerPlugin(ScrollTrigger);
+
+   const header = document.querySelector('.container-header');
+   const title = header.querySelector('.title');
+   const backgroundTitle = header.querySelector('.background-text');
+
+   let tl = gsap.timeline({
+      scrollTrigger: {
+         trigger : header,
+         start : "top top",
+         end : "20% top",
+         scrub : true,
+         markers : false  
+      }
+   });
+      // animation background
+      tl.fromTo(title,
+         {y:"0%", scale:1}, //titik awal
+         {y:"-50%", scale:0.5,duration: 1, ease: "power1.out"} //titik akhir dengan animasi ease melambat diakhir
+      )
+      .fromTo(backgroundTitle,
+         {y:"-25%", opacity:1},//titik awal
+         {y:"-30%", opacity:0,duration: 1, ease: "power1.out"},0 //titik akhir dengan 0 sebagai parameter animasi berjalan bersamaan dengan animasi ease melambat diakhir
+      )
+
+      
+      // animation underline
+      ScrollTrigger.create({
+         trigger : header,
+         start : "20% top",
+         end : "bottom top",
+         scrub : true,
+         markers : true,
+         onEnter:()=>{
+            gsap.fromTo(title,
+               {
+                  '--before-left':'-100rem',
+                  '--before-width':'500px',
+                  '--after-right':'-100rem',
+                  '--after-width':'100px',
+               },
+               {
+                  duration:2,
+                  '--before-left':'-39.5rem',
+                  '--before-width':'220px',
+                  '--after-right':'-16rem',
+                  '--after-width':'590px',
+                  ease:"power1.out"
+               }
+            )
+         },
+         onLeave:()=>{
+            gsap.fromTo(title,
+               {
+                  '--before-left':'-39.5rem',
+                  '--before-width':'220px',
+                  '--after-right':'-16rem',
+                  '--after-width':'590px',
+               },
+               {
+                  duration:2,
+                  '--before-left':'-100rem',
+                  '--before-width':'500px',
+                  '--after-right':'-100rem',
+                  '--after-width':'100px',
+                  ease:"power1.out"
+               }
+            )
+         }
+      })
+
 })

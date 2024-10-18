@@ -124,6 +124,65 @@
     stroke: black;
 }
 
+
+/* header */
+.container-header{
+    width: 100%;
+    height: 90vh;
+    position: relative;
+}
+.container-header .title{
+    font-family: 'Odor Mean Chey','sans';
+    font-size: 7rem;
+    font-weight: 600;
+    text-shadow: 0px 10px 5px rgb(153, 153, 153);
+    color: rgb(1, 1, 73);
+    position: relative;
+}
+.container-header .background-text{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-family: 'Odor Mean Chey','sans';
+    font-size: 11rem;
+    font-weight: 600;
+    -webkit-text-stroke: 2px white;
+    color: white;
+    text-shadow: 0px 0px 20px rgb(1, 1, 73);
+    z-index: -1;
+}
+.container-header .title::before{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: var(--before-left,-100rem);
+    width: var(--before-width,500px);
+    height: 88%;
+    border-bottom: 5px solid black;
+    /* animation: underlineMove1 2s ease infinite; */
+}
+.container-header .title::after{
+    position: absolute;
+    content: "";
+    top: 0;
+    right: var(--after-right,-110rem);
+    width: var(--after-width,-100px);
+    height: 88%;
+    border-bottom: 5px solid black;
+    /* animation: underlineMove2 2s ease infinite; */
+}
+
+/* @keyframes underlineMove1{
+    0%{left:-110rem;width: 500px}
+    100%{left:39.5rem;width: 220px}
+}
+@keyframes underlineMove2{
+    0%{right:-110rem ;width: 100px}
+    100%{right:16rem;width: 590px}
+} */
+
 @media (max-width:1310px){
     .loading h1{
         font-size: 5vw;
