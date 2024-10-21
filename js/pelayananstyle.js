@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function(){
          start : "top top",
          end : "20% top",
          scrub : true,
-         markers : false  
+         markers : false 
       }
    });
       // animation background
@@ -73,51 +73,89 @@ document.addEventListener('DOMContentLoaded', function(){
          {y:"-25%", opacity:1},//titik awal
          {y:"-30%", opacity:0,duration: 1, ease: "power1.out"},0 //titik akhir dengan 0 sebagai parameter animasi berjalan bersamaan dengan animasi ease melambat diakhir
       )
-
-      
-      // animation underline
-      ScrollTrigger.create({
-         trigger : header,
-         start : "20% top",
-         end : "bottom top",
-         scrub : true,
-         markers : true,
-         onEnter:()=>{
-            gsap.fromTo(title,
-               {
-                  '--before-left':'-100rem',
-                  '--before-width':'500px',
-                  '--after-right':'-100rem',
-                  '--after-width':'100px',
-               },
-               {
-                  duration:2,
-                  '--before-left':'-39.5rem',
-                  '--before-width':'220px',
-                  '--after-right':'-16rem',
-                  '--after-width':'590px',
-                  ease:"power1.out"
-               }
-            )
+      .fromTo(title,
+         {
+            '--before-translateX': '-100rem',  // manipulasi variabel CSS untuk elemen ::before
+            '--before-width': '500px',
          },
-         onLeave:()=>{
-            gsap.fromTo(title,
-               {
-                  '--before-left':'-39.5rem',
-                  '--before-width':'220px',
-                  '--after-right':'-16rem',
-                  '--after-width':'590px',
-               },
-               {
-                  duration:2,
-                  '--before-left':'-100rem',
-                  '--before-width':'500px',
-                  '--after-right':'-100rem',
-                  '--after-width':'100px',
-                  ease:"power1.out"
-               }
-            )
+         {
+            duration: 2,
+            '--before-translateX': '632px',  // transform untuk menggeser kembali ke layar
+            '--before-width': '220px',
+            ease: "power1.out"
          }
-      })
+      )
+      .fromTo(title,
+         {
+            '--after-translateX': '100rem',  // manipulasi variabel CSS untuk elemen ::after
+            '--after-width': '100px',
+         },
+         {
+            duration: 3,
+            '--after-translateX': '-250px',  // transform untuk menggeser kembali ke layar
+            '--after-width': '590px',
+            ease: "power1.out"
+         },0
+      );
+      // .fromTo(title,
+      //    {
+      //       '--before-left':'-39.5rem',
+      //       '--before-width':'220px',
+      //       '--after-right':'-16rem',
+      //       '--after-width':'590px',
+      //    },
+      //    {
+      //       duration:2,
+      //       '--before-left':'-100rem',
+      //       '--before-width':'500px',
+      //       '--after-right':'-100rem',
+      //       '--after-width':'100px',
+      //       ease:"power1.out"
+      //    }
+      // )
+      // animation underline
+      // ScrollTrigger.create({
+      //    trigger : header,
+      //    start : "top top",
+      //    end : "bottom top",
+      //    scrub : true,
+      //    markers : true,
+      //    onEnter:()=>{
+      //       gsap.fromTo(title,
+      //          {
+      //             '--before-left':'-100rem',
+      //             '--before-width':'500px',
+      //             '--after-right':'-100rem',
+      //             '--after-width':'100px',
+      //          },
+      //          {
+      //             duration:2,
+      //             '--before-left':'-39.5rem',
+      //             '--before-width':'220px',
+      //             '--after-right':'-16rem',
+      //             '--after-width':'590px',
+      //             ease:"power1.out"
+      //          }
+      //       )
+      //    },
+      //    onLeave:()=>{
+      //       gsap.fromTo(title,
+      //          {
+      //             '--before-left':'-39.5rem',
+      //             '--before-width':'220px',
+      //             '--after-right':'-16rem',
+      //             '--after-width':'590px',
+      //          },
+      //          {
+      //             duration:2,
+      //             '--before-left':'-100rem',
+      //             '--before-width':'500px',
+      //             '--after-right':'-100rem',
+      //             '--after-width':'100px',
+      //             ease:"power1.out"
+      //          }
+      //       )
+      //    }
+      // })
 
 })
